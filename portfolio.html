@@ -44,19 +44,7 @@
             -webkit-font-smoothing: antialiased;
             overflow-x: hidden;
         }
-
-        #cursor {
-            position: fixed;
-            width: 20px;
-            height: 20px;
-            background: transparent;
-            border: 2px solid var(--yellow);
-            border-radius: 50%;
-            pointer-events: none;
-            top: 0; left: 0;
-            z-index: 10000;
-        }
-        #cursor.hover {
+#cursor.hover {
             width: 50px;
             height: 50px;
             background: rgba(255,184,0,0.1);
@@ -553,8 +541,7 @@
             .page-hero { padding: 8rem 0 3rem; }
             .portfolio-grid { grid-template-columns: 1fr; }
             .project-card, .project-card.wide, .project-card.narrow { grid-column: span 1; }
-            #cursor { display: none; }
-        }
+}
     
         .logo-wrapper {
             display: flex;
@@ -836,7 +823,6 @@
     </style>
 </head>
 <body>
-    <div id="cursor"></div>
 
     <header>
         <div class="header-content">
