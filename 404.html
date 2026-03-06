@@ -224,8 +224,9 @@
             body { cursor: auto; }
 }
     
-        .logo-img-link { display: inline-flex; align-items: center; text-decoration: none; }
-        .logo-img { height: 60px; width: auto; display: block; }
+        .logo-img-link { display: inline-flex; align-items: center; text-decoration: none; flex-shrink: 0; }
+        .logo-img { height: 68px; width: auto; display: block; }
+        @media (max-width: 768px) { .logo-img { height: 52px; } }
 
     </style>
 </head>
