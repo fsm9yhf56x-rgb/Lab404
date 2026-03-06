@@ -56,7 +56,7 @@
             position: fixed;
             top: 0; left: 0; right: 0;
             z-index: 1000;
-            padding: 1.25rem 4rem;
+            padding: 1.25rem 4rem; 
             background: rgba(250, 247, 242, 0.97);
             backdrop-filter: blur(24px);
             -webkit-backdrop-filter: blur(24px);
@@ -64,13 +64,7 @@
             box-shadow: 0 2px 20px rgba(26, 23, 20, 0.06);
         }
 
-        .header-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+        .header-content { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; width: 100%; }
 
         .logo { font-size: 1.4rem; font-weight: 700; color: var(--text); text-decoration: none; }
 
@@ -535,7 +529,7 @@
         }
 
         @media (max-width: 768px) {
-            header { padding: 1rem 2rem; }
+            header { padding: 1rem 2rem;  }
             .container { padding: 0 1.5rem; }
             nav a:not(.header-cta) { display: none; }
             .page-hero { padding: 8rem 0 3rem; }
@@ -763,7 +757,7 @@
         /* ── NORVIK ECOM MOCK ── */
         .visual-norvik { background: #fafaf8; }
         .norvik-mock { width: 100%; height: 100%; display: flex; flex-direction: column; background: #fafaf8; }
-        .norvik-header { display: flex; justify-content: space-between; align-items: center; padding: 10px 16px; border-bottom: 1px solid #eee; }
+        .norvik-header { display: flex; justify-content: space-between; align-items: center; padding: 10px 16px;  border-bottom: 1px solid #eee; }
         .norvik-logo-txt { font-size: 11px; font-weight: 900; letter-spacing: 0.2em; color: #111; }
         .norvik-nav { display: flex; gap: 8px; }
         .norvik-nav span { width: 24px; height: 4px; background: #ccc; border-radius: 2px; }
@@ -784,7 +778,7 @@
         /* ── LUMIO IA MOCK ── */
         .visual-lumio { background: #0f0f1a; }
         .lumio-mock { width: 85%; background: #16162a; border-radius: 12px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
-        .lumio-header { background: #0f0f1a; padding: 8px 12px; display: flex; align-items: center; gap: 8px; }
+        .lumio-header { background: #0f0f1a; padding: 8px 12px;   gap: 8px; }
         .lumio-dot-purple { width: 20px; height: 20px; background: linear-gradient(135deg, #7b52ab, #a855f7); border-radius: 6px; }
         .lumio-title-bar { flex: 1; height: 6px; background: rgba(255,255,255,0.1); border-radius: 3px; }
         .lumio-status { font-size: 8px; color: #28c840; font-weight: 700; }
@@ -803,7 +797,7 @@
         /* ── VÉLOROUTE MAP MOCK ── */
         .visual-velo { background: #e8f0e8; }
         .velo-mock { width: 100%; height: 100%; display: flex; flex-direction: column; background: #e8efe8; }
-        .velo-header { background: white; padding: 8px 14px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid #ddd; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+        .velo-header { background: white; padding: 8px 14px;   gap: 10px; border-bottom: 1px solid #ddd; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
         .velo-logo { font-size: 10px; font-weight: 700; color: #2d6a2d; white-space: nowrap; }
         .velo-search { flex: 1; height: 20px; background: #f0f0f0; border-radius: 10px; }
         .velo-map { flex: 1; position: relative; background: linear-gradient(135deg, #d4e8c8 0%, #c8dfc0 50%, #b8d4a8 100%); }
@@ -821,8 +815,9 @@
         .vic-btn { height: 18px; background: #2d6a2d; border-radius: 5px; }
 
     
-        .logo-img-link { display: inline-flex; align-items: center; text-decoration: none; }
-        .logo-img { height: 60px; width: auto; display: block; }
+        .logo-img-link { display: inline-flex; align-items: center; text-decoration: none; flex-shrink: 0; }
+        .logo-img { height: 68px; width: auto; display: block; }
+        @media (max-width: 768px) { .logo-img { height: 52px; } }
 
     </style>
 <script type="application/ld+json">
@@ -855,7 +850,7 @@
     <header>
         <div class="header-content">
             <a href="/" class="logo-img-link">
-                <img src="logo-navbar.png" alt="lab404 — Studio web Marseille" class="logo-img" width="220" height="60">
+                <img src="logo-navbar.png" alt="lab404 — Studio web Marseille" class="logo-img">
             </a>
             <nav>
                 <a href="portfolio" class="active">Portfolio</a>
