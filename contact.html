@@ -22,8 +22,8 @@
             --border: rgba(255,184,0,0.15);
         }
         body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text); }
-header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.25rem 4rem; background: rgba(250,247,242,0.97); backdrop-filter: blur(24px); border-bottom: 1px solid var(--border); box-shadow: 0 2px 20px rgba(26,23,20,0.06); }
-        .header-content { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; }
+header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.25rem 4rem;  background: rgba(250,247,242,0.97); backdrop-filter: blur(24px); border-bottom: 1px solid var(--border); box-shadow: 0 2px 20px rgba(26,23,20,0.06); }
+        .header-content { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; width: 100%; }
         .logo-wrapper { display: flex; flex-direction: column; gap: 0.15rem; }
         .logo-b { font-family: 'Archivo Black', sans-serif; font-size: 1.4rem; letter-spacing: -0.02em; line-height: 1; display: inline-flex; align-items: center; text-decoration: none; }
         .logo-b .lab { color: var(--text); }
@@ -87,7 +87,7 @@ header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.25
 
         /* BRIEF */
         .brief-card { background: white; border-radius: 20px; border: 2px solid var(--border); overflow: hidden; }
-        .brief-header { padding: 2rem 2.5rem; border-bottom: 1px solid var(--border); }
+        .brief-header { padding: 2rem 2.5rem;  border-bottom: 1px solid var(--border); }
         .brief-header h2 { font-family: 'Archivo Black', sans-serif; font-size: 1.3rem; letter-spacing: -0.02em; margin-bottom: 0.35rem; }
         .brief-header p { font-size: 0.85rem; color: var(--text-light); line-height: 1.6; margin-bottom: 1rem; }
         .brief-toggle { display: inline-flex; align-items: center; gap: 0.5rem; cursor: pointer; font-size: 0.85rem; font-weight: 700; color: var(--yellow-dark); border: 2px solid var(--yellow); padding: 0.5rem 1.1rem; border-radius: 50px; transition: all 0.2s; }
@@ -147,11 +147,11 @@ header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.25
         @media (max-width: 1024px) {
             .contact-layout { grid-template-columns: 1fr; padding: 0 2rem 4rem; }
             .contact-sidebar { position: static; }
-            header { padding: 1rem 2rem; }
+            header { padding: 1rem 2rem;  }
             .page-hero { padding: 7rem 2rem 3rem; }
         }
         @media (max-width: 600px) {
-            header { padding: 1rem 1.5rem; }
+            header { padding: 1rem 1.5rem;  }
             nav a:not(.header-cta) { display: none; }
             .form-row { grid-template-columns: 1fr; }
             .brief-options, .brief-options.col3 { grid-template-columns: 1fr 1fr; }
@@ -192,7 +192,7 @@ header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.25
             display: flex;
             align-items: center;
             justify-content: space-between;
-            padding: 1rem 1.25rem;
+            padding: 1rem 1.25rem; 
             cursor: pointer;
             transition: background 0.2s;
         }
@@ -210,8 +210,9 @@ header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.25
         .brief-done-text { font-size: 0.85rem; font-weight: 600; color: var(--text); }
 
     
-        .logo-img-link { display: inline-flex; align-items: center; text-decoration: none; }
-        .logo-img { height: 60px; width: auto; display: block; }
+        .logo-img-link { display: inline-flex; align-items: center; text-decoration: none; flex-shrink: 0; }
+        .logo-img { height: 68px; width: auto; display: block; }
+        @media (max-width: 768px) { .logo-img { height: 52px; } }
 
     </style>
 <script type="application/ld+json">
@@ -245,7 +246,7 @@ header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.25
 <header>
     <div class="header-content">
         <a href="/" class="logo-img-link">
-                <img src="logo-navbar.png" alt="lab404 — Studio web Marseille" class="logo-img" width="220" height="60">
+                <img src="logo-navbar.png" alt="lab404 — Studio web Marseille" class="logo-img">
             </a>
             <nav>
             <a href="portfolio">Portfolio</a>
