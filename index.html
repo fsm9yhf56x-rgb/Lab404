@@ -48,19 +48,7 @@
         }
 
         /* Custom cursor */
-        #cursor {
-            position: fixed;
-            width: 20px;
-            height: 20px;
-            background: transparent;
-            border: 2px solid var(--yellow);
-            border-radius: 50%;
-            pointer-events: none;
-            top: 0; left: 0;
-            z-index: 10000;
-        }
-
-        #cursor.hover {
+#cursor.hover {
             width: 50px;
             height: 50px;
             background: rgba(255,184,0,0.1);
@@ -625,8 +613,7 @@
             .trust-indicators { flex-wrap: wrap; gap: 2rem; }
             .services, .results, .cta-section { padding: 4rem 0; }
             .sun-decoration { width: 200px; height: 200px; }
-            #cursor { display: none; }
-            .service-card { padding: 2rem; }
+.service-card { padding: 2rem; }
         }
     
         .logo-wrapper {
@@ -1020,7 +1007,6 @@
 </style></style>
 </head>
 <body>
-    <div id="cursor"></div>
 
     <header>
         <div class="header-content">
