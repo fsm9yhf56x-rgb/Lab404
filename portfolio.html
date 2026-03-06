@@ -120,7 +120,7 @@
         .container { max-width: 1400px; margin: 0 auto; padding: 0 4rem; }
 
         @keyframes revealUp {
-            from { opacity: 0; transform: translateY(30px); }
+            from { opacity: 0; transform: translateY(0); }
             to   { opacity: 1; transform: translateY(0); }
         }
 
@@ -233,8 +233,8 @@
             border: 2px solid rgba(255,184,0,0.08);
             transition: all 0.5s cubic-bezier(0.4,0,0.2,1);
             cursor: pointer;
-            opacity: 0;
-            transform: translateY(40px);
+            opacity: 1;
+            transform: translateY(0);
             height: 100%;
         }
 
@@ -440,8 +440,8 @@
             text-align: center;
             padding: 0 2rem;
             border-right: 1px solid rgba(255,255,255,0.08);
-            opacity: 0;
-            transform: translateY(20px);
+            opacity: 1;
+            transform: translateY(0);
             transition: all 0.5s cubic-bezier(0.4,0,0.2,1);
         }
 
@@ -616,7 +616,18 @@
             gap: 0.35rem;
         }
         .logo-tagline::before { content: '//'; color: var(--yellow); font-weight: 600; }
-    </style>
+    
+        /* === FORCE VISIBLE === */
+        .service-card, .result-card, .why-card,
+        .portfolio-card, .project-card,
+        .contact-card, .contact-info, .contact-form-wrap,
+        .hero-content, .hero-badge, .section-label, .section-title,
+        .section-subtitle, .stat-item, .faq-item, .pricing-card,
+        .process-step, .tech-item, .team-card {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+</style>
 </head>
 <body>
     <div id="cursor"></div>
