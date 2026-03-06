@@ -242,18 +242,69 @@ header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.25
 </script>
     <link rel="canonical" href="https://lab404.dev/contact">
 <script>
+var bs = { sector:'', audience:'', goals:[], existing:'', refs:'', constraints:'', free:'' };
+
 function selectOpt(el) {
-    event.preventDefault();
-    event.stopPropagation();
     var step = el.getAttribute('data-step');
     var isMulti = el.classList.contains('multi');
     if (isMulti) {
         el.classList.toggle('selected');
     } else {
-        var opts = document.querySelectorAll('.brief-opt[data-step="' + step + '"]:not(.multi)');
-        opts.forEach(function(x) { x.classList.remove('selected'); });
+        document.querySelectorAll('.brief-opt[data-step="' + step + '"]:not(.multi)').forEach(function(x) { x.classList.remove('selected'); });
         el.classList.add('selected');
     }
+}
+
+function updateDots(step) {
+    for (var i = 1; i <= 5; i++) {
+        var dot = document.getElementById('dot-' + i);
+        if (dot) dot.className = 'bp-dot' + (i < step ? ' done' : i === step ? ' active' : '');
+    }
+}
+
+function briefNext(from) {
+    if (from === 1) { var s = document.querySelector('.brief-opt[data-step="1"].selected'); bs.sector = s ? s.getAttribute('data-val') : ''; }
+    if (from === 2) { var s = document.querySelector('.brief-opt[data-step="2"].selected'); bs.audience = s ? s.getAttribute('data-val') : ''; }
+    if (from === 3) { bs.goals = [].slice.call(document.querySelectorAll('.brief-opt.multi.selected')).map(function(o) { return o.getAttribute('data-val'); }); }
+    if (from === 4) { bs.existing = document.getElementById('b-existing').value; bs.refs = document.getElementById('b-refs').value; bs.constraints = document.getElementById('b-constraints').value; }
+    document.getElementById('bs-' + from).classList.remove('active');
+    document.getElementById('bs-' + (from + 1)).classList.add('active');
+    updateDots(from + 1);
+}
+
+function briefBack(from) {
+    document.getElementById('bs-' + from).classList.remove('active');
+    document.getElementById('bs-' + (from - 1)).classList.add('active');
+    updateDots(from - 1);
+}
+
+function briefDone() {
+    bs.free = document.getElementById('b-free').value;
+    var lines = [
+        'SECTEUR : ' + (bs.sector || 'Non précisé'),
+        'CIBLE : ' + (bs.audience || 'Non précisé'),
+        'OBJECTIFS : ' + (bs.goals.length ? bs.goals.join(', ') : 'Non précisé'),
+        'SITE EXISTANT : ' + (bs.existing || 'Aucun'),
+        'RÉFÉRENCES : ' + (bs.refs || 'Aucune'),
+        'CONTRAINTES : ' + (bs.constraints || 'Aucune'),
+        'DESCRIPTION : ' + (bs.free || 'Aucune')
+    ];
+    var hidden = document.getElementById('brief-hidden');
+    if (hidden) hidden.value = lines.join('\n');
+    document.getElementById('bs-5').classList.remove('active');
+    var done = document.getElementById('brief-done-msg');
+    if (done) done.style.display = 'flex';
+    for (var i = 1; i <= 5; i++) {
+        var dot = document.getElementById('dot-' + i);
+        if (dot) dot.className = 'bp-dot done';
+    }
+}
+
+function toggleInlineBrief() {
+    var body = document.getElementById('brief-inline-body');
+    var arrow = document.querySelector('.bih-arrow');
+    if (body) body.classList.toggle('open');
+    if (arrow) arrow.classList.toggle('open');
 }
 </script>
 </head>
@@ -483,82 +534,7 @@ document.getElementById('contact-form').addEventListener('submit', async functio
     }
 });
 
-// Brief toggle
-
-// Brief opts
-function selectOpt(el) {
-    const step = el.dataset.step;
-    const isMulti = el.classList.contains('multi');
-    if (isMulti) {
-        el.classList.toggle('selected');
-    } else {
-        document.querySelectorAll('.brief-opt[data-step="' + step + '"]:not(.multi)').forEach(x => x.classList.remove('selected'));
-        el.classList.add('selected');
-    }
-}
-document.querySelectorAll('.brief-opt').forEach(function(o) {
-    o.onclick = function(e) { e.stopPropagation(); selectOpt(this); };
-});
-
-// Brief state
-const bs = { sector:'', audience:'', goals:[], existing:'', refs:'', constraints:'', free:'' };
-
-function updateDots(step) {
-    for (let i=1; i<=5; i++) {
-        document.getElementById('dot-'+i).className = 'bp-dot' + (i < step ? ' done' : i === step ? ' active' : '');
-    }
-}
-
-function briefNext(from) {
-    if (from===1) { const s=document.querySelector('.brief-opt[data-step="1"].selected'); bs.sector=s?s.dataset.val:''; }
-    if (from===2) { const s=document.querySelector('.brief-opt[data-step="2"].selected'); bs.audience=s?s.dataset.val:''; }
-    if (from===3) { bs.goals=[...document.querySelectorAll('.brief-opt.multi.selected')].map(o=>o.dataset.val); }
-    if (from===4) { bs.existing=document.getElementById('b-existing').value; bs.refs=document.getElementById('b-refs').value; bs.constraints=document.getElementById('b-constraints').value; }
-    document.getElementById('bs-'+from).classList.remove('active');
-    document.getElementById('bs-'+(from+1)).classList.add('active');
-    updateDots(from+1);
-}
-
-function briefBack(from) {
-    document.getElementById('bs-'+from).classList.remove('active');
-    document.getElementById('bs-'+(from-1)).classList.add('active');
-    updateDots(from-1);
-}
-
-function generatePrompt() {
-    bs.free = document.getElementById('b-free').value;
-    const prompt =
-`Tu es un assistant expert en développement web et digital pour le studio lab404 (Marseille).
-
-Voici le brief d'un prospect :
-
-SECTEUR : ${bs.sector || 'Non précisé'}
-CIBLE : ${bs.audience || 'Non précisé'}
-OBJECTIFS : ${bs.goals.length ? bs.goals.join(', ') : 'Non précisé'}
-SITE EXISTANT : ${bs.existing || 'Aucun'}
-RÉFÉRENCES : ${bs.refs || 'Aucune'}
-CONTRAINTES : ${bs.constraints || 'Aucune'}
-DESCRIPTION :
-${bs.free || 'Aucune description supplémentaire'}
-
-Sur la base de ce brief :
-1. Résume le projet en 3 lignes
-2. Propose une stack technique adaptée
-3. Suggère un découpage en phases de livraison
-4. Identifie les points à clarifier avant devis
-5. Estime une fourchette de budget réaliste
-
-Réponds de façon concise et professionnelle.`;
-
-    document.getElementById('prompt-box').textContent = prompt;
-    document.getElementById('prompt-output').classList.add('visible');
-    document.getElementById('bs-5').style.display = 'none';
-    for (let i=1; i<=5; i++) document.getElementById('dot-'+i).className = 'bp-dot done';
-}
-
-
-function injectPrompt() {
-    document.getElementById('message').value = document.getElementById('prompt-box').textContent;
-    const ok = document.getElementById('inject-ok');
-    ok.style.display = 'inline';
-    setTimeout(() => ok.s
+// Brief functions moved to <head>
+</script>
+</body>
+</html>
