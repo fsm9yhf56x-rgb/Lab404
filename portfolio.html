@@ -1,0 +1,981 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio — lab404 | Réalisations & Projets</title>
+    <meta name="description" content="Découvrez les réalisations de lab404 : sites web, applications SaaS, intégrations IA et design. Studio créatif & technique basé en France.">
+    <meta name="keywords" content="portfolio web, réalisations, projets web, développement Next.js, design studio, lab404">
+    <meta name="robots" content="index, follow">
+    <link rel="canonical" href="https://lab404.dev/portfolio.html">
+    <meta property="og:title" content="Portfolio — lab404 | Réalisations & Projets">
+    <meta property="og:description" content="Découvrez les réalisations de lab404 : sites web, applications SaaS, intégrations IA et design.">
+    <meta property="og:url" content="https://lab404.dev/portfolio.html">
+    <meta property="og:type" content="website">
+    <meta property="og:image" content="https://lab404.dev/og-image.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500&display=swap');
+        
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --yellow: #FFB800;
+            --yellow-dark: #E5A500;
+            --text: #1A1714;
+            --text-light: #6B5E58;
+            --cream: #FAF7F2;
+            --white: #FFFFFF;
+        }
+
+        html { scroll-behavior: smooth; }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            background: var(--cream);
+            color: var(--text);
+            line-height: 1.6;
+            -webkit-font-smoothing: antialiased;
+            overflow-x: hidden;
+        }
+
+        #cursor {
+            position: fixed;
+            width: 20px;
+            height: 20px;
+            background: transparent;
+            border: 2px solid var(--yellow);
+            border-radius: 50%;
+            pointer-events: none;
+            top: 0; left: 0;
+            z-index: 10000;
+        }
+        #cursor.hover {
+            width: 50px;
+            height: 50px;
+            background: rgba(255,184,0,0.1);
+            margin: -15px 0 0 -15px;
+        }
+        
+
+        header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            padding: 1.25rem 4rem;
+            background: rgba(250, 247, 242, 0.97);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border-bottom: 1px solid rgba(255, 184, 0, 0.15);
+            box-shadow: 0 2px 20px rgba(26, 23, 20, 0.06);
+        }
+
+        .header-content {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo { font-size: 1.4rem; font-weight: 700; color: var(--text); text-decoration: none; }
+
+        nav { display: flex; gap: 2.5rem; align-items: center; }
+
+        nav a {
+            color: var(--text-light);
+            text-decoration: none;
+            font-size: 0.95rem;
+            font-weight: 500;
+            position: relative;
+            transition: color 0.3s ease;
+        }
+
+        nav a::after {
+            content: '';
+            position: absolute;
+            bottom: -5px; left: 50%;
+            width: 0; height: 2px;
+            background: var(--yellow);
+            transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
+            transform: translateX(-50%);
+        }
+
+        nav a:hover, nav a.active { color: var(--yellow); }
+        nav a:hover::after, nav a.active::after { width: 100%; }
+
+        .header-cta {
+            background: var(--yellow);
+            color: white !important;
+            padding: 0.75rem 1.75rem;
+            border-radius: 8px;
+            font-weight: 600;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(255,184,0,0.2);
+        }
+        .header-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,184,0,0.4); }
+        .header-cta::after { display: none !important; }
+
+        .container { max-width: 1400px; margin: 0 auto; padding: 0 4rem; }
+
+        @keyframes revealUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ── HERO ── */
+        .page-hero {
+            padding: 10rem 0 5rem;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .page-hero::before {
+            content: '';
+            position: absolute;
+            top: -150px; right: -50px;
+            width: 500px; height: 500px;
+            border-radius: 50%;
+            background: radial-gradient(circle at 30% 30%, rgba(255,249,230,0.9), rgba(255,184,0,0.1));
+            pointer-events: none;
+        }
+
+        .page-hero-inner {
+            position: relative;
+            z-index: 1;
+        }
+
+        .breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.85rem;
+            color: var(--text-light);
+            margin-bottom: 2rem;
+            animation: revealUp 0.6s cubic-bezier(0.4,0,0.2,1) 0.1s both;
+        }
+        .breadcrumb a { color: var(--yellow); text-decoration: none; font-weight: 600; }
+        .breadcrumb span { opacity: 0.5; }
+
+        .hero-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .page-hero h1 {
+            font-size: clamp(3rem, 6vw, 6rem);
+            font-weight: 800;
+            line-height: 1.05;
+            letter-spacing: -0.03em;
+            animation: revealUp 0.7s cubic-bezier(0.4,0,0.2,1) 0.2s both;
+        }
+
+        .page-hero h1 .highlight { color: var(--yellow); }
+
+        .hero-desc {
+            max-width: 400px;
+            font-size: 1.1rem;
+            color: var(--text-light);
+            line-height: 1.7;
+            animation: revealUp 0.7s cubic-bezier(0.4,0,0.2,1) 0.35s both;
+            flex-shrink: 0;
+        }
+
+        /* ── FILTERS ── */
+        .filters {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+            animation: revealUp 0.7s cubic-bezier(0.4,0,0.2,1) 0.45s both;
+        }
+
+        .filter-btn {
+            padding: 0.6rem 1.25rem;
+            border-radius: 50px;
+            border: 2px solid rgba(255,184,0,0.2);
+            background: transparent;
+            color: var(--text-light);
+            font-family: inherit;
+            font-size: 0.85rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.25s ease;
+        }
+
+        .filter-btn:hover, .filter-btn.active {
+            background: var(--yellow);
+            border-color: var(--yellow);
+            color: white;
+        }
+
+        /* ── GRID ── */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 1.5rem;
+            padding-bottom: 6rem;
+        }
+
+        /* Card sizes */
+        .project-card { grid-column: span 6; }
+        .project-card.wide { grid-column: span 8; }
+        .project-card.narrow { grid-column: span 4; }
+
+        .card-inner {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid rgba(255,184,0,0.08);
+            transition: all 0.5s cubic-bezier(0.4,0,0.2,1);
+            cursor: pointer;
+            opacity: 0;
+            transform: translateY(40px);
+            height: 100%;
+        }
+
+        .card-inner.visible { opacity: 1; transform: translateY(0); }
+
+        .project-card:nth-child(1) .card-inner { transition-delay: 0.05s; }
+        .project-card:nth-child(2) .card-inner { transition-delay: 0.1s; }
+        .project-card:nth-child(3) .card-inner { transition-delay: 0.15s; }
+        .project-card:nth-child(4) .card-inner { transition-delay: 0.2s; }
+        .project-card:nth-child(5) .card-inner { transition-delay: 0.25s; }
+        .project-card:nth-child(6) .card-inner { transition-delay: 0.3s; }
+
+        .card-inner:hover {
+            border-color: var(--yellow);
+            box-shadow: 0 24px 60px rgba(255,184,0,0.18);
+            transform: translateY(-6px);
+        }
+
+        .card-visual {
+            height: 280px;
+            position: relative;
+            overflow: hidden;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .project-card.wide .card-visual { height: 320px; }
+
+        /* Mock visuals with CSS art */
+        .visual-web {
+            background: linear-gradient(135deg, #1A1714 0%, #2d2520 100%);
+        }
+
+        .visual-app {
+            background: linear-gradient(135deg, #0f1923 0%, #1a2d3d 100%);
+        }
+
+        .visual-ia {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
+        }
+
+        .visual-design {
+            background: linear-gradient(135deg, #2d1a14 0%, #3d2520 100%);
+        }
+
+        .visual-overlay {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(255,184,0,0.08), transparent 70%);
+        }
+
+        /* CSS mock UI inside cards */
+        .mock-browser {
+            width: 80%;
+            max-width: 340px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.1);
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
+        }
+
+        .card-inner:hover .mock-browser { transform: scale(1.04) translateY(-4px); }
+
+        .mock-browser-bar {
+            background: rgba(255,255,255,0.08);
+            padding: 0.5rem 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .mock-dot { width: 8px; height: 8px; border-radius: 50%; }
+        .mock-dot:nth-child(1) { background: #ff5f56; }
+        .mock-dot:nth-child(2) { background: #ffbd2e; }
+        .mock-dot:nth-child(3) { background: #27c93f; }
+
+        .mock-url {
+            flex: 1;
+            background: rgba(255,255,255,0.06);
+            border-radius: 4px;
+            height: 16px;
+            margin-left: 0.5rem;
+        }
+
+        .mock-content { padding: 1rem; }
+
+        .mock-hero-bar {
+            height: 10px;
+            background: var(--yellow);
+            border-radius: 3px;
+            width: 60%;
+            margin-bottom: 0.5rem;
+            opacity: 0.9;
+        }
+
+        .mock-line {
+            height: 6px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 3px;
+            margin-bottom: 0.4rem;
+        }
+
+        .mock-line.short { width: 40%; }
+        .mock-line.medium { width: 70%; }
+        .mock-line.full { width: 100%; }
+
+        .mock-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.4rem;
+            margin-top: 0.75rem;
+        }
+
+        .mock-card-mini {
+            height: 36px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 4px;
+        }
+
+        .mock-card-mini.accent { background: rgba(255,184,0,0.2); }
+
+        /* Card info */
+        .card-info {
+            padding: 2rem;
+        }
+
+        .card-tags {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .card-tag {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--yellow-dark);
+            background: rgba(255,184,0,0.1);
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .card-title {
+            font-size: 1.4rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            margin-bottom: 0.5rem;
+        }
+
+        .card-desc {
+            font-size: 0.95rem;
+            color: var(--text-light);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-stat {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .card-stat strong { color: var(--yellow); font-weight: 700; }
+
+        .card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--yellow);
+            text-decoration: none;
+            transition: gap 0.3s ease;
+        }
+
+        .card-link:hover { gap: 0.75rem; }
+
+        /* ── STATS BAND ── */
+        .stats-band {
+            background: var(--text);
+            padding: 4rem 0;
+            overflow: hidden;
+        }
+
+        .stats-inner {
+            display: flex;
+            gap: 0;
+        }
+
+        .stat-item {
+            flex: 1;
+            text-align: center;
+            padding: 0 2rem;
+            border-right: 1px solid rgba(255,255,255,0.08);
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 0.5s cubic-bezier(0.4,0,0.2,1);
+        }
+
+        .stat-item:last-child { border-right: none; }
+        .stat-item.visible { opacity: 1; transform: translateY(0); }
+        .stat-item:nth-child(1) { transition-delay: 0.05s; }
+        .stat-item:nth-child(2) { transition-delay: 0.1s; }
+        .stat-item:nth-child(3) { transition-delay: 0.15s; }
+        .stat-item:nth-child(4) { transition-delay: 0.2s; }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--yellow);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.03em;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.5);
+            font-weight: 500;
+        }
+
+        /* ── CTA ── */
+        .cta-section {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, var(--yellow) 0%, var(--yellow-dark) 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px; height: 800px;
+            background: radial-gradient(circle, rgba(255,255,255,0.15), transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.2); }
+        }
+
+        .cta-content { position: relative; z-index: 1; }
+
+        .cta-section h2 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 800;
+            color: white;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .cta-section p {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto; margin-right: auto;
+        }
+
+        .cta-button {
+            background: white;
+            color: var(--yellow);
+            padding: 1.4rem 3.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.1rem;
+            display: inline-block;
+            transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+        }
+
+        .cta-button:hover { transform: translateY(-6px) scale(1.04); box-shadow: 0 20px 50px rgba(0,0,0,0.25); }
+
+        footer {
+            padding: 2.5rem;
+            text-align: center;
+            background: var(--cream);
+            border-top: 1px solid rgba(255,184,0,0.1);
+        }
+        footer p { color: var(--text-light); font-size: 0.9rem; }
+
+        /* ── MOBILE ── */
+        @media (max-width: 1024px) {
+            .portfolio-grid { grid-template-columns: 1fr 1fr; }
+            .project-card, .project-card.wide, .project-card.narrow { grid-column: span 1; }
+            .hero-top { flex-direction: column; gap: 1.5rem; }
+            .stats-inner { flex-wrap: wrap; }
+            .stat-item { flex: 0 0 50%; border-right: none; padding: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+        }
+
+        @media (max-width: 768px) {
+            header { padding: 1rem 2rem; }
+            .container { padding: 0 1.5rem; }
+            nav a:not(.header-cta) { display: none; }
+            .page-hero { padding: 8rem 0 3rem; }
+            .portfolio-grid { grid-template-columns: 1fr; }
+            .project-card, .project-card.wide, .project-card.narrow { grid-column: span 1; }
+            #cursor { display: none; }
+        }
+    
+        .logo-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 0.2rem;
+        }
+
+        .logo-tagline {
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+            font-size: 0.68rem;
+            font-weight: 600;
+            color: var(--text-light);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .logo-wrapper:hover .logo-tagline {
+            opacity: 1;
+            color: var(--yellow-dark);
+        }
+
+        .bdm-icon {
+            width: 12px;
+            height: 15px;
+            color: var(--yellow);
+            flex-shrink: 0;
+        }
+    
+        .logo-wrapper {
+            display: flex;
+            flex-direction: column;
+            gap: 0.15rem;
+        }
+        .logo-b {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1.4rem;
+            letter-spacing: -0.02em;
+            line-height: 1;
+            display: inline-flex;
+            align-items: center;
+            text-decoration: none;
+        }
+        .logo-b .lab { color: var(--text); }
+        .logo-b .bloc {
+            background: var(--yellow);
+            color: var(--text);
+            padding: 0 0.2em;
+            margin-left: 0.04em;
+            display: inline-block;
+            transition: background 0.3s ease;
+        }
+        .logo-b:hover .bloc { background: var(--yellow-dark); }
+        .logo-tagline {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.58rem;
+            letter-spacing: 0.1em;
+            color: #aaa;
+            display: flex;
+            align-items: center;
+            gap: 0.35rem;
+        }
+        .logo-tagline::before { content: '//'; color: var(--yellow); font-weight: 600; }
+    </style>
+</head>
+<body>
+    <div id="cursor"></div>
+
+    <header>
+        <div class="header-content">
+            <div class="logo-wrapper">
+                <a href="index.html" class="logo-b"><span class="lab">lab</span><span class="bloc">404</span></a>
+                <div class="logo-tagline">made in marseille</div>
+            </div>
+            <nav>
+                <a href="portfolio.html" class="active">Portfolio</a>
+                <a href="services.html">Services</a>
+                <a href="contact.html">Contact</a>
+                <a href="contact.html" class="header-cta">Démarrage gratuit</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="page-hero">
+        <div class="container">
+            <div class="page-hero-inner">
+                <div class="breadcrumb">
+                    <a href="index.html">Accueil</a>
+                    <span>/</span>
+                    <span>Portfolio</span>
+                </div>
+                <div class="hero-top">
+                    <h1>Nos <span class="highlight">réalisations</span></h1>
+                    <p class="hero-desc">Chaque projet est une collaboration unique. Voici une sélection de ce que nous avons construit avec nos clients.</p>
+                </div>
+
+                <div class="filters">
+                    <button class="filter-btn active" data-filter="all">Tous</button>
+                    <button class="filter-btn" data-filter="web">Sites Web</button>
+                    <button class="filter-btn" data-filter="app">Applications</button>
+                    <button class="filter-btn" data-filter="ia">IA & Automatisation</button>
+                    <button class="filter-btn" data-filter="design">Design</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="portfolio-section">
+        <div class="container">
+            <div class="portfolio-grid" id="portfolio-grid">
+
+                <!-- Projet 1 — wide -->
+                <div class="project-card wide" data-category="web">
+                    <div class="card-inner">
+                        <div class="card-visual visual-web">
+                            <div class="visual-overlay"></div>
+                            <div class="mock-browser">
+                                <div class="mock-browser-bar">
+                                    <div class="mock-dot"></div>
+                                    <div class="mock-dot"></div>
+                                    <div class="mock-dot"></div>
+                                    <div class="mock-url"></div>
+                                </div>
+                                <div class="mock-content">
+                                    <div class="mock-hero-bar"></div>
+                                    <div class="mock-line medium"></div>
+                                    <div class="mock-line short"></div>
+                                    <div class="mock-grid">
+                                        <div class="mock-card-mini accent"></div>
+                                        <div class="mock-card-mini"></div>
+                                        <div class="mock-card-mini"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-info">
+                            <div class="card-tags">
+                                <span class="card-tag">E-commerce</span>
+                                <span class="card-tag">Next.js</span>
+                            </div>
+                            <h3 class="card-title">Boutique en ligne premium</h3>
+                            <p class="card-desc">Site e-commerce complet avec catalogue produits, paiement Stripe, gestion des stocks et tableau de bord admin.</p>
+                            <div class="card-footer">
+                                <span class="card-stat">Livré en <strong>6 semaines</strong></span>
+                                <a href="contact.html" class="card-link">Projet similaire →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet 2 — narrow -->
+                <div class="project-card narrow" data-category="ia">
+                    <div class="card-inner">
+                        <div class="card-visual visual-ia">
+                            <div class="visual-overlay"></div>
+                            <div class="mock-browser">
+                                <div class="mock-browser-bar">
+                                    <div class="mock-dot"></div>
+                                    <div class="mock-dot"></div>
+                                    <div class="mock-dot"></div>
+                                    <div class="mock-url"></div>
+                                </div>
+                                <div class="mock-content">
+                                    <div class="mock-line full"></div>
+                                    <div class="mock-line medium" style="background:rgba(255,184,0,0.3)"></div>
+                                    <div class="mock-line full"></div>
+                                    <div class="mock-line short" style="background:rgba(255,184,0,0.3)"></div>
+                                    <div class="mock-line medium"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-info">
+                            <div class="card-tags">
+                                <span class="card-tag">IA</span>
+                                <span class="card-tag">Claude API</span>
+                            </div>
+                            <h3 class="card-title">Assistant IA métier</h3>
+                            <p class="card-desc">Chatbot intelligent intégré à la base de connaissances interne d'une PME. Réponses instantanées aux questions clients.</p>
+                            <div class="card-footer">
+                                <span class="card-stat"><strong>-70%</strong> temps réponse</span>
+                                <a href="contact.html" class="card-link">En savoir plus →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet 3 — narrow -->
+                <div class="project-card narrow" data-category="app">
+                    <div class="card-inner">
+                        <div class="card-visual visual-app">
+                            <div class="visual-overlay"></div>
+                            <div class="mock-browser">
+                                <div class="mock-browser-bar">
+                                    <div class="mock-dot"></div>
+                                    <div class="mock-dot"></div>
+                                    <div class="mock-dot"></div>
+                                    <div class="mock-url"></div>
+                                </div>
+                                <div class="mock-content">
+                                    <div class="mock-grid" style="grid-template-columns:repeat(2,1fr)">
+                                        <div class="mock-card-mini accent" style="height:50px"></div>
+                                        <div class="mock-card-mini" style="height:50px"></div>
+                                        <div class="mock-card-mini" style="height:50px"></div>
+                                        <div class="mock-card-mini accent" style="height:50px"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-info">
+                            <div class="card-tags">
+                                <span class="card-tag">SaaS</span>
+                                <span class="card-tag">Dashboard</span>
+                            </div>
+                            <h3 class="card-title">Plateforme SaaS analytics</h3>
+                            <p class="card-desc">Dashboard temps réel pour suivi de KPIs métier. Authentification, rôles, export PDF et alertes automatiques.</p>
+                            <div class="card-footer">
+                                <span class="card-stat"><strong>3</strong> mois de dev</span>
+                                <a href="contact.html" class="card-link">Démarrer →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet 4 — wide -->
+                <div class="project-card wide" data-category="app">
+                    <div class="card-inner">
+                        <div class="card-visual visual-app">
+                            <div class="visual-overlay"></div>
+                            <div class="mock-browser">
+                                <div class="mock-browser-bar">
+                                    <div class="mock-dot"></div>
+                                    <div class="mock-dot"></div>
+                                    <div class="mock-dot"></div>
+                                    <div class="mock-url"></div>
+                                </div>
+                                <div class="mock-content">
+                                    <div class="mock-hero-bar" style="width:40%"></div>
+                                    <div class="mock-line full"></div>
+                                    <div class="mock-grid">
+                                        <div class="mock-card-mini" style="height:44px"></div>
+                                        <div class="mock-card-mini accent" style="height:44px"></div>
+                                        <div class="mock-card-mini" style="height:44px"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-info">
+                            <div class="card-tags">
+                                <span class="card-tag">Web App</span>
+                                <span class="card-tag">Next.js</span>
+                                <span class="card-tag">Supabase</span>
+                            </div>
+                            <h3 class="card-title">Plateforme de réservation</h3>
+                            <p class="card-desc">Application de réservation multi-prestataires avec calendrier temps réel, paiements et système de notifications.</p>
+                            <div class="card-footer">
+                                <span class="card-stat">Livré en <strong>8 semaines</strong></span>
+                                <a href="contact.html" class="card-link">Projet similaire →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet 5 -->
+                <div class="project-card" data-category="design">
+                    <div class="card-inner">
+                        <div class="card-visual visual-design">
+                            <div class="visual-overlay"></div>
+                            <div class="mock-browser">
+                                <div class="mock-browser-bar">
+                                    <div class="mock-dot"></div>
+                                    <div class="mock-dot"></div>
+                                    <div class="mock-dot"></div>
+                                    <div class="mock-url"></div>
+                                </div>
+                                <div class="mock-content">
+                                    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:0.4rem">
+                                        <div style="height:60px;background:rgba(255,184,0,0.25);border-radius:4px"></div>
+                                        <div style="height:60px;background:rgba(255,255,255,0.08);border-radius:4px"></div>
+                                    </div>
+                                    <div class="mock-line medium" style="margin-top:0.5rem"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-info">
+                            <div class="card-tags">
+                                <span class="card-tag">Design</span>
+                                <span class="card-tag">Packshot</span>
+                            </div>
+                            <h3 class="card-title">Direction artistique & visuels</h3>
+                            <p class="card-desc">Création d'identité visuelle complète, packshots produits et contenu réseaux sociaux pour une marque e-commerce.</p>
+                            <div class="card-footer">
+                                <span class="card-stat"><strong>+40%</strong> engagement</span>
+                                <a href="contact.html" class="card-link">Nous contacter →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet 6 -->
+                <div class="project-card" data-category="ia">
+                    <div class="card-inner">
+                        <div class="card-visual visual-ia">
+                            <div class="visual-overlay"></div>
+                            <div class="mock-browser">
+                                <div class="mock-browser-bar">
+                                    <div class="mock-dot"></div>
+                                    <div class="mock-dot"></div>
+                                    <div class="mock-dot"></div>
+                                    <div class="mock-url"></div>
+                                </div>
+                                <div class="mock-content">
+                                    <div class="mock-line short" style="background:rgba(255,184,0,0.4)"></div>
+                                    <div class="mock-line full"></div>
+                                    <div class="mock-line short" style="background:rgba(255,184,0,0.4)"></div>
+                                    <div class="mock-line medium"></div>
+                                    <div class="mock-line full"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-info">
+                            <div class="card-tags">
+                                <span class="card-tag">Automatisation</span>
+                                <span class="card-tag">GPT-4</span>
+                            </div>
+                            <h3 class="card-title">Workflow IA de traitement docs</h3>
+                            <p class="card-desc">Pipeline automatisé d'extraction et classification de documents PDF. Intégration directe dans le CRM client.</p>
+                            <div class="card-footer">
+                                <span class="card-stat"><strong>2h</strong> économisées/jour</span>
+                                <a href="contact.html" class="card-link">Explorer →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats -->
+    <div class="stats-band">
+        <div class="container">
+            <div class="stats-inner" id="stats-band">
+                <div class="stat-item">
+                    <div class="stat-number">20+</div>
+                    <div class="stat-label">Projets livrés</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Clients satisfaits</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24h</div>
+                    <div class="stat-label">Délai de réponse</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">4+</div>
+                    <div class="stat-label">Années d'expérience</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Votre projet, le prochain ?</h2>
+                <p>Discutons de vos objectifs. Premier échange gratuit, devis sous 48h.</p>
+                <a href="contact.html" class="cta-button">Démarrer mon projet →</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <p>© 2025 lab404.dev — Studio créatif & technique · Marseille 🔆</p>
+    </footer>
+
+    <script>
+        // Custom cursor
+        const cursor = document.getElementById('cursor');
+        if (cursor) {
+            document.addEventListener('mousemove', function(e) {
+            cursor.style.left = (e.clientX - 10) + 'px';
+            cursor.style.top  = (e.clientY - 10) + 'px';
+        });
+        document.querySelectorAll('a, button, label').forEach(function(el) {
+            el.addEventListener('mouseenter', function() { cursor.classList.add('hover'); });
+            el.addEventListener('mouseleave', function() { cursor.classList.remove('hover'); });
+        });
+        });
+        }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.portfolio-grid, #stats-band').forEach(el => observer.observe(el));
+
+        // Filter
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const cards = document.querySelectorAll('.project-card');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.dataset.filter;
+
+                cards.forEach(card => {
+                    const show = filter === 'all' || card.dataset.category === filter;
+                    card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+                    if (show) {
+                        card.style.opacity = '1';
+                        card.style.transform = 'scale(1)';
+                        card.style.display = '';
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'scale(0.95)';
+                        setTimeout(() => {
+                            if (btn.dataset.filter !== 'all' && card.dataset.category !== btn.dataset.filter) {
+                                card.style.display = 'none';
+                            }
+                        }, 300);
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
