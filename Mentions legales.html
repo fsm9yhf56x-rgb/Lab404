@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mentions légales — lab404</title>
+    <meta name="description" content="Mentions légales du studio lab404 — micro-entreprise basée à Marseille.">
+    <meta name="robots" content="noindex, follow">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500&family=DM+Sans:wght@400;500;600&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --yellow: #FFB800;
+            --yellow-dark: #E5A500;
+            --text: #1A1714;
+            --text-light: #6B5E58;
+            --cream: #FAF7F2;
+            --white: #FFFFFF;
+        }
+
+        body {
+            font-family: 'DM Sans', sans-serif;
+            background: var(--cream);
+            color: var(--text);
+            cursor: none;
+        }
+
+        #cursor {
+            position: fixed;
+            width: 20px; height: 20px;
+            border: 2px solid var(--yellow);
+            border-radius: 50%;
+            pointer-events: none;
+            top: 0; left: 0;
+            z-index: 10000;
+            margin: -10px 0 0 -10px;
+        }
+
+        /* Header */
+        header {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            padding: 1.25rem 4rem;
+            background: rgba(250, 247, 242, 0.97);
+            backdrop-filter: blur(24px);
+            border-bottom: 1px solid rgba(255,184,0,0.15);
+            box-shadow: 0 2px 20px rgba(26,23,20,0.06);
+        }
+        .header-content { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; }
+        .logo-wrapper { display: flex; flex-direction: column; gap: 0.15rem; }
+        .logo-b { font-family: 'Archivo Black', sans-serif; font-size: 1.4rem; letter-spacing: -0.02em; line-height: 1; display: inline-flex; align-items: center; text-decoration: none; }
+        .logo-b .lab { color: var(--text); }
+        .logo-b .bloc { background: var(--yellow); color: var(--text); padding: 0 0.2em; margin-left: 0.04em; }
+        .logo-tagline { font-family: 'IBM Plex Mono', monospace; font-size: 0.58rem; letter-spacing: 0.1em; color: #aaa; display: flex; align-items: center; gap: 0.35rem; }
+        .logo-tagline::before { content: '//'; color: var(--yellow); font-weight: 600; }
+        nav { display: flex; align-items: center; gap: 2.5rem; }
+        nav a { text-decoration: none; color: var(--text-light); font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
+        nav a:hover { color: var(--yellow-dark); }
+        .header-cta { background: var(--yellow); color: white !important; padding: 0.6rem 1.5rem; border-radius: 8px; font-weight: 700 !important; }
+
+        /* Page */
+        .page-wrapper {
+            max-width: 760px;
+            margin: 0 auto;
+            padding: 10rem 2rem 6rem;
+        }
+
+        .page-label {
+            font-family: 'IBM Plex Mono', monospace;
+            font-size: 0.72rem;
+            letter-spacing: 0.15em;
+            color: var(--yellow-dark);
+            text-transform: uppercase;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+        .page-label::before { content: '//'; }
+
+        h1 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: clamp(2rem, 5vw, 3rem);
+            letter-spacing: -0.03em;
+            line-height: 1.1;
+            margin-bottom: 0.75rem;
+        }
+
+        .last-update {
+            font-size: 0.8rem;
+            color: var(--text-light);
+            margin-bottom: 3rem;
+            padding-bottom: 2rem;
+            border-bottom: 1px solid rgba(255,184,0,0.15);
+        }
+
+        /* Sections */
+        .legal-section {
+            margin-bottom: 2.5rem;
+            padding: 2rem;
+            background: white;
+            border-radius: 16px;
+            border: 1px solid rgba(255,184,0,0.1);
+        }
+
+        .legal-section h2 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1rem;
+            letter-spacing: -0.01em;
+            margin-bottom: 1.25rem;
+            color: var(--text);
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .legal-section h2::before {
+            content: '';
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            background: var(--yellow);
+            border-radius: 2px;
+            flex-shrink: 0;
+        }
+
+        .legal-row {
+            display: flex;
+            gap: 1rem;
+            padding: 0.65rem 0;
+            border-bottom: 1px solid rgba(26,23,20,0.06);
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+        .legal-row:last-child { border-bottom: none; padding-bottom: 0; }
+
+        .legal-key {
+            min-width: 160px;
+            color: var(--text-light);
+            font-weight: 500;
+            flex-shrink: 0;
+        }
+
+        .legal-val {
+            color: var(--text);
+            font-weight: 400;
+        }
+
+        .legal-val a {
+            color: var(--yellow-dark);
+            text-decoration: none;
+            font-weight: 600;
+        }
+        .legal-val a:hover { text-decoration: underline; }
+
+        p.legal-text {
+            font-size: 0.9rem;
+            color: var(--text-light);
+            line-height: 1.75;
+        }
+
+        p.legal-text + p.legal-text { margin-top: 0.75rem; }
+
+        /* Footer */
+        footer {
+            background: var(--text);
+            color: rgba(255,255,255,0.4);
+            text-align: center;
+            padding: 2rem;
+            font-size: 0.8rem;
+        }
+        footer a { color: var(--yellow); text-decoration: none; }
+
+        @media (max-width: 768px) {
+            header { padding: 1rem 1.5rem; }
+            nav a:not(.header-cta) { display: none; }
+            .legal-row { flex-direction: column; gap: 0.2rem; }
+            .legal-key { min-width: unset; }
+            body { cursor: auto; }
+            #cursor { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="cursor"></div>
+
+    <header>
+        <div class="header-content">
+            <div class="logo-wrapper">
+                <a href="index.html" class="logo-b"><span class="lab">lab</span><span class="bloc">404</span></a>
+                <div class="logo-tagline">made in marseille</div>
+            </div>
+            <nav>
+                <a href="portfolio.html">Portfolio</a>
+                <a href="services.html">Services</a>
+                <a href="contact.html">Contact</a>
+                <a href="contact.html" class="header-cta">Démarrage gratuit</a>
+            </nav>
+        </div>
+    </header>
+
+    <div class="page-wrapper">
+
+        <div class="page-label">Légal</div>
+        <h1>Mentions légales</h1>
+        <p class="last-update">Dernière mise à jour : mars 2026</p>
+
+        <!-- Éditeur -->
+        <div class="legal-section">
+            <h2>Éditeur du site</h2>
+            <div class="legal-row">
+                <span class="legal-key">Nom commercial</span>
+                <span class="legal-val">lab404</span>
+            </div>
+            <div class="legal-row">
+                <span class="legal-key">Forme juridique</span>
+                <span class="legal-val">Micro-entreprise</span>
+            </div>
+            <div class="legal-row">
+                <span class="legal-key">SIRET</span>
+                <span class="legal-val">792 372 716 00045</span>
+            </div>
+            <div class="legal-row">
+                <span class="legal-key">Siège social</span>
+                <span class="legal-val">Marseille, France</span>
+            </div>
+            <div class="legal-row">
+                <span class="legal-key">Email</span>
+                <span class="legal-val"><a href="mailto:hello.lab404@gmail.com">hello.lab404&#64;gmail.com</a></span>
+            </div>
+            <div class="legal-row">
+                <span class="legal-key">Site web</span>
+                <span class="legal-val"><a href="https://lab404.dev">lab404.dev</a></span>
+            </div>
+        </div>
+
+        <!-- Hébergement -->
+        <div class="legal-section">
+            <h2>Hébergement</h2>
+            <div class="legal-row">
+                <span class="legal-key">Hébergeur</span>
+                <span class="legal-val">Vercel Inc.</span>
+            </div>
+            <div class="legal-row">
+                <span class="legal-key">Adresse</span>
+                <span class="legal-val">440 N Barranca Ave #4133, Covina, CA 91723, États-Unis</span>
+            </div>
+            <div class="legal-row">
+                <span class="legal-key">Site</span>
+                <span class="legal-val"><a href="https://vercel.com" target="_blank">vercel.com</a></span>
+            </div>
+        </div>
+
+        <!-- Propriété intellectuelle -->
+        <div class="legal-section">
+            <h2>Propriété intellectuelle</h2>
+            <p class="legal-text">
+                L'ensemble du contenu de ce site (textes, visuels, structure, code) est la propriété exclusive de lab404, sauf mention contraire. Toute reproduction, distribution ou utilisation sans autorisation écrite préalable est interdite.
+            </p>
+        </div>
+
+        <!-- Données personnelles -->
+        <div class="legal-section">
+            <h2>Données personnelles</h2>
+            <p class="legal-text">
+                Les données collectées via le formulaire de contact (prénom, email) sont utilisées uniquement pour répondre à vos demandes. Elles ne sont ni vendues, ni transmises à des tiers.
+            </p>
+            <p class="legal-text">
+                Conformément au RGPD et à la loi Informatique et Libertés, vous disposez d'un droit d'accès, de rectification et de suppression de vos données. Pour exercer ces droits, contactez-nous à <a href="mailto:hello.lab404@gmail.com">hello.lab404&#64;gmail.com</a>.
+            </p>
+        </div>
+
+        <!-- Cookies -->
+        <div class="legal-section">
+            <h2>Cookies</h2>
+            <p class="legal-text">
+                Ce site n'utilise pas de cookies de tracking ou publicitaires. Seul un cookie de session est utilisé pour mémoriser les préférences d'affichage du formulaire de contact. Aucune donnée n'est partagée avec des régies publicitaires.
+            </p>
+        </div>
+
+        <!-- Responsabilité -->
+        <div class="legal-section">
+            <h2>Limitation de responsabilité</h2>
+            <p class="legal-text">
+                lab404 s'efforce de maintenir les informations de ce site à jour et exactes. Cependant, lab404 ne saurait être tenu responsable des erreurs ou omissions, ni des dommages résultant de l'utilisation de ce site ou de sites tiers vers lesquels il renvoie.
+            </p>
+        </div>
+
+        <!-- Droit applicable -->
+        <div class="legal-section">
+            <h2>Droit applicable</h2>
+            <p class="legal-text">
+                Le présent site et ses mentions légales sont soumis au droit français. En cas de litige, les tribunaux compétents de Marseille seront seuls compétents.
+            </p>
+        </div>
+
+    </div>
+
+    <footer>
+        <p>© 2026 lab404.dev — Studio créatif & technique · Marseille 🔆 &nbsp;·&nbsp; <a href="mentions-legales.html">Mentions légales</a></p>
+    </footer>
+
+    <script>
+        const cursor = document.getElementById('cursor');
+        document.addEventListener('mousemove', function(e) {
+            cursor.style.left = (e.clientX - 10) + 'px';
+            cursor.style.top  = (e.clientY - 10) + 'px';
+        });
+    </script>
+
+</body>
+</html>
