@@ -1004,7 +1004,11 @@
             opacity: 1 !important;
             transform: translateY(0) !important;
         }
-</style></style>
+
+        .logo-img-link { display: inline-flex; align-items: center; text-decoration: none; }
+        .logo-img { height: 36px; width: auto; display: block; }
+
+    </style></style>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -1048,10 +1052,9 @@
 
     <header>
         <div class="header-content">
-            <div class="logo-wrapper">
-                <a href="/" class="logo-b"><span class="lab">lab</span><span class="bloc">404</span></a>
-                <div class="logo-tagline">made in marseille</div>
-            </div>
+            <a href="/" class="logo-img-link">
+                <img src="logo-navbar.png" alt="lab404 — Studio web Marseille" class="logo-img" width="130" height="36">
+            </a>
             <nav>
                 <a href="portfolio">Portfolio</a>
                 <a href="services">Services</a>
