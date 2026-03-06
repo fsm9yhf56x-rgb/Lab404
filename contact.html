@@ -180,6 +180,36 @@
         .nudge-arrow { font-size: 1.1rem; color: var(--yellow-dark); font-weight: 700; animation: bounce 1.5s infinite; }
         @keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(4px); } }
 
+    
+        /* ── BRIEF INLINE ── */
+        .brief-inline {
+            margin-top: 1.5rem;
+            border: 2px solid rgba(255,184,0,0.2);
+            border-radius: 14px;
+            overflow: hidden;
+            background: rgba(255,184,0,0.03);
+        }
+        .brief-inline-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 1.25rem;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+        .brief-inline-header:hover { background: rgba(255,184,0,0.06); }
+        .bih-left { display: flex; align-items: center; gap: 0.75rem; }
+        .bih-icon { font-size: 1rem; color: var(--yellow-dark); }
+        .bih-title { font-size: 0.9rem; font-weight: 700; color: var(--text); }
+        .bih-sub { font-size: 0.75rem; color: var(--text-light); margin-top: 0.1rem; }
+        .bih-arrow { width: 18px; height: 18px; stroke: var(--text-light); fill: none; stroke-width: 2.5; transition: transform 0.3s; flex-shrink: 0; }
+        .bih-arrow.open { transform: rotate(180deg); }
+        .brief-inline-body { display: none; padding: 1.5rem; border-top: 1px solid rgba(255,184,0,0.15); }
+        .brief-inline-body.open { display: block; }
+        .brief-done { display: flex; align-items: center; gap: 0.75rem; padding: 1rem; background: rgba(40,200,64,0.08); border-radius: 10px; border: 1px solid rgba(40,200,64,0.2); }
+        .brief-done-icon { font-size: 1.2rem; color: #28c840; }
+        .brief-done-text { font-size: 0.85rem; font-weight: 600; color: var(--text); }
+
     </style>
 </head>
 <body>
@@ -210,7 +240,7 @@
     <div class="contact-sidebar">
         <div class="info-card">
             <div class="info-card-title">Nous contacter</div>
-            <a href="mailto:hello.lab404@gmail.com" class="contact-method">
+            <a href="/cdn-cgi/l/email-protection#29414c4545460745484b1d191d694e44484045074a4644" class="contact-method">
                 <div class="method-icon"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg></div>
                 <div><div class="method-label">Email</div><div class="method-value">hello.lab404&#64;gmail.com</div></div>
             </a>
@@ -248,40 +278,109 @@
                         <div class="form-group"><label for="email">Email <span>*</span></label><input type="email" id="email" name="email" placeholder="votre@email.com" required></div>
                         <div class="form-group"><label for="company">Entreprise</label><input type="text" id="company" name="company" placeholder="Mon entreprise"></div>
                     </div>
-                    <div class="form-group">
-                        <label>Service(s) souhaité(s)</label>
-                        <div class="pills-wrap">
-                            <div class="pill" data-group="services" data-val="Site Web / E-commerce">Site Web / E-commerce</div>
-                            <div class="pill" data-group="services" data-val="App Web / SaaS">App Web / SaaS</div>
-                            <div class="pill" data-group="services" data-val="Automatisation IA">Automatisation IA</div>
-                            <div class="pill" data-group="services" data-val="Photo & Retouche IA">Photo & Retouche IA</div>
+                    
+                    
+                    
+
+                    <!-- BRIEF INLINE -->
+                    <div class="brief-inline">
+                        <div class="brief-inline-header" onclick="toggleInlineBrief()">
+                            <div class="bih-left">
+                                <div class="bih-icon">✦</div>
+                                <div>
+                                    <div class="bih-title">Décrivez votre projet en détail</div>
+                                    <div class="bih-sub">Plus votre projet est clair, plus vite on démarre — 2 min.</div>
+                                </div>
+                            </div>
+                            <svg class="bih-arrow open" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
                         </div>
-                        <input type="hidden" name="services" id="services-val">
-                    </div>
-                    <div class="form-group">
-                        <label>Budget envisagé</label>
-                        <div class="pills-wrap">
-                            <div class="pill single" data-group="budget" data-val="< 1 000 €">moins de 1k €</div>
-                            <div class="pill single" data-group="budget" data-val="1k – 5k €">1k – 5k €</div>
-                            <div class="pill single" data-group="budget" data-val="5k – 15k €">5k – 15k €</div>
-                            <div class="pill single" data-group="budget" data-val="> 15k €">+ de 15k €</div>
-                            <div class="pill single" data-group="budget" data-val="À définir">À définir</div>
-                            <div class="pill single" data-group="budget" data-val="Mensuel">Mensuel</div>
+                        <div class="brief-inline-body open" id="brief-inline-body">
+
+                            <div class="brief-progress">
+                                <div class="bp-dot active" id="dot-1"></div>
+                                <div class="bp-dot" id="dot-2"></div>
+                                <div class="bp-dot" id="dot-3"></div>
+                                <div class="bp-dot" id="dot-4"></div>
+                                <div class="bp-dot" id="dot-5"></div>
+                            </div>
+
+                            <!-- Step 1 -->
+                            <div class="brief-step active" id="bs-1">
+                                <div class="bs-label">Étape 1 sur 5</div>
+                                <div class="bs-question">Dans quel secteur travaillez-vous ?</div>
+                                <div class="brief-options">
+                                    <div class="brief-opt" data-step="1" data-val="Commerce / Retail"><span class="bo-icon">🛍</span><span class="bo-name">Commerce / Retail</span></div>
+                                    <div class="brief-opt" data-step="1" data-val="Restauration / Hôtellerie"><span class="bo-icon">🍽</span><span class="bo-name">Restauration / Hôtellerie</span></div>
+                                    <div class="brief-opt" data-step="1" data-val="Tech / SaaS / Startup"><span class="bo-icon">💻</span><span class="bo-name">Tech / SaaS</span></div>
+                                    <div class="brief-opt" data-step="1" data-val="Santé / Bien-être"><span class="bo-icon">🌿</span><span class="bo-name">Santé / Bien-être</span></div>
+                                    <div class="brief-opt" data-step="1" data-val="Artisan / Créateur"><span class="bo-icon">🎨</span><span class="bo-name">Artisan / Créateur</span></div>
+                                    <div class="brief-opt" data-step="1" data-val="Autre / Indépendant"><span class="bo-icon">⚡</span><span class="bo-name">Autre</span></div>
+                                </div>
+                                <div class="brief-nav"><span></span><div class="brief-nav-right"><span class="brief-step-count">1 / 5</span><button type="button" class="btn-brief-next" onclick="briefNext(1)">Suivant →</button></div></div>
+                            </div>
+
+                            <!-- Step 2 -->
+                            <div class="brief-step" id="bs-2">
+                                <div class="bs-label">Étape 2 sur 5</div>
+                                <div class="bs-question">Qui sont vos clients cibles ?</div>
+                                <div class="brief-options col3">
+                                    <div class="brief-opt" data-step="2" data-val="Particuliers (B2C)"><span class="bo-icon">👤</span><span class="bo-name">Particuliers</span><span class="bo-desc">B2C</span></div>
+                                    <div class="brief-opt" data-step="2" data-val="Professionnels (B2B)"><span class="bo-icon">🏢</span><span class="bo-name">Professionnels</span><span class="bo-desc">B2B</span></div>
+                                    <div class="brief-opt" data-step="2" data-val="B2B & B2C"><span class="bo-icon">🔄</span><span class="bo-name">Les deux</span><span class="bo-desc">B2B & B2C</span></div>
+                                </div>
+                                <div class="brief-nav"><button type="button" class="btn-brief-back" onclick="briefBack(2)">← Retour</button><div class="brief-nav-right"><span class="brief-step-count">2 / 5</span><button type="button" class="btn-brief-next" onclick="briefNext(2)">Suivant →</button></div></div>
+                            </div>
+
+                            <!-- Step 3 -->
+                            <div class="brief-step" id="bs-3">
+                                <div class="bs-label">Étape 3 sur 5</div>
+                                <div class="bs-question">Quel est l'objectif principal ?</div>
+                                <div class="bs-hint">Plusieurs réponses possibles.</div>
+                                <div class="brief-options">
+                                    <div class="brief-opt multi" data-step="3" data-val="Générer des leads"><span class="bo-icon">🎯</span><span class="bo-name">Générer des leads</span></div>
+                                    <div class="brief-opt multi" data-step="3" data-val="Vendre en ligne"><span class="bo-icon">🛒</span><span class="bo-name">Vendre en ligne</span></div>
+                                    <div class="brief-opt multi" data-step="3" data-val="Automatiser des tâches"><span class="bo-icon">⚙️</span><span class="bo-name">Automatiser des tâches</span></div>
+                                    <div class="brief-opt multi" data-step="3" data-val="Renforcer ma présence web"><span class="bo-icon">📣</span><span class="bo-name">Présence web</span></div>
+                                    <div class="brief-opt multi" data-step="3" data-val="Lancer un nouveau produit"><span class="bo-icon">🚀</span><span class="bo-name">Lancer un produit</span></div>
+                                    <div class="brief-opt multi" data-step="3" data-val="Améliorer l'existant"><span class="bo-icon">🔧</span><span class="bo-name">Améliorer l'existant</span></div>
+                                </div>
+                                <div class="brief-nav"><button type="button" class="btn-brief-back" onclick="briefBack(3)">← Retour</button><div class="brief-nav-right"><span class="brief-step-count">3 / 5</span><button type="button" class="btn-brief-next" onclick="briefNext(3)">Suivant →</button></div></div>
+                            </div>
+
+                            <!-- Step 4 -->
+                            <div class="brief-step" id="bs-4">
+                                <div class="bs-label">Étape 4 sur 5</div>
+                                <div class="bs-question">Contexte & références</div>
+                                <label class="brief-field-label">Site ou outil existant</label>
+                                <input class="brief-input" type="text" id="b-existing" placeholder="https://monsite.com (facultatif)">
+                                <label class="brief-field-label">Sites qui vous inspirent</label>
+                                <input class="brief-input" type="text" id="b-refs" placeholder="Ex : apple.com, notion.so, linear.app...">
+                                <label class="brief-field-label">Contraintes particulières</label>
+                                <input class="brief-input" type="text" id="b-constraints" placeholder="Budget serré, délai imposé, techno spécifique...">
+                                <div class="brief-nav"><button type="button" class="btn-brief-back" onclick="briefBack(4)">← Retour</button><div class="brief-nav-right"><span class="brief-step-count">4 / 5</span><button type="button" class="btn-brief-next" onclick="briefNext(4)">Suivant →</button></div></div>
+                            </div>
+
+                            <!-- Step 5 -->
+                            <div class="brief-step" id="bs-5">
+                                <div class="bs-label">Étape 5 sur 5</div>
+                                <div class="bs-question">Décrivez librement votre projet</div>
+                                <div class="bs-hint">Vision, contexte, détails importants...</div>
+                                <textarea class="brief-textarea" id="b-free" placeholder="Ex : Je veux refondre mon site e-commerce car il est lent et ne convertit pas..."></textarea>
+                                <div class="brief-nav"><button type="button" class="btn-brief-back" onclick="briefBack(5)">← Retour</button><div class="brief-nav-right"><span class="brief-step-count">5 / 5</span><button type="button" class="btn-brief-next" onclick="briefDone()">✓ Terminer le brief</button></div></div>
+                            </div>
+
+                            <!-- Confirmation -->
+                            <div class="brief-done" id="brief-done-msg" style="display:none;">
+                                <div class="brief-done-icon">✓</div>
+                                <div class="brief-done-text">Brief complété — vos réponses seront envoyées avec votre message.</div>
+                            </div>
+
                         </div>
-                        <input type="hidden" name="budget" id="budget-val">
                     </div>
-                    <div class="form-group">
-                        <label for="message">Décrivez votre projet <span>*</span></label>
-                        <textarea id="message" name="message" placeholder="Décrivez votre projet, vos objectifs, votre délai idéal..." required></textarea>
-                    </div>
-                    <div class="brief-nudge" onclick="openBrief()">
-                        <div class="nudge-icon">✦</div>
-                        <div class="nudge-text">
-                            <strong>Obtenez un devis plus précis</strong>
-                            <span>Complétez le brief ci-dessous avant d'envoyer — 2 min chrono.</span>
-                        </div>
-                        <div class="nudge-arrow">↓</div>
-                    </div>
+
+                    <!-- Hidden field to carry brief data -->
+                    <input type="hidden" name="brief" id="brief-hidden">
+
                     <div class="submit-row">
                         <button type="submit" class="submit-btn">Envoyer le message</button>
                         <div class="submit-note">Réponse garantie<br>sous <strong>24h</strong> en semaine</div>
@@ -295,131 +394,11 @@
             </div>
         </div>
 
-        <!-- BRIEF WIZARD -->
-        <div class="brief-card">
-            <div class="brief-header">
-                <h2>Brief projet <span style="font-family:'DM Sans';font-size:0.8rem;font-weight:400;color:var(--text-light);">— facultatif</span></h2>
-                <p>Plus votre projet est clair, plus vite on démarre. 5 questions pour recevoir un devis précis et un premier plan d'action dès notre échange.</p>
-                <div class="brief-toggle" id="brief-toggle" onclick="toggleBrief()">
-                    <svg viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
-                    Remplir le brief
-                </div>
-            </div>
-
-            <div class="brief-body" id="brief-body">
-                <div class="brief-progress">
-                    <div class="bp-dot active" id="dot-1"></div>
-                    <div class="bp-dot" id="dot-2"></div>
-                    <div class="bp-dot" id="dot-3"></div>
-                    <div class="bp-dot" id="dot-4"></div>
-                    <div class="bp-dot" id="dot-5"></div>
-                </div>
-
-                <!-- Step 1 -->
-                <div class="brief-step active" id="bs-1">
-                    <div class="bs-label">Étape 1 sur 5</div>
-                    <div class="bs-question">Dans quel secteur travaillez-vous ?</div>
-                    <div class="bs-hint">Cela m'aide à comprendre votre environnement et vos clients.</div>
-                    <div class="brief-options">
-                        <div class="brief-opt" data-step="1" data-val="Commerce / Retail"><span class="bo-icon">🛍</span><span class="bo-name">Commerce / Retail</span></div>
-                        <div class="brief-opt" data-step="1" data-val="Restauration / Hôtellerie"><span class="bo-icon">🍽</span><span class="bo-name">Restauration / Hôtellerie</span></div>
-                        <div class="brief-opt" data-step="1" data-val="Tech / SaaS / Startup"><span class="bo-icon">💻</span><span class="bo-name">Tech / SaaS</span></div>
-                        <div class="brief-opt" data-step="1" data-val="Santé / Bien-être"><span class="bo-icon">🌿</span><span class="bo-name">Santé / Bien-être</span></div>
-                        <div class="brief-opt" data-step="1" data-val="Artisan / Créateur"><span class="bo-icon">🎨</span><span class="bo-name">Artisan / Créateur</span></div>
-                        <div class="brief-opt" data-step="1" data-val="Autre / Indépendant"><span class="bo-icon">⚡</span><span class="bo-name">Autre</span></div>
-                    </div>
-                    <div class="brief-nav">
-                        <span></span>
-                        <div class="brief-nav-right"><span class="brief-step-count">1 / 5</span><button class="btn-brief-next" onclick="briefNext(1)">Suivant →</button></div>
-                    </div>
-                </div>
-
-                <!-- Step 2 -->
-                <div class="brief-step" id="bs-2">
-                    <div class="bs-label">Étape 2 sur 5</div>
-                    <div class="bs-question">Qui sont vos clients cibles ?</div>
-                    <div class="bs-hint">Particuliers, professionnels, ou les deux ?</div>
-                    <div class="brief-options col3">
-                        <div class="brief-opt" data-step="2" data-val="Particuliers (B2C)"><span class="bo-icon">👤</span><span class="bo-name">Particuliers</span><span class="bo-desc">B2C</span></div>
-                        <div class="brief-opt" data-step="2" data-val="Professionnels (B2B)"><span class="bo-icon">🏢</span><span class="bo-name">Professionnels</span><span class="bo-desc">B2B</span></div>
-                        <div class="brief-opt" data-step="2" data-val="B2B & B2C"><span class="bo-icon">🔄</span><span class="bo-name">Les deux</span><span class="bo-desc">B2B & B2C</span></div>
-                    </div>
-                    <div class="brief-nav">
-                        <button class="btn-brief-back" onclick="briefBack(2)">← Retour</button>
-                        <div class="brief-nav-right"><span class="brief-step-count">2 / 5</span><button class="btn-brief-next" onclick="briefNext(2)">Suivant →</button></div>
-                    </div>
-                </div>
-
-                <!-- Step 3 -->
-                <div class="brief-step" id="bs-3">
-                    <div class="bs-label">Étape 3 sur 5</div>
-                    <div class="bs-question">Quel est l'objectif principal ?</div>
-                    <div class="bs-hint">Plusieurs réponses possibles.</div>
-                    <div class="brief-options">
-                        <div class="brief-opt multi" data-step="3" data-val="Générer des leads"><span class="bo-icon">🎯</span><span class="bo-name">Générer des leads</span></div>
-                        <div class="brief-opt multi" data-step="3" data-val="Vendre en ligne"><span class="bo-icon">🛒</span><span class="bo-name">Vendre en ligne</span></div>
-                        <div class="brief-opt multi" data-step="3" data-val="Automatiser des tâches"><span class="bo-icon">⚙️</span><span class="bo-name">Automatiser des tâches</span></div>
-                        <div class="brief-opt multi" data-step="3" data-val="Renforcer ma présence web"><span class="bo-icon">📣</span><span class="bo-name">Présence web</span></div>
-                        <div class="brief-opt multi" data-step="3" data-val="Lancer un nouveau produit"><span class="bo-icon">🚀</span><span class="bo-name">Lancer un produit</span></div>
-                        <div class="brief-opt multi" data-step="3" data-val="Améliorer l'existant"><span class="bo-icon">🔧</span><span class="bo-name">Améliorer l'existant</span></div>
-                    </div>
-                    <div class="brief-nav">
-                        <button class="btn-brief-back" onclick="briefBack(3)">← Retour</button>
-                        <div class="brief-nav-right"><span class="brief-step-count">3 / 5</span><button class="btn-brief-next" onclick="briefNext(3)">Suivant →</button></div>
-                    </div>
-                </div>
-
-                <!-- Step 4 -->
-                <div class="brief-step" id="bs-4">
-                    <div class="bs-label">Étape 4 sur 5</div>
-                    <div class="bs-question">Contexte & références</div>
-                    <div class="bs-hint">Ces informations m'aident à préparer notre échange.</div>
-                    <label class="brief-field-label">Site ou outil existant</label>
-                    <input class="brief-input" type="text" id="b-existing" placeholder="https://monsite.com (facultatif)">
-                    <label class="brief-field-label">Sites qui vous inspirent</label>
-                    <input class="brief-input" type="text" id="b-refs" placeholder="Ex : apple.com, notion.so, linear.app...">
-                    <label class="brief-field-label">Contraintes particulières</label>
-                    <input class="brief-input" type="text" id="b-constraints" placeholder="Budget serré, délai imposé, techno spécifique...">
-                    <div class="brief-nav">
-                        <button class="btn-brief-back" onclick="briefBack(4)">← Retour</button>
-                        <div class="brief-nav-right"><span class="brief-step-count">4 / 5</span><button class="btn-brief-next" onclick="briefNext(4)">Suivant →</button></div>
-                    </div>
-                </div>
-
-                <!-- Step 5 -->
-                <div class="brief-step" id="bs-5">
-                    <div class="bs-label">Étape 5 sur 5</div>
-                    <div class="bs-question">Décrivez librement votre projet</div>
-                    <div class="bs-hint">Tout ce qui n'entre pas dans les cases précédentes — contexte, vision, détails importants.</div>
-                    <textarea class="brief-textarea" id="b-free" placeholder="Ex : Je veux refondre mon site e-commerce car il est lent et ne convertit pas. J'ai 200 références produits, je vends principalement en France..."></textarea>
-                    <div class="brief-nav">
-                        <button class="btn-brief-back" onclick="briefBack(5)">← Retour</button>
-                        <div class="brief-nav-right"><span class="brief-step-count">5 / 5</span><button class="btn-brief-generate" onclick="generatePrompt()">✦ Générer le brief</button></div>
-                    </div>
-                </div>
-
-                <!-- Prompt output -->
-                <div class="prompt-output" id="prompt-output">
-                    <div class="prompt-label">// Prompt généré — prêt à coller dans Claude</div>
-                    <div class="prompt-box" id="prompt-box"></div>
-                    <div class="prompt-actions">
-                        <button class="btn-copy" onclick="copyPrompt()">📋 Copier</button>
-                        <button class="btn-inject" onclick="injectPrompt()">↓ Injecter dans le message</button>
-                        <span class="inject-ok" id="inject-ok">✓ Injecté !</span>
-                    </div>
-                </div>
-
-            </div>
-        </div>
-
-    </div>
-</div>
-
 <footer>
     <p>© 2026 lab404.dev — Studio créatif & technique · Marseille 🔆 &nbsp;·&nbsp; <a href="mentions-legales.html">Mentions légales</a></p>
 </footer>
 
-<script>
+<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
 const cursor = document.getElementById('cursor');
 document.addEventListener('mousemove', function(e) {
     cursor.style.left = (e.clientX - 10) + 'px';
@@ -466,24 +445,6 @@ document.getElementById('contact-form').addEventListener('submit', async functio
 });
 
 // Brief toggle
-function openBrief() {
-    const body = document.getElementById('brief-body');
-    const toggle = document.getElementById('brief-toggle');
-    if (!body.classList.contains('open')) {
-        body.classList.add('open');
-        toggle.classList.add('open');
-        toggle.lastChild.textContent = ' Réduire';
-    }
-    body.scrollIntoView({ behavior: 'smooth', block: 'start' });
-}
-
-function toggleBrief() {
-    const body = document.getElementById('brief-body');
-    const toggle = document.getElementById('brief-toggle');
-    const isOpen = body.classList.toggle('open');
-    toggle.classList.toggle('open');
-    toggle.lastChild.textContent = isOpen ? ' Réduire' : ' Remplir le brief';
-}
 
 // Brief opts
 document.querySelectorAll('.brief-opt:not(.multi)').forEach(o => {
@@ -552,21 +513,9 @@ Réponds de façon concise et professionnelle.`;
     for (let i=1; i<=5; i++) document.getElementById('dot-'+i).className = 'bp-dot done';
 }
 
-function copyPrompt() {
-    navigator.clipboard.writeText(document.getElementById('prompt-box').textContent).then(() => {
-        const btn = document.querySelector('.btn-copy');
-        btn.textContent = '✓ Copié !';
-        setTimeout(() => btn.textContent = '📋 Copier', 2000);
-    });
-}
 
 function injectPrompt() {
     document.getElementById('message').value = document.getElementById('prompt-box').textContent;
     const ok = document.getElementById('inject-ok');
     ok.style.display = 'inline';
-    setTimeout(() => ok.style.display = 'none', 2500);
-    document.getElementById('message').scrollIntoView({ behavior: 'smooth', block: 'center' });
-}
-</script>
-</body>
-</html>
+    setTimeout(() => ok.s
