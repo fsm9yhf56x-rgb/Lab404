@@ -215,10 +215,6 @@ header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.25
         @media (max-width: 768px) { .logo-img { height: 52px; } }
 
     
-        .brief-opt { pointer-events: auto !important; cursor: pointer !important; }
-        .brief-opt * { pointer-events: none; }
-        .brief-inline-body, .brief-step, .brief-options { pointer-events: auto !important; }
-
     </style>
 <script type="application/ld+json">
 {
@@ -485,8 +481,8 @@ function selectOpt(el) {
         el.classList.add('selected');
     }
 }
-document.querySelectorAll('.brief-opt').forEach(o => {
-    o.addEventListener('click', function() { selectOpt(this); });
+document.querySelectorAll('.brief-opt').forEach(function(o) {
+    o.onclick = function(e) { e.stopPropagation(); selectOpt(this); };
 });
 
 // Brief state
