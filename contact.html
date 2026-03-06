@@ -34,13 +34,11 @@
         nav a { text-decoration: none; color: var(--text-light); font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
         nav a:hover { color: var(--yellow-dark); }
         .header-cta { background: var(--yellow) !important; color: white !important; padding: 0.6rem 1.5rem !important; border-radius: 8px; font-weight: 700 !important; }
-
         .page-hero { padding: 9rem 4rem 3rem; max-width: 1200px; margin: 0 auto; }
         .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; letter-spacing: 0.15em; color: var(--yellow-dark); text-transform: uppercase; margin-bottom: 1rem; }
         .section-label::before { content: '// '; }
         .page-hero h1 { font-family: 'Archivo Black', sans-serif; font-size: clamp(2.5rem, 5vw, 4rem); letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 1rem; }
         .page-hero p { font-size: 1.1rem; color: var(--text-light); max-width: 500px; line-height: 1.7; }
-
         .contact-layout { display: grid; grid-template-columns: 300px 1fr; gap: 3rem; max-width: 1200px; margin: 0 auto; padding: 0 4rem 6rem; align-items: start; }
         .contact-sidebar { display: flex; flex-direction: column; gap: 1.5rem; position: sticky; top: 7rem; }
         .sidebar-card { background: white; border-radius: 16px; padding: 1.5rem; border: 1px solid var(--border); }
@@ -59,8 +57,6 @@
         .step-num { width: 22px; height: 22px; background: var(--yellow); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.68rem; font-weight: 800; flex-shrink: 0; margin-top: 2px; }
         .step-name { font-size: 0.83rem; font-weight: 600; }
         .step-sub { font-size: 0.73rem; color: var(--text-light); }
-
-        /* Form */
         .form-card { background: white; border-radius: 20px; padding: 2.5rem; border: 1px solid var(--border); }
         .form-card h2 { font-family: 'Archivo Black', sans-serif; font-size: 1.4rem; letter-spacing: -0.02em; margin-bottom: 0.3rem; }
         .card-sub { font-size: 0.85rem; color: var(--text-light); margin-bottom: 1.75rem; line-height: 1.6; }
@@ -70,8 +66,6 @@
         .form-group label span { color: var(--yellow-dark); }
         .form-group input { padding: 0.7rem 0.9rem; border: 2px solid var(--border); border-radius: 10px; font-family: 'DM Sans', sans-serif; font-size: 0.88rem; background: var(--cream); color: var(--text); outline: none; transition: border-color 0.2s; }
         .form-group input:focus { border-color: var(--yellow); background: white; }
-
-        /* Brief */
         .brief-wrap { margin-top: 1.5rem; border: 2px solid rgba(255,184,0,0.25); border-radius: 14px; overflow: hidden; }
         .brief-header { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.25rem; cursor: pointer; background: rgba(255,184,0,0.04); transition: background 0.2s; }
         .brief-header:hover { background: rgba(255,184,0,0.08); }
@@ -83,34 +77,23 @@
         .brief-arrow.open { transform: rotate(180deg); }
         .brief-body { display: none; padding: 1.5rem; border-top: 1px solid rgba(255,184,0,0.15); }
         .brief-body.open { display: block; }
-
         .brief-progress { display: flex; gap: 6px; margin-bottom: 1.75rem; }
         .bp-dot { height: 4px; flex: 1; border-radius: 2px; background: var(--border); transition: background 0.3s; }
         .bp-dot.active { background: var(--yellow); }
         .bp-dot.done { background: var(--yellow-dark); }
-
         .brief-step { display: none; }
         .brief-step.active { display: block; }
         .step-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem; letter-spacing: 0.1em; color: var(--yellow-dark); text-transform: uppercase; margin-bottom: 0.4rem; }
         .step-question { font-family: 'Archivo Black', sans-serif; font-size: 1.05rem; margin-bottom: 1.25rem; }
         .step-hint { font-size: 0.78rem; color: var(--text-light); margin-top: -0.75rem; margin-bottom: 1rem; }
-
         .opt-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 1.5rem; }
         .opt-grid.col3 { grid-template-columns: repeat(3, 1fr); }
-        .opt {
-            border: 2px solid var(--border);
-            border-radius: 10px;
-            padding: 0.9rem;
-            cursor: pointer;
-            background: var(--cream);
-            transition: border-color 0.15s, background 0.15s;
-        }
+        .opt { border: 2px solid var(--border); border-radius: 10px; padding: 0.9rem; cursor: pointer; background: var(--cream); transition: border-color 0.15s, background 0.15s; }
         .opt:hover { border-color: rgba(255,184,0,0.5); background: white; }
         .opt.sel { border-color: var(--yellow); background: rgba(255,184,0,0.07); }
         .opt-icon { display: block; font-size: 1.25rem; margin-bottom: 0.35rem; }
         .opt-name { display: block; font-size: 0.82rem; font-weight: 700; }
         .opt-desc { display: block; font-size: 0.7rem; color: var(--text-light); margin-top: 0.1rem; }
-
         .step-nav { display: flex; justify-content: space-between; align-items: center; padding-top: 1.25rem; border-top: 1px solid var(--border); }
         .step-nav-right { display: flex; align-items: center; gap: 0.75rem; }
         .step-count { font-size: 0.72rem; color: var(--text-light); font-family: 'IBM Plex Mono', monospace; }
@@ -122,25 +105,20 @@
         .btn-send { background: var(--yellow); color: var(--text); border: none; padding: 0.65rem 1.6rem; border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 800; cursor: pointer; transition: background 0.2s; }
         .btn-send:hover { background: var(--yellow-dark); color: white; }
         .btn-send:disabled { opacity: 0.55; cursor: not-allowed; }
-
         .brief-field-label { font-size: 0.8rem; font-weight: 700; display: block; margin-bottom: 0.35rem; }
         .brief-input { width: 100%; padding: 0.7rem 0.9rem; border: 2px solid var(--border); border-radius: 10px; font-family: 'DM Sans', sans-serif; font-size: 0.88rem; background: var(--cream); color: var(--text); outline: none; transition: border-color 0.2s; margin-bottom: 0.8rem; }
         .brief-input:focus { border-color: var(--yellow); background: white; }
         .brief-textarea { width: 100%; padding: 0.85rem 0.9rem; border: 2px solid var(--border); border-radius: 10px; font-family: 'DM Sans', sans-serif; font-size: 0.88rem; background: var(--cream); color: var(--text); outline: none; transition: border-color 0.2s; resize: vertical; min-height: 110px; margin-bottom: 0.5rem; }
         .brief-textarea:focus { border-color: var(--yellow); background: white; }
-
         .brief-success { display: none; align-items: center; gap: 0.75rem; padding: 1rem; background: rgba(40,200,64,0.08); border-radius: 10px; border: 1px solid rgba(40,200,64,0.2); }
         .brief-success-icon { font-size: 1.1rem; }
         .brief-success-text { font-size: 0.84rem; font-weight: 600; }
-
         .form-sent { display: none; text-align: center; padding: 3rem 1rem; }
         .form-sent-icon { font-size: 3rem; margin-bottom: 1rem; }
         .form-sent h3 { font-family: 'Archivo Black', sans-serif; font-size: 1.4rem; margin-bottom: 0.5rem; }
         .form-sent p { color: var(--text-light); font-size: 0.95rem; }
-
         footer { text-align: center; padding: 2rem; font-size: 0.82rem; color: var(--text-light); border-top: 1px solid var(--border); }
         footer a { color: var(--text-light); }
-
         @media (max-width: 900px) {
             header { padding: 1rem 1.5rem; }
             .logo-img { height: 52px; }
@@ -162,7 +140,8 @@
         <nav>
             <a href="portfolio">Portfolio</a>
             <a href="services">Services</a>
-            <a href="contact" class="header-cta">Contact</a>
+            <a href="contact" class="active">Contact</a>
+            <a href="contact" class="header-cta">Démarrage gratuit</a>
         </nav>
     </div>
 </header>
@@ -174,7 +153,6 @@
 </div>
 
 <div class="contact-layout">
-
     <div class="contact-sidebar">
         <div class="sidebar-card">
             <div class="card-title">Nous contacter</div>
@@ -204,7 +182,6 @@
         <div class="form-card">
             <h2>Votre projet</h2>
             <p class="card-sub">Plus vous êtes précis, meilleure sera notre réponse.</p>
-
             <div id="form-wrap">
                 <div class="form-row">
                     <div class="form-group">
@@ -239,7 +216,6 @@
                         <svg class="brief-arrow open" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
                     </div>
                     <div class="brief-body open" id="brief-body">
-
                         <div class="brief-progress">
                             <div class="bp-dot active" id="d1"></div>
                             <div class="bp-dot" id="d2"></div>
@@ -247,8 +223,6 @@
                             <div class="bp-dot" id="d4"></div>
                             <div class="bp-dot" id="d5"></div>
                         </div>
-
-                        <!-- Step 1 -->
                         <div class="brief-step active" id="s1">
                             <div class="step-label">Étape 1 sur 5</div>
                             <div class="step-question">Dans quel secteur travaillez-vous ?</div>
@@ -262,8 +236,6 @@
                             </div>
                             <div class="step-nav"><span></span><div class="step-nav-right"><span class="step-count">1 / 5</span><button type="button" class="btn-next" onclick="goNext(1)">Suivant →</button></div></div>
                         </div>
-
-                        <!-- Step 2 -->
                         <div class="brief-step" id="s2">
                             <div class="step-label">Étape 2 sur 5</div>
                             <div class="step-question">Qui sont vos clients cibles ?</div>
@@ -274,8 +246,6 @@
                             </div>
                             <div class="step-nav"><button type="button" class="btn-back" onclick="goBack(2)">← Retour</button><div class="step-nav-right"><span class="step-count">2 / 5</span><button type="button" class="btn-next" onclick="goNext(2)">Suivant →</button></div></div>
                         </div>
-
-                        <!-- Step 3 -->
                         <div class="brief-step" id="s3">
                             <div class="step-label">Étape 3 sur 5</div>
                             <div class="step-question">Quel est l'objectif principal ?</div>
@@ -290,8 +260,6 @@
                             </div>
                             <div class="step-nav"><button type="button" class="btn-back" onclick="goBack(3)">← Retour</button><div class="step-nav-right"><span class="step-count">3 / 5</span><button type="button" class="btn-next" onclick="goNext(3)">Suivant →</button></div></div>
                         </div>
-
-                        <!-- Step 4 -->
                         <div class="brief-step" id="s4">
                             <div class="step-label">Étape 4 sur 5</div>
                             <div class="step-question">Contexte & références</div>
@@ -303,8 +271,6 @@
                             <input class="brief-input" type="text" id="b-constraints" placeholder="Budget, délai, technologie...">
                             <div class="step-nav"><button type="button" class="btn-back" onclick="goBack(4)">← Retour</button><div class="step-nav-right"><span class="step-count">4 / 5</span><button type="button" class="btn-next" onclick="goNext(4)">Suivant →</button></div></div>
                         </div>
-
-                        <!-- Step 5 -->
                         <div class="brief-step" id="s5">
                             <div class="step-label">Étape 5 sur 5</div>
                             <div class="step-question">Décrivez librement votre projet</div>
@@ -318,16 +284,13 @@
                                 </div>
                             </div>
                         </div>
-
                         <div class="brief-success" id="brief-success">
                             <div class="brief-success-icon">✓</div>
                             <div class="brief-success-text">Envoi en cours...</div>
                         </div>
-
                     </div>
                 </div>
             </div>
-
             <div class="form-sent" id="form-sent">
                 <div class="form-sent-icon">✅</div>
                 <h3>Message envoyé !</h3>
@@ -387,11 +350,9 @@ function goBack(n) {
 
 function sendBrief() {
     B.free = document.getElementById('b-free').value;
-
     var firstname = document.getElementById('fn').value.trim();
     var email = document.getElementById('em').value.trim();
     if (!firstname || !email) { alert('Merci de renseigner votre prénom et email.'); return; }
-
     var brief = [
         'SECTEUR : ' + (B.sector || 'Non précisé'),
         'CIBLE : ' + (B.audience || 'Non précisé'),
@@ -401,29 +362,24 @@ function sendBrief() {
         'CONTRAINTES : ' + (B.constraints || 'Aucune'),
         'DESCRIPTION : ' + (B.free || 'Aucune')
     ].join('\n');
-
     var btn = document.getElementById('send-btn');
     btn.textContent = 'Envoi…';
     btn.disabled = true;
     document.getElementById('s5').classList.remove('active');
     document.getElementById('brief-success').style.display = 'flex';
-
     var data = new FormData();
     data.append('firstname', firstname);
     data.append('lastname', document.getElementById('ln').value);
     data.append('email', email);
     data.append('company', document.getElementById('co').value);
     data.append('brief', brief);
-
     fetch('https://formspree.io/f/mzdjpeeo', {
         method: 'POST', body: data, headers: { 'Accept': 'application/json' }
     }).then(function(r) {
         if (r.ok) {
             document.getElementById('form-wrap').style.display = 'none';
             document.getElementById('form-sent').style.display = 'block';
-        } else {
-            fail(btn);
-        }
+        } else { fail(btn); }
     }).catch(function() { fail(btn); });
 }
 
