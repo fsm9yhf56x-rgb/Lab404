@@ -77,7 +77,7 @@
             left: 0;
             right: 0;
             z-index: 1000;
-            padding: 1.25rem 4rem; display: flex; align-items: center;
+            padding: 1.25rem 4rem; 
             background: rgba(250, 247, 242, 0.97);
             backdrop-filter: blur(24px);
             -webkit-backdrop-filter: blur(24px);
@@ -92,13 +92,7 @@
             box-shadow: 0 2px 24px rgba(26, 23, 20, 0.1);
         }
 
-        .header-content {
-            max-width: 1400px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
+        .header-content { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; width: 100%; }
 
         .logo {
             font-size: 1.4rem;
@@ -605,7 +599,7 @@
         }
 
         @media (max-width: 768px) {
-            header { padding: 1rem 2rem; display: flex; align-items: center; }
+            header { padding: 1rem 2rem;  }
             .container { padding: 0 1.5rem; }
             nav a:not(.header-cta) { display: none; }
             .hero { padding: 6rem 0 3rem; }
