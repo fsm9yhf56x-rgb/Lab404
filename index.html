@@ -77,7 +77,7 @@
             left: 0;
             right: 0;
             z-index: 1000;
-            padding: 1.25rem 4rem;
+            padding: 1.25rem 4rem; display: flex; align-items: center;
             background: rgba(250, 247, 242, 0.97);
             backdrop-filter: blur(24px);
             -webkit-backdrop-filter: blur(24px);
@@ -605,7 +605,7 @@
         }
 
         @media (max-width: 768px) {
-            header { padding: 1rem 2rem; }
+            header { padding: 1rem 2rem; display: flex; align-items: center; }
             .container { padding: 0 1.5rem; }
             nav a:not(.header-cta) { display: none; }
             .hero { padding: 6rem 0 3rem; }
@@ -1005,8 +1005,9 @@
             transform: translateY(0) !important;
         }
 
-        .logo-img-link { display: inline-flex; align-items: center; text-decoration: none; }
-        .logo-img { height: 60px; width: auto; display: block; }
+        .logo-img-link { display: inline-flex; align-items: center; text-decoration: none; flex-shrink: 0; }
+        .logo-img { height: 68px; width: auto; display: block; }
+        @media (max-width: 768px) { .logo-img { height: 52px; } }
 
     </style></style>
 <script type="application/ld+json">
@@ -1053,7 +1054,7 @@
     <header>
         <div class="header-content">
             <a href="/" class="logo-img-link">
-                <img src="logo-navbar.png" alt="lab404 — Studio web Marseille" class="logo-img" width="220" height="60">
+                <img src="logo-navbar.png" alt="lab404 — Studio web Marseille" class="logo-img">
             </a>
             <nav>
                 <a href="portfolio">Portfolio</a>
