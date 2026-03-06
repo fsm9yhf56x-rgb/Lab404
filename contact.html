@@ -214,6 +214,11 @@ header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.25
         .logo-img { height: 68px; width: auto; display: block; }
         @media (max-width: 768px) { .logo-img { height: 52px; } }
 
+    
+        .brief-opt { pointer-events: auto !important; cursor: pointer !important; }
+        .brief-opt * { pointer-events: none; }
+        .brief-inline-body, .brief-step, .brief-options { pointer-events: auto !important; }
+
     </style>
 <script type="application/ld+json">
 {
@@ -426,11 +431,7 @@ header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.25
 </footer>
 
 <script>
-const cursor = document.getElementById('cursor');
-document.addEventListener('mousemove', function(e) {
-    cursor.style.left = (e.clientX - 10) + 'px';
-    cursor.style.top  = (e.clientY - 10) + 'px';
-});
+
 
 // Pills — multi
 document.querySelectorAll('.pill:not(.single)').forEach(p => {
@@ -474,14 +475,18 @@ document.getElementById('contact-form').addEventListener('submit', async functio
 // Brief toggle
 
 // Brief opts
-document.querySelectorAll('.brief-opt:not(.multi)').forEach(o => {
-    o.addEventListener('click', () => {
-        document.querySelectorAll(`.brief-opt[data-step="${o.dataset.step}"]:not(.multi)`).forEach(x => x.classList.remove('selected'));
-        o.classList.add('selected');
-    });
-});
-document.querySelectorAll('.brief-opt.multi').forEach(o => {
-    o.addEventListener('click', () => o.classList.toggle('selected'));
+function selectOpt(el) {
+    const step = el.dataset.step;
+    const isMulti = el.classList.contains('multi');
+    if (isMulti) {
+        el.classList.toggle('selected');
+    } else {
+        document.querySelectorAll('.brief-opt[data-step="' + step + '"]:not(.multi)').forEach(x => x.classList.remove('selected'));
+        el.classList.add('selected');
+    }
+}
+document.querySelectorAll('.brief-opt').forEach(o => {
+    o.addEventListener('click', function() { selectOpt(this); });
 });
 
 // Brief state
