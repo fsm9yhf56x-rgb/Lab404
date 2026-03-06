@@ -29,22 +29,11 @@
             align-items: center;
             justify-content: center;
             overflow: hidden;
-            cursor: none;
+            
         }
 
         /* Cursor */
-        #cursor {
-            position: fixed;
-            width: 20px; height: 20px;
-            border: 2px solid var(--yellow);
-            border-radius: 50%;
-            pointer-events: none;
-            top: 0; left: 0;
-            z-index: 10000;
-            margin: -10px 0 0 -10px;
-        }
-
-        /* Background grid */
+/* Background grid */
         .bg-grid {
             position: fixed;
             inset: 0;
@@ -233,13 +222,10 @@
             .cta-group { flex-direction: column; align-items: center; }
             .quick-links { gap: 1.2rem; }
             body { cursor: auto; }
-            #cursor { display: none; }
-        }
+}
     </style>
 </head>
 <body>
-
-    <div id="cursor"></div>
     <div class="bg-grid"></div>
     <div class="blob blob-1"></div>
     <div class="blob blob-2"></div>
