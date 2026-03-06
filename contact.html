@@ -7,6 +7,11 @@
     <meta name="description" content="Contactez lab404 pour votre projet web, app ou IA à Marseille. Premier échange gratuit, réponse sous 24h.">
     <meta name="keywords" content="contact développeur web Marseille, devis site web Marseille, freelance web Marseille, studio web contact">
     <meta name="robots" content="index, follow">
+    <meta property="og:title" content="Contact — Devis Gratuit · lab404 Marseille">
+    <meta property="og:description" content="Contactez lab404 pour votre projet web, app ou IA à Marseille. Premier échange gratuit, réponse sous 24h.">
+    <meta property="og:url" content="https://lab404.dev/contact">
+    <meta property="og:image" content="https://lab404.dev/og-image.png">
+    <link rel="canonical" href="https://lab404.dev/contact">
     <link rel="icon" type="image/x-icon" href="favicon.ico">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500&family=DM+Sans:ital,wght@0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
@@ -18,330 +23,146 @@
             --text: #1A1714;
             --text-light: #6B5E58;
             --cream: #FAF7F2;
-            --white: #FFFFFF;
             --border: rgba(255,184,0,0.15);
         }
         body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text); }
-header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.25rem 4rem;  background: rgba(250,247,242,0.97); backdrop-filter: blur(24px); border-bottom: 1px solid var(--border); box-shadow: 0 2px 20px rgba(26,23,20,0.06); }
-        .header-content { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; width: 100%; }
-        .logo-wrapper { display: flex; flex-direction: column; gap: 0.15rem; }
-        .logo-b { font-family: 'Archivo Black', sans-serif; font-size: 1.4rem; letter-spacing: -0.02em; line-height: 1; display: inline-flex; align-items: center; text-decoration: none; }
-        .logo-b .lab { color: var(--text); }
-        .logo-b .bloc { background: var(--yellow); color: var(--text); padding: 0 0.2em; margin-left: 0.04em; }
-        .logo-tagline { font-family: 'IBM Plex Mono', monospace; font-size: 0.58rem; letter-spacing: 0.1em; color: #aaa; }
-        .logo-tagline::before { content: '// '; color: var(--yellow); font-weight: 600; }
+        header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.25rem 4rem; background: rgba(250,247,242,0.97); backdrop-filter: blur(24px); border-bottom: 1px solid var(--border); }
+        .header-content { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; }
+        .logo-img-link { display: inline-flex; align-items: center; text-decoration: none; flex-shrink: 0; }
+        .logo-img { height: 68px; width: auto; display: block; }
         nav { display: flex; align-items: center; gap: 2.5rem; }
         nav a { text-decoration: none; color: var(--text-light); font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
-        nav a:hover, nav a.active { color: var(--yellow-dark); }
+        nav a:hover { color: var(--yellow-dark); }
         .header-cta { background: var(--yellow) !important; color: white !important; padding: 0.6rem 1.5rem !important; border-radius: 8px; font-weight: 700 !important; }
-        .page-hero { padding: 9rem 4rem 4rem; max-width: 1200px; margin: 0 auto; }
+
+        .page-hero { padding: 9rem 4rem 3rem; max-width: 1200px; margin: 0 auto; }
         .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; letter-spacing: 0.15em; color: var(--yellow-dark); text-transform: uppercase; margin-bottom: 1rem; }
         .section-label::before { content: '// '; }
         .page-hero h1 { font-family: 'Archivo Black', sans-serif; font-size: clamp(2.5rem, 5vw, 4rem); letter-spacing: -0.03em; line-height: 1.05; margin-bottom: 1rem; }
         .page-hero p { font-size: 1.1rem; color: var(--text-light); max-width: 500px; line-height: 1.7; }
-        .contact-layout { display: grid; grid-template-columns: 320px 1fr; gap: 3rem; max-width: 1200px; margin: 0 auto; padding: 0 4rem 6rem; align-items: start; }
-        .contact-sidebar { display: flex; flex-direction: column; gap: 1.5rem; position: sticky; top: 6rem; }
-        .info-card, .avail-card, .process-card { background: white; border-radius: 20px; padding: 2rem; border: 1px solid var(--border); }
-        .info-card-title { font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem; letter-spacing: 0.15em; color: var(--yellow-dark); text-transform: uppercase; margin-bottom: 1.25rem; }
-        .contact-method { display: flex; align-items: center; gap: 1rem; padding: 0.85rem 0; border-bottom: 1px solid var(--border); text-decoration: none; transition: all 0.2s; }
+
+        .contact-layout { display: grid; grid-template-columns: 300px 1fr; gap: 3rem; max-width: 1200px; margin: 0 auto; padding: 0 4rem 6rem; align-items: start; }
+        .contact-sidebar { display: flex; flex-direction: column; gap: 1.5rem; position: sticky; top: 7rem; }
+        .sidebar-card { background: white; border-radius: 16px; padding: 1.5rem; border: 1px solid var(--border); }
+        .card-title { font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; letter-spacing: 0.15em; color: var(--yellow-dark); text-transform: uppercase; margin-bottom: 1rem; }
+        .contact-method { display: flex; align-items: center; gap: 0.85rem; padding: 0.75rem 0; border-bottom: 1px solid var(--border); text-decoration: none; color: var(--text); }
         .contact-method:last-child { border-bottom: none; }
-        .contact-method:hover .method-icon { background: var(--yellow); }
-        .contact-method:hover .method-icon svg { stroke: white; }
-        .method-icon { width: 40px; height: 40px; background: rgba(255,184,0,0.1); border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; transition: all 0.2s; }
-        .method-icon svg { width: 18px; height: 18px; stroke: var(--yellow); fill: none; stroke-width: 2; stroke-linecap: round; }
-        .method-label { font-size: 0.75rem; color: var(--text-light); }
-        .method-value { font-size: 0.9rem; font-weight: 700; color: var(--text); }
-        .avail-dot { display: inline-flex; align-items: center; gap: 0.5rem; font-size: 0.85rem; font-weight: 600; margin-bottom: 0.75rem; }
-        .avail-dot::before { content: ''; width: 8px; height: 8px; border-radius: 50%; background: #28c840; box-shadow: 0 0 6px rgba(40,200,64,0.4); animation: pulse 2s infinite; flex-shrink: 0; }
-        @keyframes pulse { 0%,100% { box-shadow: 0 0 6px rgba(40,200,64,0.4); } 50% { box-shadow: 0 0 12px rgba(40,200,64,0.7); } }
-        .avail-card p { font-size: 0.85rem; color: var(--text-light); line-height: 1.7; }
-        .avail-card strong { color: var(--text); }
-        .process-step-item { display: flex; align-items: flex-start; gap: 0.75rem; padding: 0.5rem 0; }
-        .ps-num { font-family: 'IBM Plex Mono', monospace; font-size: 0.7rem; color: var(--yellow-dark); font-weight: 700; margin-top: 0.1rem; min-width: 20px; }
-        .ps-text { font-size: 0.85rem; color: var(--text-light); line-height: 1.5; }
-        .ps-text strong { color: var(--text); display: block; }
-        .contact-right { display: flex; flex-direction: column; gap: 1.5rem; }
+        .method-icon { width: 36px; height: 36px; background: rgba(255,184,0,0.1); border-radius: 8px; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+        .method-icon svg { width: 16px; height: 16px; stroke: var(--yellow-dark); fill: none; stroke-width: 2; }
+        .method-label { font-size: 0.72rem; color: var(--text-light); }
+        .method-value { font-size: 0.85rem; font-weight: 600; }
+        .avail-dot { width: 8px; height: 8px; background: #28c840; border-radius: 50%; display: inline-block; margin-right: 6px; animation: pulse 2s infinite; }
+        @keyframes pulse { 0%,100%{opacity:1} 50%{opacity:0.5} }
+        .avail-status { font-weight: 700; font-size: 0.88rem; margin-bottom: 0.35rem; }
+        .avail-sub { font-size: 0.78rem; color: var(--text-light); }
+        .step-item { display: flex; gap: 0.75rem; padding: 0.5rem 0; }
+        .step-num { width: 22px; height: 22px; background: var(--yellow); border-radius: 6px; display: flex; align-items: center; justify-content: center; font-size: 0.68rem; font-weight: 800; flex-shrink: 0; margin-top: 2px; }
+        .step-name { font-size: 0.83rem; font-weight: 600; }
+        .step-sub { font-size: 0.73rem; color: var(--text-light); }
+
+        /* Form */
         .form-card { background: white; border-radius: 20px; padding: 2.5rem; border: 1px solid var(--border); }
-        .form-card h2 { font-family: 'Archivo Black', sans-serif; font-size: 1.4rem; letter-spacing: -0.02em; margin-bottom: 0.4rem; }
-        .card-sub { font-size: 0.88rem; color: var(--text-light); margin-bottom: 2rem; }
+        .form-card h2 { font-family: 'Archivo Black', sans-serif; font-size: 1.4rem; letter-spacing: -0.02em; margin-bottom: 0.3rem; }
+        .card-sub { font-size: 0.85rem; color: var(--text-light); margin-bottom: 1.75rem; line-height: 1.6; }
         .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; margin-bottom: 1rem; }
-        .form-group { display: flex; flex-direction: column; gap: 0.4rem; margin-bottom: 1rem; }
-        .form-group label { font-size: 0.82rem; font-weight: 700; color: var(--text); }
+        .form-group { display: flex; flex-direction: column; gap: 0.35rem; }
+        .form-group label { font-size: 0.8rem; font-weight: 700; }
         .form-group label span { color: var(--yellow-dark); }
-        .form-group input, .form-group textarea { padding: 0.8rem 1rem; border: 2px solid var(--border); border-radius: 10px; font-family: 'DM Sans', sans-serif; font-size: 0.92rem; background: var(--cream); color: var(--text); transition: border-color 0.2s; resize: vertical; }
-        .form-group input:focus, .form-group textarea:focus { outline: none; border-color: var(--yellow); background: white; }
-        .form-group textarea { min-height: 110px; }
-        .pills-wrap { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.4rem; }
-        .pill { padding: 0.45rem 1rem; border: 2px solid var(--border); border-radius: 50px; font-size: 0.82rem; font-weight: 600; color: var(--text-light); cursor: pointer; background: var(--cream); transition: all 0.2s; user-select: none; }
-        .pill:hover { border-color: var(--yellow); color: var(--yellow-dark); background: white; }
-        .pill.active { background: var(--yellow); border-color: var(--yellow); color: white; }
-        .submit-row { display: flex; align-items: center; gap: 1.5rem; margin-top: 1.5rem; }
-        .submit-btn { background: var(--yellow); color: white; border: none; padding: 1rem 2.5rem; border-radius: 10px; font-family: 'DM Sans', sans-serif; font-size: 1rem; font-weight: 700; cursor: pointer; transition: all 0.3s; box-shadow: 0 4px 16px rgba(255,184,0,0.25); }
-        .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,184,0,0.35); }
-        .submit-note { font-size: 0.8rem; color: var(--text-light); line-height: 1.5; }
-        .submit-note strong { color: var(--text); }
-        .form-success { display: none; text-align: center; padding: 3rem 2rem; }
-        .form-success .success-icon { font-size: 3rem; margin-bottom: 1rem; }
-        .form-success h3 { font-family: 'Archivo Black', sans-serif; font-size: 1.5rem; margin-bottom: 0.5rem; }
-        .form-success p { color: var(--text-light); }
+        .form-group input { padding: 0.7rem 0.9rem; border: 2px solid var(--border); border-radius: 10px; font-family: 'DM Sans', sans-serif; font-size: 0.88rem; background: var(--cream); color: var(--text); outline: none; transition: border-color 0.2s; }
+        .form-group input:focus { border-color: var(--yellow); background: white; }
 
-        /* BRIEF */
-        .brief-card { background: white; border-radius: 20px; border: 2px solid var(--border); overflow: hidden; }
-        .brief-header { padding: 2rem 2.5rem;  border-bottom: 1px solid var(--border); }
-        .brief-header h2 { font-family: 'Archivo Black', sans-serif; font-size: 1.3rem; letter-spacing: -0.02em; margin-bottom: 0.35rem; }
-        .brief-header p { font-size: 0.85rem; color: var(--text-light); line-height: 1.6; margin-bottom: 1rem; }
-        .brief-toggle { display: inline-flex; align-items: center; gap: 0.5rem; cursor: pointer; font-size: 0.85rem; font-weight: 700; color: var(--yellow-dark); border: 2px solid var(--yellow); padding: 0.5rem 1.1rem; border-radius: 50px; transition: all 0.2s; }
-        .brief-toggle:hover { background: var(--yellow); color: white; }
-        .brief-toggle svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2.5; transition: transform 0.3s; }
-        .brief-toggle.open svg { transform: rotate(180deg); }
-        .brief-body { padding: 2.5rem; display: none; }
+        /* Brief */
+        .brief-wrap { margin-top: 1.5rem; border: 2px solid rgba(255,184,0,0.25); border-radius: 14px; overflow: hidden; }
+        .brief-header { display: flex; align-items: center; justify-content: space-between; padding: 1rem 1.25rem; cursor: pointer; background: rgba(255,184,0,0.04); transition: background 0.2s; }
+        .brief-header:hover { background: rgba(255,184,0,0.08); }
+        .brief-header-left { display: flex; align-items: center; gap: 0.75rem; }
+        .brief-icon { color: var(--yellow-dark); font-size: 1rem; }
+        .brief-title { font-size: 0.9rem; font-weight: 700; }
+        .brief-subtitle { font-size: 0.75rem; color: var(--text-light); margin-top: 0.1rem; }
+        .brief-arrow { width: 18px; height: 18px; stroke: var(--text-light); fill: none; stroke-width: 2.5; transition: transform 0.3s; }
+        .brief-arrow.open { transform: rotate(180deg); }
+        .brief-body { display: none; padding: 1.5rem; border-top: 1px solid rgba(255,184,0,0.15); }
         .brief-body.open { display: block; }
-        .brief-progress { display: flex; gap: 0.4rem; margin-bottom: 2rem; }
-        .bp-dot { flex: 1; height: 4px; background: var(--border); border-radius: 2px; transition: background 0.3s; }
-        .bp-dot.done { background: var(--yellow); }
-        .bp-dot.active { background: var(--yellow-dark); }
-        .brief-step { display: none; animation: fadeUp 0.3s ease; }
+
+        .brief-progress { display: flex; gap: 6px; margin-bottom: 1.75rem; }
+        .bp-dot { height: 4px; flex: 1; border-radius: 2px; background: var(--border); transition: background 0.3s; }
+        .bp-dot.active { background: var(--yellow); }
+        .bp-dot.done { background: var(--yellow-dark); }
+
+        .brief-step { display: none; }
         .brief-step.active { display: block; }
-        @keyframes fadeUp { from { opacity:0; transform:translateY(8px); } to { opacity:1; transform:translateY(0); } }
-        .bs-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; letter-spacing: 0.12em; color: var(--yellow-dark); text-transform: uppercase; margin-bottom: 0.5rem; }
-        .bs-label::before { content: '// '; }
-        .bs-question { font-family: 'Archivo Black', sans-serif; font-size: 1.1rem; letter-spacing: -0.02em; margin-bottom: 0.3rem; }
-        .bs-hint { font-size: 0.82rem; color: var(--text-light); margin-bottom: 1.5rem; line-height: 1.5; }
-        .brief-options { display: grid; grid-template-columns: 1fr 1fr; gap: 0.6rem; margin-bottom: 1.5rem; }
-        .brief-options.col3 { grid-template-columns: repeat(3, 1fr); }
-        .brief-opt { border: 2px solid var(--border); border-radius: 12px; padding: 1rem; cursor: pointer; background: var(--cream); transition: all 0.2s; user-select: none; }
-        .brief-opt:hover { border-color: rgba(255,184,0,0.5); background: white; }
-        .brief-opt.selected { border-color: var(--yellow); background: rgba(255,184,0,0.06); }
-        .bo-icon { font-size: 1.3rem; margin-bottom: 0.3rem; display: block; }
-        .bo-name { font-weight: 700; font-size: 0.85rem; color: var(--text); display: block; }
-        .bo-desc { font-size: 0.72rem; color: var(--text-light); margin-top: 0.1rem; display: block; }
-        .brief-input { width: 100%; padding: 0.75rem 1rem; border: 2px solid var(--border); border-radius: 10px; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; background: var(--cream); color: var(--text); transition: border-color 0.2s; margin-bottom: 0.85rem; }
-        .brief-input:focus { outline: none; border-color: var(--yellow); background: white; }
-        .brief-field-label { font-size: 0.82rem; font-weight: 700; display: block; margin-bottom: 0.4rem; color: var(--text); }
-        .brief-textarea { width: 100%; padding: 0.9rem 1rem; border: 2px solid var(--border); border-radius: 10px; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; background: var(--cream); color: var(--text); transition: border-color 0.2s; resize: vertical; min-height: 100px; margin-bottom: 1rem; }
-        .brief-textarea:focus { outline: none; border-color: var(--yellow); background: white; }
-        .brief-nav { display: flex; justify-content: space-between; align-items: center; padding-top: 1.25rem; border-top: 1px solid var(--border); margin-top: 0.5rem; }
-        .brief-nav-right { display: flex; align-items: center; gap: 1rem; }
-        .brief-step-count { font-size: 0.75rem; color: var(--text-light); font-family: 'IBM Plex Mono', monospace; }
-        .btn-brief-back { background: none; border: 2px solid var(--border); color: var(--text-light); padding: 0.6rem 1.2rem; border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 600; cursor: pointer; transition: all 0.2s; }
-        .btn-brief-back:hover { border-color: var(--yellow); color: var(--yellow-dark); }
-        .btn-brief-next { background: var(--text); color: white; border: none; padding: 0.65rem 1.5rem; border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 700; cursor: pointer; transition: all 0.2s; }
-        .btn-brief-next:hover { background: var(--yellow); }
-        .btn-brief-generate { background: var(--yellow); color: white; border: none; padding: 0.65rem 1.5rem; border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 700; cursor: pointer; transition: all 0.2s; box-shadow: 0 4px 12px rgba(255,184,0,0.25); }
-        .btn-brief-generate:hover { transform: translateY(-1px); box-shadow: 0 6px 16px rgba(255,184,0,0.35); }
-        .prompt-output { display: none; margin-top: 1.5rem; animation: fadeUp 0.4s ease; }
-        .prompt-output.visible { display: block; }
-        .prompt-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.65rem; letter-spacing: 0.12em; color: var(--yellow-dark); text-transform: uppercase; margin-bottom: 0.6rem; }
-        .prompt-box { background: #1A1714; color: #FAF7F2; border-radius: 12px; padding: 1.5rem; font-family: 'IBM Plex Mono', monospace; font-size: 0.76rem; line-height: 1.75; white-space: pre-wrap; word-break: break-word; max-height: 260px; overflow-y: auto; }
-        .prompt-actions { display: flex; gap: 0.75rem; margin-top: 1rem; align-items: center; flex-wrap: wrap; }
-        .btn-copy { background: var(--yellow); color: white; border: none; padding: 0.6rem 1.4rem; border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 700; cursor: pointer; transition: all 0.2s; }
-        .btn-copy:hover { transform: translateY(-1px); }
-        .btn-inject { background: white; color: var(--text); border: 2px solid var(--border); padding: 0.6rem 1.4rem; border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 0.85rem; font-weight: 700; cursor: pointer; transition: all 0.2s; }
-        .btn-inject:hover { border-color: var(--yellow); color: var(--yellow-dark); }
-        .inject-ok { font-size: 0.8rem; color: #28c840; font-weight: 700; display: none; }
+        .step-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.68rem; letter-spacing: 0.1em; color: var(--yellow-dark); text-transform: uppercase; margin-bottom: 0.4rem; }
+        .step-question { font-family: 'Archivo Black', sans-serif; font-size: 1.05rem; margin-bottom: 1.25rem; }
+        .step-hint { font-size: 0.78rem; color: var(--text-light); margin-top: -0.75rem; margin-bottom: 1rem; }
 
-        footer { background: var(--cream); border-top: 1px solid var(--border); text-align: center; padding: 2rem; }
-        footer p { font-size: 0.82rem; color: var(--text-light); }
-        footer a { color: var(--text-light); text-decoration: underline; text-underline-offset: 3px; }
+        .opt-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 1.5rem; }
+        .opt-grid.col3 { grid-template-columns: repeat(3, 1fr); }
+        .opt {
+            border: 2px solid var(--border);
+            border-radius: 10px;
+            padding: 0.9rem;
+            cursor: pointer;
+            background: var(--cream);
+            transition: border-color 0.15s, background 0.15s;
+        }
+        .opt:hover { border-color: rgba(255,184,0,0.5); background: white; }
+        .opt.sel { border-color: var(--yellow); background: rgba(255,184,0,0.07); }
+        .opt-icon { display: block; font-size: 1.25rem; margin-bottom: 0.35rem; }
+        .opt-name { display: block; font-size: 0.82rem; font-weight: 700; }
+        .opt-desc { display: block; font-size: 0.7rem; color: var(--text-light); margin-top: 0.1rem; }
 
-        @media (max-width: 1024px) {
-            .contact-layout { grid-template-columns: 1fr; padding: 0 2rem 4rem; }
+        .step-nav { display: flex; justify-content: space-between; align-items: center; padding-top: 1.25rem; border-top: 1px solid var(--border); }
+        .step-nav-right { display: flex; align-items: center; gap: 0.75rem; }
+        .step-count { font-size: 0.72rem; color: var(--text-light); font-family: 'IBM Plex Mono', monospace; }
+        .btn-back { background: none; border: 2px solid var(--border); color: var(--text-light); padding: 0.55rem 1.1rem; border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 0.83rem; font-weight: 600; cursor: pointer; transition: all 0.2s; }
+        .btn-back:hover { border-color: var(--yellow); color: var(--yellow-dark); }
+        .btn-next { background: var(--text); color: white; border: none; padding: 0.6rem 1.4rem; border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 0.83rem; font-weight: 700; cursor: pointer; transition: background 0.2s; }
+        .btn-next:hover { background: #333; }
+        .btn-next:disabled { opacity: 0.55; cursor: not-allowed; }
+        .btn-send { background: var(--yellow); color: var(--text); border: none; padding: 0.65rem 1.6rem; border-radius: 8px; font-family: 'DM Sans', sans-serif; font-size: 0.9rem; font-weight: 800; cursor: pointer; transition: background 0.2s; }
+        .btn-send:hover { background: var(--yellow-dark); color: white; }
+        .btn-send:disabled { opacity: 0.55; cursor: not-allowed; }
+
+        .brief-field-label { font-size: 0.8rem; font-weight: 700; display: block; margin-bottom: 0.35rem; }
+        .brief-input { width: 100%; padding: 0.7rem 0.9rem; border: 2px solid var(--border); border-radius: 10px; font-family: 'DM Sans', sans-serif; font-size: 0.88rem; background: var(--cream); color: var(--text); outline: none; transition: border-color 0.2s; margin-bottom: 0.8rem; }
+        .brief-input:focus { border-color: var(--yellow); background: white; }
+        .brief-textarea { width: 100%; padding: 0.85rem 0.9rem; border: 2px solid var(--border); border-radius: 10px; font-family: 'DM Sans', sans-serif; font-size: 0.88rem; background: var(--cream); color: var(--text); outline: none; transition: border-color 0.2s; resize: vertical; min-height: 110px; margin-bottom: 0.5rem; }
+        .brief-textarea:focus { border-color: var(--yellow); background: white; }
+
+        .brief-success { display: none; align-items: center; gap: 0.75rem; padding: 1rem; background: rgba(40,200,64,0.08); border-radius: 10px; border: 1px solid rgba(40,200,64,0.2); }
+        .brief-success-icon { font-size: 1.1rem; }
+        .brief-success-text { font-size: 0.84rem; font-weight: 600; }
+
+        .form-sent { display: none; text-align: center; padding: 3rem 1rem; }
+        .form-sent-icon { font-size: 3rem; margin-bottom: 1rem; }
+        .form-sent h3 { font-family: 'Archivo Black', sans-serif; font-size: 1.4rem; margin-bottom: 0.5rem; }
+        .form-sent p { color: var(--text-light); font-size: 0.95rem; }
+
+        footer { text-align: center; padding: 2rem; font-size: 0.82rem; color: var(--text-light); border-top: 1px solid var(--border); }
+        footer a { color: var(--text-light); }
+
+        @media (max-width: 900px) {
+            header { padding: 1rem 1.5rem; }
+            .logo-img { height: 52px; }
+            .page-hero { padding: 7rem 1.5rem 2rem; }
+            .contact-layout { grid-template-columns: 1fr; padding: 0 1.5rem 4rem; }
             .contact-sidebar { position: static; }
-            header { padding: 1rem 2rem;  }
-            .page-hero { padding: 7rem 2rem 3rem; }
-        }
-        @media (max-width: 600px) {
-            header { padding: 1rem 1.5rem;  }
-            nav a:not(.header-cta) { display: none; }
             .form-row { grid-template-columns: 1fr; }
-            .brief-options, .brief-options.col3 { grid-template-columns: 1fr 1fr; }
-            body { cursor: auto; }
-}
-    
-        /* ── NUDGE ── */
-        .brief-nudge {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            background: rgba(255,184,0,0.08);
-            border: 2px solid rgba(255,184,0,0.25);
-            border-radius: 12px;
-            padding: 1rem 1.25rem;
-            margin-top: 1.25rem;
-            cursor: pointer;
-            transition: all 0.2s;
+            .opt-grid.col3 { grid-template-columns: 1fr 1fr; }
         }
-        .brief-nudge:hover { background: rgba(255,184,0,0.14); border-color: var(--yellow); }
-        .nudge-icon { font-size: 1.2rem; flex-shrink: 0; }
-        .nudge-text { flex: 1; display: flex; flex-direction: column; gap: 0.15rem; }
-        .nudge-text strong { font-size: 0.88rem; color: var(--text); }
-        .nudge-text span { font-size: 0.78rem; color: var(--text-light); }
-        .nudge-arrow { font-size: 1.1rem; color: var(--yellow-dark); font-weight: 700; animation: bounce 1.5s infinite; }
-        @keyframes bounce { 0%,100% { transform: translateY(0); } 50% { transform: translateY(4px); } }
-
-    
-        /* ── BRIEF INLINE ── */
-        .brief-inline {
-            margin-top: 1.5rem;
-            border: 2px solid rgba(255,184,0,0.2);
-            border-radius: 14px;
-            overflow: hidden;
-            background: rgba(255,184,0,0.03);
-        }
-        .brief-inline-header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1rem 1.25rem; 
-            cursor: pointer;
-            transition: background 0.2s;
-        }
-        .brief-inline-header:hover { background: rgba(255,184,0,0.06); }
-        .bih-left { display: flex; align-items: center; gap: 0.75rem; }
-        .bih-icon { font-size: 1rem; color: var(--yellow-dark); }
-        .bih-title { font-size: 0.9rem; font-weight: 700; color: var(--text); }
-        .bih-sub { font-size: 0.75rem; color: var(--text-light); margin-top: 0.1rem; }
-        .bih-arrow { width: 18px; height: 18px; stroke: var(--text-light); fill: none; stroke-width: 2.5; transition: transform 0.3s; flex-shrink: 0; }
-        .bih-arrow.open { transform: rotate(180deg); }
-        .brief-inline-body { display: none; padding: 1.5rem; border-top: 1px solid rgba(255,184,0,0.15); }
-        .brief-inline-body.open { display: block; }
-        .brief-done { display: flex; align-items: center; gap: 0.75rem; padding: 1rem; background: rgba(40,200,64,0.08); border-radius: 10px; border: 1px solid rgba(40,200,64,0.2); }
-        .brief-done-icon { font-size: 1.2rem; color: #28c840; }
-        .brief-done-text { font-size: 0.85rem; font-weight: 600; color: var(--text); }
-
-    
-        .logo-img-link { display: inline-flex; align-items: center; text-decoration: none; flex-shrink: 0; }
-        .logo-img { height: 68px; width: auto; display: block; }
-        @media (max-width: 768px) { .logo-img { height: 52px; } }
-
-    
     </style>
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "ProfessionalService",
-  "name": "lab404",
-  "url": "https://lab404.dev",
-  "email": "hello.lab404@gmail.com",
-  "description": "Studio web freelance à Marseille — création de sites, apps web, automatisation IA et retouche photo IA.",
-  "address": {
-    "@type": "PostalAddress",
-    "addressLocality": "Marseille",
-    "addressRegion": "Provence-Alpes-Côte d'Azur",
-    "addressCountry": "FR"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": 43.2965,
-    "longitude": 5.3698
-  },
-  "priceRange": "€€",
-  "knowsLanguage": ["fr", "en"],
-  "sameAs": ["https://lab404.dev"]
-}
-</script>
-    <link rel="canonical" href="https://lab404.dev/contact">
-<script>
-var bs = { sector:'', audience:'', goals:[], existing:'', refs:'', constraints:'', free:'' };
-
-function selectOpt(el) {
-    var step = el.getAttribute('data-step');
-    var isMulti = el.classList.contains('multi');
-    if (isMulti) {
-        el.classList.toggle('selected');
-    } else {
-        document.querySelectorAll('.brief-opt[data-step="' + step + '"]:not(.multi)').forEach(function(x) { x.classList.remove('selected'); });
-        el.classList.add('selected');
-    }
-}
-
-function updateDots(step) {
-    for (var i = 1; i <= 5; i++) {
-        var dot = document.getElementById('dot-' + i);
-        if (dot) dot.className = 'bp-dot' + (i < step ? ' done' : i === step ? ' active' : '');
-    }
-}
-
-function briefNext(from) {
-    if (from === 1) { var s = document.querySelector('.brief-opt[data-step="1"].selected'); bs.sector = s ? s.getAttribute('data-val') : ''; }
-    if (from === 2) { var s = document.querySelector('.brief-opt[data-step="2"].selected'); bs.audience = s ? s.getAttribute('data-val') : ''; }
-    if (from === 3) { bs.goals = [].slice.call(document.querySelectorAll('.brief-opt.multi.selected')).map(function(o) { return o.getAttribute('data-val'); }); }
-    if (from === 4) { bs.existing = document.getElementById('b-existing').value; bs.refs = document.getElementById('b-refs').value; bs.constraints = document.getElementById('b-constraints').value; }
-    document.getElementById('bs-' + from).classList.remove('active');
-    document.getElementById('bs-' + (from + 1)).classList.add('active');
-    updateDots(from + 1);
-}
-
-function briefBack(from) {
-    document.getElementById('bs-' + from).classList.remove('active');
-    document.getElementById('bs-' + (from - 1)).classList.add('active');
-    updateDots(from - 1);
-}
-
-function briefDone() {
-    bs.free = document.getElementById('b-free').value;
-    var lines = [
-        'SECTEUR : ' + (bs.sector || 'Non précisé'),
-        'CIBLE : ' + (bs.audience || 'Non précisé'),
-        'OBJECTIFS : ' + (bs.goals.length ? bs.goals.join(', ') : 'Non précisé'),
-        'SITE EXISTANT : ' + (bs.existing || 'Aucun'),
-        'RÉFÉRENCES : ' + (bs.refs || 'Aucune'),
-        'CONTRAINTES : ' + (bs.constraints || 'Aucune'),
-        'DESCRIPTION : ' + (bs.free || 'Aucune')
-    ];
-    var hidden = document.getElementById('brief-hidden');
-    if (hidden) hidden.value = lines.join('\n');
-
-    // Show sending state
-    document.getElementById('bs-5').classList.remove('active');
-    for (var i = 1; i <= 5; i++) {
-        var dot = document.getElementById('dot-' + i);
-        if (dot) dot.className = 'bp-dot done';
-    }
-
-    // Submit form directly
-    var form = document.getElementById('contact-form');
-    var btn = document.querySelector('.btn-brief-next[onclick="briefDone()"]');
-    if (btn) { btn.textContent = 'Envoi…'; btn.disabled = true; }
-
-    fetch('https://formspree.io/f/mzdjpeeo', {
-        method: 'POST',
-        body: new FormData(form),
-        headers: { 'Accept': 'application/json' }
-    }).then(function(res) {
-        if (res.ok) {
-            document.getElementById('form-wrap').style.display = 'none';
-            document.getElementById('form-success').style.display = 'block';
-        } else {
-            alert('Erreur lors de l'envoi. Écrivez-nous à hello.lab404@gmail.com');
-            if (btn) { btn.textContent = 'Envoyer mon projet →'; btn.disabled = false; }
-        }
-    }).catch(function() {
-        alert('Erreur lors de l'envoi. Écrivez-nous à hello.lab404@gmail.com');
-        if (btn) { btn.textContent = 'Envoyer mon projet →'; btn.disabled = false; }
-    });
-}
-
-function toggleInlineBrief() {
-    var body = document.getElementById('brief-inline-body');
-    var arrow = document.querySelector('.bih-arrow');
-    if (body) body.classList.toggle('open');
-    if (arrow) arrow.classList.toggle('open');
-}
-</script>
 </head>
 <body>
 
 <header>
     <div class="header-content">
         <a href="/" class="logo-img-link">
-                <img src="logo-navbar.png" alt="lab404 — Studio web Marseille" class="logo-img">
-            </a>
-            <nav>
+            <img src="logo-navbar.png" alt="lab404" class="logo-img">
+        </a>
+        <nav>
             <a href="portfolio">Portfolio</a>
             <a href="services">Services</a>
-            <a href="contact" class="active">Contact</a>
-            <a href="contact" class="header-cta">Démarrage gratuit</a>
+            <a href="contact" class="header-cta">Contact</a>
         </nav>
     </div>
 </header>
@@ -349,207 +170,270 @@ function toggleInlineBrief() {
 <div class="page-hero">
     <div class="section-label">Contact</div>
     <h1>Parlons de votre projet</h1>
-    <p>Premier échange gratuit. Devis sous 48h. Pas de jargon, juste des solutions.</p>
+    <p>Premier échange gratuit. Devis sous 48h. Un interlocuteur direct du brief à la livraison.</p>
 </div>
 
 <div class="contact-layout">
+
     <div class="contact-sidebar">
-        <div class="info-card">
-            <div class="info-card-title">Nous contacter</div>
-            <a href="/cdn-cgi/l/email-protection#29414c4545460745484b1d191d694e44484045074a4644" class="contact-method">
-                <div class="method-icon"><svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 7 10 7 10-7"/></svg></div>
-                <div><div class="method-label">Email</div><div class="method-value">hello.lab404&#64;gmail.com</div></div>
+        <div class="sidebar-card">
+            <div class="card-title">Nous contacter</div>
+            <a href="mailto:hello.lab404@gmail.com" class="contact-method">
+                <div class="method-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg></div>
+                <div><div class="method-label">Email</div><div class="method-value">hello.lab404@gmail.com</div></div>
             </a>
             <a href="https://lab404.dev" class="contact-method">
-                <div class="method-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15 15 0 0 1 0 20M12 2a15 15 0 0 0 0 20"/></svg></div>
+                <div class="method-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg></div>
                 <div><div class="method-label">Site</div><div class="method-value">lab404.dev</div></div>
             </a>
         </div>
-        <div class="avail-card">
-            <div class="info-card-title">Disponibilité</div>
-            <div class="avail-dot">Disponible pour de nouveaux projets</div>
-            <p>Réponse garantie sous <strong>24h</strong> en semaine.<br>Devis détaillé sous <strong>48h</strong>.</p>
+        <div class="sidebar-card">
+            <div class="card-title">Disponibilité</div>
+            <div class="avail-status"><span class="avail-dot"></span>Disponible pour nouveaux projets</div>
+            <div class="avail-sub">Réponse garantie sous 24h</div>
         </div>
-        <div class="process-card">
-            <div class="info-card-title">Ce qui vous attend</div>
-            <div class="process-step-item"><span class="ps-num">01</span><div class="ps-text"><strong>Échange découverte (~30 min)</strong>On cerne ensemble vos besoins.</div></div>
-            <div class="process-step-item"><span class="ps-num">02</span><div class="ps-text"><strong>Devis détaillé & planning</strong>Livré sous 48h, sans engagement.</div></div>
-            <div class="process-step-item"><span class="ps-num">03</span><div class="ps-text"><strong>Démarrage rapide</strong>Livraison itérative, vous validez à chaque étape.</div></div>
+        <div class="sidebar-card">
+            <div class="card-title">Comment ça marche</div>
+            <div class="step-item"><div class="step-num">1</div><div><div class="step-name">Échange découverte</div><div class="step-sub">30 min gratuit</div></div></div>
+            <div class="step-item"><div class="step-num">2</div><div><div class="step-name">Devis détaillé</div><div class="step-sub">Sous 48h, prix fixe</div></div></div>
+            <div class="step-item"><div class="step-num">3</div><div><div class="step-name">Démarrage rapide</div><div class="step-sub">Dès validation</div></div></div>
         </div>
     </div>
 
-    <div class="contact-right">
-
-        <!-- FORM -->
+    <div>
         <div class="form-card">
-            <h2>Décrivez votre projet</h2>
+            <h2>Votre projet</h2>
             <p class="card-sub">Plus vous êtes précis, meilleure sera notre réponse.</p>
+
             <div id="form-wrap">
-                <form id="contact-form" novalidate>
-                    <div class="form-row">
-                        <div class="form-group"><label for="firstname">Prénom <span>*</span></label><input type="text" id="firstname" name="firstname" placeholder="Jean" required></div>
-                        <div class="form-group"><label for="lastname">Nom <span>*</span></label><input type="text" id="lastname" name="lastname" placeholder="Dupont" required></div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="fn">Prénom <span>*</span></label>
+                        <input type="text" id="fn" placeholder="Jean" required>
                     </div>
-                    <div class="form-row">
-                        <div class="form-group"><label for="email">Email <span>*</span></label><input type="email" id="email" name="email" placeholder="votre@email.com" required></div>
-                        <div class="form-group"><label for="company">Entreprise</label><input type="text" id="company" name="company" placeholder="Mon entreprise"></div>
+                    <div class="form-group">
+                        <label for="ln">Nom <span>*</span></label>
+                        <input type="text" id="ln" placeholder="Dupont" required>
                     </div>
-                    
-                    
-                    
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="em">Email <span>*</span></label>
+                        <input type="email" id="em" placeholder="votre@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="co">Entreprise</label>
+                        <input type="text" id="co" placeholder="Mon entreprise">
+                    </div>
+                </div>
 
-                    <!-- BRIEF INLINE -->
-                    <div class="brief-inline">
-                        <div class="brief-inline-header" onclick="toggleInlineBrief()">
-                            <div class="bih-left">
-                                <div class="bih-icon">✦</div>
-                                <div>
-                                    <div class="bih-title">Décrivez votre projet en détail</div>
-                                    <div class="bih-sub">Plus votre projet est clair, plus vite on démarre — 2 min.</div>
-                                </div>
+                <div class="brief-wrap">
+                    <div class="brief-header" onclick="toggleBrief()">
+                        <div class="brief-header-left">
+                            <div class="brief-icon">✦</div>
+                            <div>
+                                <div class="brief-title">Décrivez votre projet</div>
+                                <div class="brief-subtitle">Plus votre projet est clair, plus vite on démarre — 5 questions — 2 minutes</div>
                             </div>
-                            <svg class="bih-arrow open" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
                         </div>
-                        <div class="brief-inline-body open" id="brief-inline-body">
-
-                            <div class="brief-progress">
-                                <div class="bp-dot active" id="dot-1"></div>
-                                <div class="bp-dot" id="dot-2"></div>
-                                <div class="bp-dot" id="dot-3"></div>
-                                <div class="bp-dot" id="dot-4"></div>
-                                <div class="bp-dot" id="dot-5"></div>
-                            </div>
-
-                            <!-- Step 1 -->
-                            <div class="brief-step active" id="bs-1">
-                                <div class="bs-label">Étape 1 sur 5</div>
-                                <div class="bs-question">Dans quel secteur travaillez-vous ?</div>
-                                <div class="brief-options">
-                                    <div class="brief-opt" onclick="selectOpt(this)" data-step="1" data-val="Commerce / Retail"><span class="bo-icon">🛍</span><span class="bo-name">Commerce / Retail</span></div>
-                                    <div class="brief-opt" onclick="selectOpt(this)" data-step="1" data-val="Restauration / Hôtellerie"><span class="bo-icon">🍽</span><span class="bo-name">Restauration / Hôtellerie</span></div>
-                                    <div class="brief-opt" onclick="selectOpt(this)" data-step="1" data-val="Tech / SaaS / Startup"><span class="bo-icon">💻</span><span class="bo-name">Tech / SaaS</span></div>
-                                    <div class="brief-opt" onclick="selectOpt(this)" data-step="1" data-val="Santé / Bien-être"><span class="bo-icon">🌿</span><span class="bo-name">Santé / Bien-être</span></div>
-                                    <div class="brief-opt" onclick="selectOpt(this)" data-step="1" data-val="Artisan / Créateur"><span class="bo-icon">🎨</span><span class="bo-name">Artisan / Créateur</span></div>
-                                    <div class="brief-opt" onclick="selectOpt(this)" data-step="1" data-val="Autre / Indépendant"><span class="bo-icon">⚡</span><span class="bo-name">Autre</span></div>
-                                </div>
-                                <div class="brief-nav"><span></span><div class="brief-nav-right"><span class="brief-step-count">1 / 5</span><button type="button" class="btn-brief-next" onclick="briefNext(1)">Suivant →</button></div></div>
-                            </div>
-
-                            <!-- Step 2 -->
-                            <div class="brief-step" id="bs-2">
-                                <div class="bs-label">Étape 2 sur 5</div>
-                                <div class="bs-question">Qui sont vos clients cibles ?</div>
-                                <div class="brief-options col3">
-                                    <div class="brief-opt" onclick="selectOpt(this)" data-step="2" data-val="Particuliers (B2C)"><span class="bo-icon">👤</span><span class="bo-name">Particuliers</span><span class="bo-desc">B2C</span></div>
-                                    <div class="brief-opt" onclick="selectOpt(this)" data-step="2" data-val="Professionnels (B2B)"><span class="bo-icon">🏢</span><span class="bo-name">Professionnels</span><span class="bo-desc">B2B</span></div>
-                                    <div class="brief-opt" onclick="selectOpt(this)" data-step="2" data-val="B2B & B2C"><span class="bo-icon">🔄</span><span class="bo-name">Les deux</span><span class="bo-desc">B2B & B2C</span></div>
-                                </div>
-                                <div class="brief-nav"><button type="button" class="btn-brief-back" onclick="briefBack(2)">← Retour</button><div class="brief-nav-right"><span class="brief-step-count">2 / 5</span><button type="button" class="btn-brief-next" onclick="briefNext(2)">Suivant →</button></div></div>
-                            </div>
-
-                            <!-- Step 3 -->
-                            <div class="brief-step" id="bs-3">
-                                <div class="bs-label">Étape 3 sur 5</div>
-                                <div class="bs-question">Quel est l'objectif principal ?</div>
-                                <div class="bs-hint">Plusieurs réponses possibles.</div>
-                                <div class="brief-options">
-                                    <div class="brief-opt multi" onclick="selectOpt(this)" data-step="3" data-val="Générer des leads"><span class="bo-icon">🎯</span><span class="bo-name">Générer des leads</span></div>
-                                    <div class="brief-opt multi" onclick="selectOpt(this)" data-step="3" data-val="Vendre en ligne"><span class="bo-icon">🛒</span><span class="bo-name">Vendre en ligne</span></div>
-                                    <div class="brief-opt multi" onclick="selectOpt(this)" data-step="3" data-val="Automatiser des tâches"><span class="bo-icon">⚙️</span><span class="bo-name">Automatiser des tâches</span></div>
-                                    <div class="brief-opt multi" onclick="selectOpt(this)" data-step="3" data-val="Renforcer ma présence web"><span class="bo-icon">📣</span><span class="bo-name">Présence web</span></div>
-                                    <div class="brief-opt multi" onclick="selectOpt(this)" data-step="3" data-val="Lancer un nouveau produit"><span class="bo-icon">🚀</span><span class="bo-name">Lancer un produit</span></div>
-                                    <div class="brief-opt multi" onclick="selectOpt(this)" data-step="3" data-val="Améliorer l'existant"><span class="bo-icon">🔧</span><span class="bo-name">Améliorer l'existant</span></div>
-                                </div>
-                                <div class="brief-nav"><button type="button" class="btn-brief-back" onclick="briefBack(3)">← Retour</button><div class="brief-nav-right"><span class="brief-step-count">3 / 5</span><button type="button" class="btn-brief-next" onclick="briefNext(3)">Suivant →</button></div></div>
-                            </div>
-
-                            <!-- Step 4 -->
-                            <div class="brief-step" id="bs-4">
-                                <div class="bs-label">Étape 4 sur 5</div>
-                                <div class="bs-question">Contexte & références</div>
-                                <label class="brief-field-label">Site ou outil existant</label>
-                                <input class="brief-input" type="text" id="b-existing" placeholder="https://monsite.com (facultatif)">
-                                <label class="brief-field-label">Sites qui vous inspirent</label>
-                                <input class="brief-input" type="text" id="b-refs" placeholder="Ex : apple.com, notion.so, linear.app...">
-                                <label class="brief-field-label">Contraintes particulières</label>
-                                <input class="brief-input" type="text" id="b-constraints" placeholder="Budget serré, délai imposé, techno spécifique...">
-                                <div class="brief-nav"><button type="button" class="btn-brief-back" onclick="briefBack(4)">← Retour</button><div class="brief-nav-right"><span class="brief-step-count">4 / 5</span><button type="button" class="btn-brief-next" onclick="briefNext(4)">Suivant →</button></div></div>
-                            </div>
-
-                            <!-- Step 5 -->
-                            <div class="brief-step" id="bs-5">
-                                <div class="bs-label">Étape 5 sur 5</div>
-                                <div class="bs-question">Décrivez librement votre projet</div>
-                                <div class="bs-hint">Vision, contexte, détails importants...</div>
-                                <textarea class="brief-textarea" id="b-free" placeholder="Ex : Je veux refondre mon site e-commerce car il est lent et ne convertit pas..."></textarea>
-                                <div class="brief-nav"><button type="button" class="btn-brief-back" onclick="briefBack(5)">← Retour</button><div class="brief-nav-right"><span class="brief-step-count">5 / 5</span><button type="button" class="btn-brief-next" onclick="briefDone()">Envoyer mon projet →</button></div></div>
-                            </div>
-
-                            <!-- Confirmation -->
-                            <div class="brief-done" id="brief-done-msg" style="display:none;">
-                                <div class="brief-done-icon">✓</div>
-                                <div class="brief-done-text">Brief complété — vos réponses seront envoyées avec votre message.</div>
-                            </div>
-
-                        </div>
+                        <svg class="brief-arrow open" viewBox="0 0 24 24"><path d="m6 9 6 6 6-6"/></svg>
                     </div>
-                    <input type="hidden" name="brief" id="brief-hidden">
-                </form>
+                    <div class="brief-body open" id="brief-body">
+
+                        <div class="brief-progress">
+                            <div class="bp-dot active" id="d1"></div>
+                            <div class="bp-dot" id="d2"></div>
+                            <div class="bp-dot" id="d3"></div>
+                            <div class="bp-dot" id="d4"></div>
+                            <div class="bp-dot" id="d5"></div>
+                        </div>
+
+                        <!-- Step 1 -->
+                        <div class="brief-step active" id="s1">
+                            <div class="step-label">Étape 1 sur 5</div>
+                            <div class="step-question">Dans quel secteur travaillez-vous ?</div>
+                            <div class="opt-grid">
+                                <div class="opt" data-s="1" data-v="Commerce / Retail" onclick="pick(this)"><span class="opt-icon">🛍</span><span class="opt-name">Commerce / Retail</span></div>
+                                <div class="opt" data-s="1" data-v="Restauration / Hôtellerie" onclick="pick(this)"><span class="opt-icon">🍽</span><span class="opt-name">Restauration</span></div>
+                                <div class="opt" data-s="1" data-v="Tech / SaaS" onclick="pick(this)"><span class="opt-icon">💻</span><span class="opt-name">Tech / SaaS</span></div>
+                                <div class="opt" data-s="1" data-v="Santé / Bien-être" onclick="pick(this)"><span class="opt-icon">🌿</span><span class="opt-name">Santé / Bien-être</span></div>
+                                <div class="opt" data-s="1" data-v="Artisan / Créateur" onclick="pick(this)"><span class="opt-icon">🎨</span><span class="opt-name">Artisan / Créateur</span></div>
+                                <div class="opt" data-s="1" data-v="Autre" onclick="pick(this)"><span class="opt-icon">⚡</span><span class="opt-name">Autre</span></div>
+                            </div>
+                            <div class="step-nav"><span></span><div class="step-nav-right"><span class="step-count">1 / 5</span><button type="button" class="btn-next" onclick="goNext(1)">Suivant →</button></div></div>
+                        </div>
+
+                        <!-- Step 2 -->
+                        <div class="brief-step" id="s2">
+                            <div class="step-label">Étape 2 sur 5</div>
+                            <div class="step-question">Qui sont vos clients cibles ?</div>
+                            <div class="opt-grid col3">
+                                <div class="opt" data-s="2" data-v="Particuliers (B2C)" onclick="pick(this)"><span class="opt-icon">👤</span><span class="opt-name">Particuliers</span><span class="opt-desc">B2C</span></div>
+                                <div class="opt" data-s="2" data-v="Professionnels (B2B)" onclick="pick(this)"><span class="opt-icon">🏢</span><span class="opt-name">Professionnels</span><span class="opt-desc">B2B</span></div>
+                                <div class="opt" data-s="2" data-v="B2B & B2C" onclick="pick(this)"><span class="opt-icon">🔄</span><span class="opt-name">Les deux</span><span class="opt-desc">B2B & B2C</span></div>
+                            </div>
+                            <div class="step-nav"><button type="button" class="btn-back" onclick="goBack(2)">← Retour</button><div class="step-nav-right"><span class="step-count">2 / 5</span><button type="button" class="btn-next" onclick="goNext(2)">Suivant →</button></div></div>
+                        </div>
+
+                        <!-- Step 3 -->
+                        <div class="brief-step" id="s3">
+                            <div class="step-label">Étape 3 sur 5</div>
+                            <div class="step-question">Quel est l'objectif principal ?</div>
+                            <div class="step-hint">Plusieurs réponses possibles.</div>
+                            <div class="opt-grid">
+                                <div class="opt multi" data-s="3" data-v="Générer des leads" onclick="pick(this)"><span class="opt-icon">🎯</span><span class="opt-name">Générer des leads</span></div>
+                                <div class="opt multi" data-s="3" data-v="Vendre en ligne" onclick="pick(this)"><span class="opt-icon">🛒</span><span class="opt-name">Vendre en ligne</span></div>
+                                <div class="opt multi" data-s="3" data-v="Automatiser des tâches" onclick="pick(this)"><span class="opt-icon">⚙️</span><span class="opt-name">Automatiser des tâches</span></div>
+                                <div class="opt multi" data-s="3" data-v="Présence web" onclick="pick(this)"><span class="opt-icon">📣</span><span class="opt-name">Présence web</span></div>
+                                <div class="opt multi" data-s="3" data-v="Lancer un produit" onclick="pick(this)"><span class="opt-icon">🚀</span><span class="opt-name">Lancer un produit</span></div>
+                                <div class="opt multi" data-s="3" data-v="Améliorer l'existant" onclick="pick(this)"><span class="opt-icon">🔧</span><span class="opt-name">Améliorer l'existant</span></div>
+                            </div>
+                            <div class="step-nav"><button type="button" class="btn-back" onclick="goBack(3)">← Retour</button><div class="step-nav-right"><span class="step-count">3 / 5</span><button type="button" class="btn-next" onclick="goNext(3)">Suivant →</button></div></div>
+                        </div>
+
+                        <!-- Step 4 -->
+                        <div class="brief-step" id="s4">
+                            <div class="step-label">Étape 4 sur 5</div>
+                            <div class="step-question">Contexte & références</div>
+                            <label class="brief-field-label">Site ou outil existant</label>
+                            <input class="brief-input" type="text" id="b-existing" placeholder="https://monsite.com (facultatif)">
+                            <label class="brief-field-label">Sites qui vous inspirent</label>
+                            <input class="brief-input" type="text" id="b-refs" placeholder="apple.com, notion.so...">
+                            <label class="brief-field-label">Contraintes particulières</label>
+                            <input class="brief-input" type="text" id="b-constraints" placeholder="Budget, délai, technologie...">
+                            <div class="step-nav"><button type="button" class="btn-back" onclick="goBack(4)">← Retour</button><div class="step-nav-right"><span class="step-count">4 / 5</span><button type="button" class="btn-next" onclick="goNext(4)">Suivant →</button></div></div>
+                        </div>
+
+                        <!-- Step 5 -->
+                        <div class="brief-step" id="s5">
+                            <div class="step-label">Étape 5 sur 5</div>
+                            <div class="step-question">Décrivez librement votre projet</div>
+                            <div class="step-hint">Vision, contexte, détails importants...</div>
+                            <textarea class="brief-textarea" id="b-free" placeholder="Ex : Je veux créer un site e-commerce..."></textarea>
+                            <div class="step-nav">
+                                <button type="button" class="btn-back" onclick="goBack(5)">← Retour</button>
+                                <div class="step-nav-right">
+                                    <span class="step-count">5 / 5</span>
+                                    <button type="button" class="btn-send" id="send-btn" onclick="sendBrief()">Envoyer mon projet →</button>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="brief-success" id="brief-success">
+                            <div class="brief-success-icon">✓</div>
+                            <div class="brief-success-text">Envoi en cours...</div>
+                        </div>
+
+                    </div>
+                </div>
             </div>
-            <div class="form-success" id="form-success">
-                <div class="success-icon">✅</div>
+
+            <div class="form-sent" id="form-sent">
+                <div class="form-sent-icon">✅</div>
                 <h3>Message envoyé !</h3>
                 <p>On revient vers vous sous 24h en semaine.</p>
             </div>
         </div>
+    </div>
+</div>
 
 <footer>
-    <p>© 2026 lab404.dev — Studio créatif & technique · Marseille 🔆 &nbsp;·&nbsp; <a href="mentions-legales">Mentions légales</a></p>
+    <p>© 2026 lab404.dev — Studio digital · Marseille &nbsp;·&nbsp; <a href="mentions-legales">Mentions légales</a></p>
 </footer>
 
 <script>
+var B = { sector:'', audience:'', goals:[], existing:'', refs:'', constraints:'', free:'' };
 
+function toggleBrief() {
+    var body = document.getElementById('brief-body');
+    var arrow = document.querySelector('.brief-arrow');
+    body.classList.toggle('open');
+    arrow.classList.toggle('open');
+}
 
-// Pills — multi
-document.querySelectorAll('.pill:not(.single)').forEach(p => {
-    p.addEventListener('click', () => {
-        p.classList.toggle('active');
-        const g = p.dataset.group;
-        const vals = [...document.querySelectorAll(`.pill[data-group="${g}"].active`)].map(x => x.dataset.val);
-        document.getElementById(g + '-val').value = vals.join(', ');
-    });
-});
-// Pills — single
-document.querySelectorAll('.pill.single').forEach(p => {
-    p.addEventListener('click', () => {
-        const g = p.dataset.group;
-        document.querySelectorAll(`.pill.single[data-group="${g}"]`).forEach(x => x.classList.remove('active'));
-        p.classList.add('active');
-        document.getElementById(g + '-val').value = p.dataset.val;
-    });
-});
-
-// Form submit
-document.getElementById('contact-form').addEventListener('submit', async function(e) {
-    e.preventDefault();
-    const btn = this.querySelector('.submit-btn');
-    const orig = btn.textContent;
-    btn.textContent = 'Envoi…'; btn.disabled = true;
-    try {
-        const res = await fetch('https://formspree.io/f/mzdjpeeo', {
-            method: 'POST', body: new FormData(this), headers: { 'Accept': 'application/json' }
-        });
-        if (res.ok) {
-            document.getElementById('form-wrap').style.display = 'none';
-            document.getElementById('form-success').style.display = 'block';
-        } else { throw new Error(); }
-    } catch {
-        btn.textContent = orig; btn.disabled = false;
-        alert('Erreur. Écrivez-nous à hello.lab404@gmail.com');
+function pick(el) {
+    var step = el.getAttribute('data-s');
+    if (el.classList.contains('multi')) {
+        el.classList.toggle('sel');
+    } else {
+        var all = document.querySelectorAll('.opt[data-s="' + step + '"]');
+        for (var i = 0; i < all.length; i++) all[i].classList.remove('sel');
+        el.classList.add('sel');
     }
-});
+}
 
-// Brief functions moved to <head>
+function dots(n) {
+    for (var i = 1; i <= 5; i++) {
+        var d = document.getElementById('d' + i);
+        d.className = 'bp-dot' + (i < n ? ' done' : i === n ? ' active' : '');
+    }
+}
+
+function goNext(n) {
+    if (n === 1) { var s = document.querySelector('.opt[data-s="1"].sel'); B.sector = s ? s.getAttribute('data-v') : ''; }
+    if (n === 2) { var s = document.querySelector('.opt[data-s="2"].sel'); B.audience = s ? s.getAttribute('data-v') : ''; }
+    if (n === 3) { var sel = document.querySelectorAll('.opt.multi.sel'); B.goals = []; for (var i=0;i<sel.length;i++) B.goals.push(sel[i].getAttribute('data-v')); }
+    if (n === 4) { B.existing = document.getElementById('b-existing').value; B.refs = document.getElementById('b-refs').value; B.constraints = document.getElementById('b-constraints').value; }
+    document.getElementById('s' + n).classList.remove('active');
+    document.getElementById('s' + (n+1)).classList.add('active');
+    dots(n + 1);
+}
+
+function goBack(n) {
+    document.getElementById('s' + n).classList.remove('active');
+    document.getElementById('s' + (n-1)).classList.add('active');
+    dots(n - 1);
+}
+
+function sendBrief() {
+    B.free = document.getElementById('b-free').value;
+
+    var firstname = document.getElementById('fn').value.trim();
+    var email = document.getElementById('em').value.trim();
+    if (!firstname || !email) { alert('Merci de renseigner votre prénom et email.'); return; }
+
+    var brief = [
+        'SECTEUR : ' + (B.sector || 'Non précisé'),
+        'CIBLE : ' + (B.audience || 'Non précisé'),
+        'OBJECTIFS : ' + (B.goals.length ? B.goals.join(', ') : 'Non précisé'),
+        'SITE EXISTANT : ' + (B.existing || 'Aucun'),
+        'RÉFÉRENCES : ' + (B.refs || 'Aucune'),
+        'CONTRAINTES : ' + (B.constraints || 'Aucune'),
+        'DESCRIPTION : ' + (B.free || 'Aucune')
+    ].join('\n');
+
+    var btn = document.getElementById('send-btn');
+    btn.textContent = 'Envoi…';
+    btn.disabled = true;
+    document.getElementById('s5').classList.remove('active');
+    document.getElementById('brief-success').style.display = 'flex';
+
+    var data = new FormData();
+    data.append('firstname', firstname);
+    data.append('lastname', document.getElementById('ln').value);
+    data.append('email', email);
+    data.append('company', document.getElementById('co').value);
+    data.append('brief', brief);
+
+    fetch('https://formspree.io/f/mzdjpeeo', {
+        method: 'POST', body: data, headers: { 'Accept': 'application/json' }
+    }).then(function(r) {
+        if (r.ok) {
+            document.getElementById('form-wrap').style.display = 'none';
+            document.getElementById('form-sent').style.display = 'block';
+        } else {
+            fail(btn);
+        }
+    }).catch(function() { fail(btn); });
+}
+
+function fail(btn) {
+    document.getElementById('brief-success').style.display = 'none';
+    document.getElementById('s5').classList.add('active');
+    btn.textContent = 'Envoyer mon projet →';
+    btn.disabled = false;
+    alert('Erreur lors de l\'envoi. Écrivez-nous directement à hello.lab404@gmail.com');
+}
 </script>
 </body>
 </html>
