@@ -854,7 +854,7 @@
             max-width: 480px;
             width: 100%;
             position: relative;
-            transform: translateY(30px) scale(0.97);
+            transform: translateY(0) scale(0.97);
             transition: transform 0.4s cubic-bezier(0.4,0,0.2,1);
             box-shadow: 0 40px 80px rgba(0,0,0,0.3);
         }
@@ -1001,6 +1001,14 @@
             transform: translateY(0) !important;
         }
         .service-card {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+
+        /* === FORCE VISIBLE === */
+        .service-card, .result-card, .why-card,
+        .hero-badge, .section-label, .section-title,
+        .section-subtitle, .stat-item, .trust-item {
             opacity: 1 !important;
             transform: translateY(0) !important;
         }
