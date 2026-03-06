@@ -2,18 +2,18 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-    <meta name="description" content="Contactez lab404 pour discuter de votre projet web, application ou intégration IA. Premier échange gratuit, réponse sous 24h.">
-    <meta name="keywords" content="contact studio web, devis développement web, projet web France, lab404">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portfolio — lab404 | Réalisations & Projets</title>
+    <meta name="description" content="Découvrez les réalisations de lab404 : sites web, applications SaaS, intégrations IA et design. Studio créatif & technique basé en France.">
+    <meta name="keywords" content="portfolio web, réalisations, projets web, développement Next.js, design studio, lab404">
     <meta name="robots" content="index, follow">
-    <link rel="canonical" href="https://lab404.dev/contact.html">
-    <meta property="og:title" content="Contact — lab404">
-    <meta property="og:description" content="Premier échange gratuit. Parlons de votre projet web, app ou IA.">
-    <meta property="og:url" content="https://lab404.dev/contact.html">
+    <link rel="canonical" href="https://lab404.dev/portfolio.html">
+    <meta property="og:title" content="Portfolio — lab404 | Réalisations & Projets">
+    <meta property="og:description" content="Découvrez les réalisations de lab404 : sites web, applications SaaS, intégrations IA et design.">
+    <meta property="og:url" content="https://lab404.dev/portfolio.html">
     <meta property="og:type" content="website">
     <meta property="og:image" content="https://lab404.dev/og-image.jpg">
-    <meta name="twitter:card" content="summary_large_image"> content="width=device-width, initial-scale=1.0">
-    <title>Contact — lab404</title>
+    <meta name="twitter:card" content="summary_large_image">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Archivo+Black&family=IBM+Plex+Mono:wght@400;500&display=swap');
@@ -59,7 +59,6 @@
         }
         
 
-        /* ── HEADER ── */
         header {
             position: fixed;
             top: 0; left: 0; right: 0;
@@ -80,12 +79,7 @@
             align-items: center;
         }
 
-        .logo {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--text);
-            text-decoration: none;
-        }
+        .logo { font-size: 1.4rem; font-weight: 700; color: var(--text); text-decoration: none; }
 
         nav { display: flex; gap: 2.5rem; align-items: center; }
 
@@ -126,7 +120,7 @@
         .container { max-width: 1400px; margin: 0 auto; padding: 0 4rem; }
 
         @keyframes revealUp {
-            from { opacity: 0; transform: translateY(30px); }
+            from { opacity: 0; transform: translateY(0); }
             to   { opacity: 1; transform: translateY(0); }
         }
 
@@ -150,7 +144,6 @@
         .page-hero-inner {
             position: relative;
             z-index: 1;
-            max-width: 700px;
         }
 
         .breadcrumb {
@@ -165,442 +158,371 @@
         .breadcrumb a { color: var(--yellow); text-decoration: none; font-weight: 600; }
         .breadcrumb span { opacity: 0.5; }
 
+        .hero-top {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-end;
+            gap: 4rem;
+            margin-bottom: 4rem;
+        }
+
         .page-hero h1 {
-            font-size: clamp(3rem, 6vw, 5.5rem);
+            font-size: clamp(3rem, 6vw, 6rem);
             font-weight: 800;
             line-height: 1.05;
             letter-spacing: -0.03em;
-            margin-bottom: 1.5rem;
             animation: revealUp 0.7s cubic-bezier(0.4,0,0.2,1) 0.2s both;
         }
 
         .page-hero h1 .highlight { color: var(--yellow); }
 
-        .page-hero p {
-            font-size: 1.2rem;
+        .hero-desc {
+            max-width: 400px;
+            font-size: 1.1rem;
             color: var(--text-light);
             line-height: 1.7;
             animation: revealUp 0.7s cubic-bezier(0.4,0,0.2,1) 0.35s both;
-        }
-
-        /* ── MAIN GRID ── */
-        .contact-section { padding: 2rem 0 6rem; }
-
-        .contact-grid {
-            display: grid;
-            grid-template-columns: 1fr 1.6fr;
-            gap: 4rem;
-            align-items: start;
-        }
-
-        /* ── LEFT: info ── */
-        .contact-info {
-            position: sticky;
-            top: 7rem;
-        }
-
-        .info-card {
-            background: var(--white);
-            border-radius: 20px;
-            padding: 3rem;
-            border: 2px solid rgba(255,184,0,0.1);
-            margin-bottom: 1.5rem;
-            opacity: 0;
-            transform: translateX(-30px);
-            transition: all 0.6s cubic-bezier(0.4,0,0.2,1);
-        }
-        .info-card.visible { opacity: 1; transform: translateX(0); }
-        .info-card:nth-child(1) { transition-delay: 0.1s; }
-        .info-card:nth-child(2) { transition-delay: 0.2s; }
-        .info-card:nth-child(3) { transition-delay: 0.3s; }
-
-        .info-card h3 {
-            font-size: 1rem;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            color: var(--yellow);
-            margin-bottom: 1.5rem;
-        }
-
-        .contact-method {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            padding: 1rem 0;
-            border-bottom: 1px solid rgba(255,184,0,0.08);
-            text-decoration: none;
-            color: var(--text);
-            transition: all 0.3s ease;
-        }
-
-        .contact-method:last-child { border-bottom: none; }
-
-        .contact-method:hover { color: var(--yellow); padding-left: 0.5rem; }
-
-        .contact-method-icon {
-            width: 44px; height: 44px;
-            background: rgba(255,184,0,0.1);
-            border-radius: 10px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
             flex-shrink: 0;
-            transition: background 0.3s ease;
         }
 
-        .contact-method:hover .contact-method-icon { background: rgba(255,184,0,0.2); }
-
-        .contact-method-icon svg {
-            width: 20px; height: 20px;
-            stroke: var(--yellow);
-            fill: none;
-            stroke-width: 2;
-            stroke-linecap: round;
-            stroke-linejoin: round;
-        }
-
-        .contact-method-info { flex: 1; }
-        .contact-method-label { font-size: 0.8rem; color: var(--text-light); }
-        .contact-method-value { font-weight: 600; font-size: 0.95rem; }
-
-        .availability-dot {
-            display: inline-block;
-            width: 8px; height: 8px;
-            background: #22c55e;
-            border-radius: 50%;
-            margin-right: 0.5rem;
-            animation: blink 2s ease-in-out infinite;
-        }
-
-        @keyframes blink {
-            0%, 100% { opacity: 1; }
-            50% { opacity: 0.3; }
-        }
-
-        /* ── RIGHT: form ── */
-        .contact-form-wrapper {
-            background: var(--white);
-            border-radius: 24px;
-            padding: 4rem;
-            border: 2px solid rgba(255,184,0,0.1);
-            opacity: 0;
-            transform: translateX(30px);
-            transition: all 0.7s cubic-bezier(0.4,0,0.2,1) 0.15s;
-        }
-        .contact-form-wrapper.visible { opacity: 1; transform: translateX(0); }
-
-        .form-header { margin-bottom: 2.5rem; }
-        .form-header h2 { font-size: 2rem; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 0.5rem; }
-        .form-header p { color: var(--text-light); }
-
-        .form-group { margin-bottom: 1.5rem; }
-
-        .form-row {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 1.5rem;
-        }
-
-        label {
-            display: block;
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: var(--text);
-            margin-bottom: 0.5rem;
-            letter-spacing: 0.03em;
-        }
-
-        label span { color: var(--yellow); }
-
-        input, textarea, select {
-            width: 100%;
-            padding: 1rem 1.25rem;
-            border: 2px solid rgba(255,184,0,0.15);
-            border-radius: 10px;
-            font-family: inherit;
-            font-size: 1rem;
-            color: var(--text);
-            background: var(--cream);
-            transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
-            outline: none;
-            appearance: none;
-        }
-
-        input::placeholder, textarea::placeholder { color: var(--text-light); opacity: 0.6; }
-
-        input:focus, textarea:focus, select:focus {
-            border-color: var(--yellow);
-            background: var(--white);
-            box-shadow: 0 0 0 4px rgba(255,184,0,0.1);
-        }
-
-        textarea { resize: vertical; min-height: 140px; }
-
-        /* Budget selector */
-        .budget-options {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 0.75rem;
-        }
-
-        .budget-option {
-            position: relative;
-        }
-
-        .budget-option input[type="radio"] {
-            position: absolute;
-            opacity: 0;
-            width: 0; height: 0;
-        }
-
-        .budget-option label {
+        /* ── FILTERS ── */
+        .filters {
             display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 0.75rem 0.5rem;
-            background: var(--cream);
-            border: 2px solid rgba(255,184,0,0.15);
-            border-radius: 10px;
-            cursor: pointer;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-bottom: 3rem;
+            animation: revealUp 0.7s cubic-bezier(0.4,0,0.2,1) 0.45s both;
+        }
+
+        .filter-btn {
+            padding: 0.6rem 1.25rem;
+            border-radius: 50px;
+            border: 2px solid rgba(255,184,0,0.2);
+            background: transparent;
+            color: var(--text-light);
+            font-family: inherit;
             font-size: 0.85rem;
             font-weight: 600;
-            color: var(--text-light);
-            transition: all 0.25s ease;
-            text-align: center;
-            margin: 0;
-            letter-spacing: 0;
-        }
-
-        .budget-option input[type="radio"]:checked + label {
-            background: rgba(255,184,0,0.1);
-            border-color: var(--yellow);
-            color: var(--yellow-dark);
-        }
-
-        .budget-option label:hover {
-            border-color: var(--yellow);
-            color: var(--text);
-        }
-
-        /* Services checkboxes */
-        .service-options {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 0.75rem;
-        }
-
-        .service-option {
-            position: relative;
-        }
-
-        .service-option input[type="checkbox"] {
-            position: absolute;
-            opacity: 0;
-            width: 0; height: 0;
-        }
-
-        .service-option label {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.75rem 1rem;
-            background: var(--cream);
-            border: 2px solid rgba(255,184,0,0.15);
-            border-radius: 10px;
             cursor: pointer;
-            font-size: 0.85rem;
-            font-weight: 500;
-            color: var(--text-light);
-            transition: all 0.25s ease;
-            margin: 0;
-            letter-spacing: 0;
-        }
-
-        .service-option label::before {
-            content: '';
-            width: 16px; height: 16px;
-            border: 2px solid rgba(255,184,0,0.3);
-            border-radius: 4px;
-            flex-shrink: 0;
             transition: all 0.25s ease;
         }
 
-        .service-option input[type="checkbox"]:checked + label {
-            background: rgba(255,184,0,0.08);
-            border-color: var(--yellow);
-            color: var(--yellow-dark);
-        }
-
-        .service-option input[type="checkbox"]:checked + label::before {
+        .filter-btn:hover, .filter-btn.active {
             background: var(--yellow);
             border-color: var(--yellow);
-            background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 16 16' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M3 8l4 4 6-7' stroke='white' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-            background-size: contain;
-        }
-
-        /* Submit */
-        .submit-area {
-            display: flex;
-            align-items: center;
-            gap: 2rem;
-            margin-top: 2rem;
-        }
-
-        .submit-btn {
-            background: var(--yellow);
             color: white;
-            padding: 1.2rem 3rem;
-            border-radius: 10px;
-            font-family: inherit;
-            font-weight: 700;
-            font-size: 1.05rem;
-            border: none;
+        }
+
+        /* ── GRID ── */
+        .portfolio-grid {
+            display: grid;
+            grid-template-columns: repeat(12, 1fr);
+            gap: 1.5rem;
+            padding-bottom: 6rem;
+        }
+
+        /* Card sizes */
+        .project-card { grid-column: span 6; }
+        .project-card.wide { grid-column: span 8; }
+        .project-card.narrow { grid-column: span 4; }
+
+        .card-inner {
+            background: var(--white);
+            border-radius: 20px;
+            overflow: hidden;
+            border: 2px solid rgba(255,184,0,0.08);
+            transition: all 0.5s cubic-bezier(0.4,0,0.2,1);
             cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
-            box-shadow: 0 6px 20px rgba(255,184,0,0.3);
+            opacity: 1;
+            transform: translateY(0);
+            height: 100%;
+        }
+
+        .card-inner.visible { opacity: 1; transform: translateY(0); }
+
+        .project-card:nth-child(1) .card-inner { transition-delay: 0.05s; }
+        .project-card:nth-child(2) .card-inner { transition-delay: 0.1s; }
+        .project-card:nth-child(3) .card-inner { transition-delay: 0.15s; }
+        .project-card:nth-child(4) .card-inner { transition-delay: 0.2s; }
+        .project-card:nth-child(5) .card-inner { transition-delay: 0.25s; }
+        .project-card:nth-child(6) .card-inner { transition-delay: 0.3s; }
+
+        .card-inner:hover {
+            border-color: var(--yellow);
+            box-shadow: 0 24px 60px rgba(255,184,0,0.18);
+            transform: translateY(-6px);
+        }
+
+        .card-visual {
+            height: 280px;
             position: relative;
             overflow: hidden;
-        }
-
-        .submit-btn::after { content: '→'; transition: transform 0.3s ease; }
-        .submit-btn:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(255,184,0,0.45); }
-        .submit-btn:hover::after { transform: translateX(5px); }
-
-        .submit-note {
-            font-size: 0.85rem;
-            color: var(--text-light);
-            line-height: 1.5;
-        }
-
-        /* Success state */
-        .form-success {
-            display: none;
-            text-align: center;
-            padding: 3rem;
-        }
-
-        .form-success.show { display: block; }
-
-        .success-icon {
-            width: 80px; height: 80px;
-            background: rgba(255,184,0,0.1);
-            border-radius: 50%;
             display: flex;
             align-items: center;
             justify-content: center;
-            margin: 0 auto 1.5rem;
         }
 
-        .success-icon svg {
-            width: 40px; height: 40px;
-            stroke: var(--yellow);
-            fill: none;
-            stroke-width: 2.5;
-            stroke-linecap: round;
-            stroke-linejoin: round;
+        .project-card.wide .card-visual { height: 320px; }
+
+        /* Mock visuals with CSS art */
+        .visual-web {
+            background: linear-gradient(135deg, #1A1714 0%, #2d2520 100%);
         }
 
-        .form-success h3 { font-size: 1.8rem; font-weight: 800; margin-bottom: 0.75rem; }
-        .form-success p { color: var(--text-light); font-size: 1.1rem; }
-
-        /* ── FAQ ── */
-        .faq-section {
-            padding: 5rem 0;
-            background: var(--white);
+        .visual-app {
+            background: linear-gradient(135deg, #0f1923 0%, #1a2d3d 100%);
         }
 
-        .faq-header {
-            text-align: center;
-            margin-bottom: 4rem;
+        .visual-ia {
+            background: linear-gradient(135deg, #1a1a2e 0%, #16213e 100%);
         }
 
-        .section-label {
-            font-size: 0.85rem;
-            font-weight: 700;
-            color: var(--yellow);
-            letter-spacing: 0.15em;
-            text-transform: uppercase;
+        .visual-design {
+            background: linear-gradient(135deg, #2d1a14 0%, #3d2520 100%);
+        }
+
+        .visual-overlay {
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(255,184,0,0.08), transparent 70%);
+        }
+
+        /* CSS mock UI inside cards */
+        .mock-browser {
+            width: 80%;
+            max-width: 340px;
+            background: rgba(255,255,255,0.05);
+            border-radius: 10px;
+            border: 1px solid rgba(255,255,255,0.1);
+            overflow: hidden;
+            position: relative;
+            z-index: 1;
+            transition: transform 0.5s cubic-bezier(0.4,0,0.2,1);
+        }
+
+        .card-inner:hover .mock-browser { transform: scale(1.04) translateY(-4px); }
+
+        .mock-browser-bar {
+            background: rgba(255,255,255,0.08);
+            padding: 0.5rem 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+        }
+
+        .mock-dot { width: 8px; height: 8px; border-radius: 50%; }
+        .mock-dot:nth-child(1) { background: #ff5f56; }
+        .mock-dot:nth-child(2) { background: #ffbd2e; }
+        .mock-dot:nth-child(3) { background: #27c93f; }
+
+        .mock-url {
+            flex: 1;
+            background: rgba(255,255,255,0.06);
+            border-radius: 4px;
+            height: 16px;
+            margin-left: 0.5rem;
+        }
+
+        .mock-content { padding: 1rem; }
+
+        .mock-hero-bar {
+            height: 10px;
+            background: var(--yellow);
+            border-radius: 3px;
+            width: 60%;
+            margin-bottom: 0.5rem;
+            opacity: 0.9;
+        }
+
+        .mock-line {
+            height: 6px;
+            background: rgba(255,255,255,0.15);
+            border-radius: 3px;
+            margin-bottom: 0.4rem;
+        }
+
+        .mock-line.short { width: 40%; }
+        .mock-line.medium { width: 70%; }
+        .mock-line.full { width: 100%; }
+
+        .mock-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0.4rem;
+            margin-top: 0.75rem;
+        }
+
+        .mock-card-mini {
+            height: 36px;
+            background: rgba(255,255,255,0.08);
+            border-radius: 4px;
+        }
+
+        .mock-card-mini.accent { background: rgba(255,184,0,0.2); }
+
+        /* Card info */
+        .card-info {
+            padding: 2rem;
+        }
+
+        .card-tags {
+            display: flex;
+            gap: 0.5rem;
             margin-bottom: 1rem;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s ease;
+            flex-wrap: wrap;
         }
-        .section-label.visible { opacity: 1; transform: translateY(0); }
 
-        .section-title {
-            font-size: clamp(2rem, 4vw, 3rem);
+        .card-tag {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: var(--yellow-dark);
+            background: rgba(255,184,0,0.1);
+            padding: 0.25rem 0.75rem;
+            border-radius: 50px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .card-title {
+            font-size: 1.4rem;
             font-weight: 800;
             letter-spacing: -0.02em;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.6s ease 0.1s;
-        }
-        .section-title.visible { opacity: 1; transform: translateY(0); }
-
-        .faq-grid {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 1.5rem;
-            max-width: 1000px;
-            margin: 0 auto;
+            margin-bottom: 0.5rem;
         }
 
-        .faq-item {
-            background: var(--cream);
-            border-radius: 16px;
-            padding: 2rem;
-            border: 2px solid transparent;
-            cursor: pointer;
-            transition: all 0.3s cubic-bezier(0.4,0,0.2,1);
-            opacity: 0;
-            transform: translateY(20px);
-        }
-        .faq-item.visible { opacity: 1; transform: translateY(0); }
-        .faq-item:nth-child(1) { transition-delay: 0.05s; }
-        .faq-item:nth-child(2) { transition-delay: 0.1s; }
-        .faq-item:nth-child(3) { transition-delay: 0.15s; }
-        .faq-item:nth-child(4) { transition-delay: 0.2s; }
-        .faq-item:nth-child(5) { transition-delay: 0.25s; }
-        .faq-item:nth-child(6) { transition-delay: 0.3s; }
-
-        .faq-item:hover { border-color: var(--yellow); background: var(--white); }
-
-        .faq-question {
-            display: flex;
-            justify-content: space-between;
-            align-items: flex-start;
-            gap: 1rem;
-            font-weight: 700;
-            font-size: 1rem;
-            margin-bottom: 0;
-        }
-
-        .faq-toggle {
-            width: 24px; height: 24px;
-            flex-shrink: 0;
-            color: var(--yellow);
-            font-size: 1.4rem;
-            line-height: 1;
-            transition: transform 0.3s ease;
-            margin-top: -2px;
-        }
-
-        .faq-item.open .faq-toggle { transform: rotate(45deg); }
-
-        .faq-answer {
-            max-height: 0;
-            overflow: hidden;
-            transition: max-height 0.4s cubic-bezier(0.4,0,0.2,1), padding 0.3s ease;
+        .card-desc {
             font-size: 0.95rem;
             color: var(--text-light);
-            line-height: 1.7;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
         }
 
-        .faq-item.open .faq-answer { max-height: 200px; padding-top: 1rem; }
+        .card-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .card-stat {
+            font-size: 0.85rem;
+            color: var(--text-light);
+        }
+
+        .card-stat strong { color: var(--yellow); font-weight: 700; }
+
+        .card-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.9rem;
+            font-weight: 700;
+            color: var(--yellow);
+            text-decoration: none;
+            transition: gap 0.3s ease;
+        }
+
+        .card-link:hover { gap: 0.75rem; }
+
+        /* ── STATS BAND ── */
+        .stats-band {
+            background: var(--text);
+            padding: 4rem 0;
+            overflow: hidden;
+        }
+
+        .stats-inner {
+            display: flex;
+            gap: 0;
+        }
+
+        .stat-item {
+            flex: 1;
+            text-align: center;
+            padding: 0 2rem;
+            border-right: 1px solid rgba(255,255,255,0.08);
+            opacity: 1;
+            transform: translateY(0);
+            transition: all 0.5s cubic-bezier(0.4,0,0.2,1);
+        }
+
+        .stat-item:last-child { border-right: none; }
+        .stat-item.visible { opacity: 1; transform: translateY(0); }
+        .stat-item:nth-child(1) { transition-delay: 0.05s; }
+        .stat-item:nth-child(2) { transition-delay: 0.1s; }
+        .stat-item:nth-child(3) { transition-delay: 0.15s; }
+        .stat-item:nth-child(4) { transition-delay: 0.2s; }
+
+        .stat-number {
+            font-size: 3.5rem;
+            font-weight: 800;
+            color: var(--yellow);
+            line-height: 1;
+            margin-bottom: 0.5rem;
+            letter-spacing: -0.03em;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: rgba(255,255,255,0.5);
+            font-weight: 500;
+        }
+
+        /* ── CTA ── */
+        .cta-section {
+            padding: 6rem 0;
+            background: linear-gradient(135deg, var(--yellow) 0%, var(--yellow-dark) 100%);
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .cta-section::before {
+            content: '';
+            position: absolute;
+            top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 800px; height: 800px;
+            background: radial-gradient(circle, rgba(255,255,255,0.15), transparent 70%);
+            animation: pulse 4s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: translate(-50%, -50%) scale(1); }
+            50% { transform: translate(-50%, -50%) scale(1.2); }
+        }
+
+        .cta-content { position: relative; z-index: 1; }
+
+        .cta-section h2 {
+            font-size: clamp(2.5rem, 5vw, 4.5rem);
+            font-weight: 800;
+            color: white;
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.02em;
+        }
+
+        .cta-section p {
+            font-size: 1.3rem;
+            color: rgba(255,255,255,0.9);
+            margin-bottom: 3rem;
+            max-width: 600px;
+            margin-left: auto; margin-right: auto;
+        }
+
+        .cta-button {
+            background: white;
+            color: var(--yellow);
+            padding: 1.4rem 3.5rem;
+            border-radius: 12px;
+            text-decoration: none;
+            font-weight: 800;
+            font-size: 1.1rem;
+            display: inline-block;
+            transition: all 0.4s cubic-bezier(0.4,0,0.2,1);
+            box-shadow: 0 8px 32px rgba(0,0,0,0.15);
+        }
+
+        .cta-button:hover { transform: translateY(-6px) scale(1.04); box-shadow: 0 20px 50px rgba(0,0,0,0.25); }
 
         footer {
             padding: 2.5rem;
@@ -612,9 +534,11 @@
 
         /* ── MOBILE ── */
         @media (max-width: 1024px) {
-            .contact-grid { grid-template-columns: 1fr; gap: 2rem; }
-            .contact-info { position: static; }
-            .faq-grid { grid-template-columns: 1fr; }
+            .portfolio-grid { grid-template-columns: 1fr 1fr; }
+            .project-card, .project-card.wide, .project-card.narrow { grid-column: span 1; }
+            .hero-top { flex-direction: column; gap: 1.5rem; }
+            .stats-inner { flex-wrap: wrap; }
+            .stat-item { flex: 0 0 50%; border-right: none; padding: 1.5rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
         }
 
         @media (max-width: 768px) {
@@ -622,11 +546,8 @@
             .container { padding: 0 1.5rem; }
             nav a:not(.header-cta) { display: none; }
             .page-hero { padding: 8rem 0 3rem; }
-            .contact-form-wrapper { padding: 2rem; }
-            .form-row { grid-template-columns: 1fr; }
-            .budget-options { grid-template-columns: repeat(2, 1fr); }
-            .service-options { grid-template-columns: 1fr; }
-            .submit-area { flex-direction: column; align-items: flex-start; }
+            .portfolio-grid { grid-template-columns: 1fr; }
+            .project-card, .project-card.wide, .project-card.narrow { grid-column: span 1; }
             #cursor { display: none; }
         }
     
@@ -695,7 +616,18 @@
             gap: 0.35rem;
         }
         .logo-tagline::before { content: '//'; color: var(--yellow); font-weight: 600; }
-    </style>
+    
+        /* === FORCE VISIBLE === */
+        .service-card, .result-card, .why-card,
+        .portfolio-card, .project-card,
+        .contact-card, .contact-info, .contact-form-wrap,
+        .hero-content, .hero-badge, .section-label, .section-title,
+        .section-subtitle, .stat-item, .faq-item, .pricing-card,
+        .process-step, .tech-item, .team-card {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+</style>
 </head>
 <body>
     <div id="cursor"></div>
@@ -707,9 +639,9 @@
                 <div class="logo-tagline">made in marseille</div>
             </div>
             <nav>
-                <a href="portfolio.html">Portfolio</a>
+                <a href="portfolio.html" class="active">Portfolio</a>
                 <a href="services.html">Services</a>
-                <a href="contact.html" class="active">Contact</a>
+                <a href="contact.html">Contact</a>
                 <a href="contact.html" class="header-cta">Démarrage gratuit</a>
             </nav>
         </div>
@@ -721,174 +653,248 @@
                 <div class="breadcrumb">
                     <a href="index.html">Accueil</a>
                     <span>/</span>
-                    <span>Contact</span>
+                    <span>Portfolio</span>
                 </div>
-                <h1>Parlons de votre <span class="highlight">projet</span></h1>
-                <p>Premier échange gratuit et sans engagement. On vous répond sous 24h.</p>
+                <div class="hero-top">
+                    <h1>Nos <span class="highlight">réalisations</span></h1>
+                    <p class="hero-desc">Chaque projet est une collaboration unique. Voici une sélection de ce que nous avons construit avec nos clients.</p>
+                </div>
+
+                <div class="filters">
+                    <button class="filter-btn active" data-filter="all">Tous</button>
+                    <button class="filter-btn" data-filter="web">Sites Web</button>
+                    <button class="filter-btn" data-filter="app">Applications</button>
+                    <button class="filter-btn" data-filter="ia">IA & Automatisation</button>
+                    <button class="filter-btn" data-filter="design">Design</button>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="contact-section">
+    <section class="portfolio-section">
         <div class="container">
-            <div class="contact-grid">
+            <div class="portfolio-grid" id="portfolio-grid">
 
-                <!-- Left: infos -->
-                <div class="contact-info">
-                    <div class="info-card">
-                        <h3>Nous contacter</h3>
-                        <a href="/cdn-cgi/l/email-protection#d1b9b4bdbdbe91bdb0b3e5e1e5ffb5b4a7" class="contact-method">
-                            <div class="contact-method-icon">
-                                <svg viewBox="0 0 24 24"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M2 7l10 7 10-7"/></svg>
+                <!-- Projet 1 — wide -->
+                <div class="project-card wide" data-category="web">
+                    <div class="card-inner">
+                        <div class="card-visual visual-web">
+                            <div class="visual-overlay"></div>
+                            <div class="mock-browser">
+                                <div class="mock-browser-bar">
+                                    <div class="mock-dot"></div>
+                                    <div class="mock-dot"></div>
+                                    <div class="mock-dot"></div>
+                                    <div class="mock-url"></div>
+                                </div>
+                                <div class="mock-content">
+                                    <div class="mock-hero-bar"></div>
+                                    <div class="mock-line medium"></div>
+                                    <div class="mock-line short"></div>
+                                    <div class="mock-grid">
+                                        <div class="mock-card-mini accent"></div>
+                                        <div class="mock-card-mini"></div>
+                                        <div class="mock-card-mini"></div>
+                                    </div>
+                                </div>
                             </div>
-                            <div class="contact-method-info">
-                                <div class="contact-method-label">Email</div>
-                                <div class="contact-method-value"><span class="__cf_email__" data-cfemail="345c5158585b745855560004001a505142">[email&#160;protected]</span></div>
+                        </div>
+                        <div class="card-info">
+                            <div class="card-tags">
+                                <span class="card-tag">E-commerce</span>
+                                <span class="card-tag">Next.js</span>
                             </div>
-                        </a>
-                        <a href="https://linkedin.com" target="_blank" class="contact-method">
-                            <div class="contact-method-icon">
-                                <svg viewBox="0 0 24 24"><rect x="2" y="2" width="20" height="20" rx="4"/><path d="M7 10v7M7 7v.01M11 17v-4a2 2 0 014 0v4M11 10v7"/></svg>
-                            </div>
-                            <div class="contact-method-info">
-                                <div class="contact-method-label">LinkedIn</div>
-                                <div class="contact-method-value">lab404.dev</div>
-                            </div>
-                        </a>
-                    </div>
-
-                    <div class="info-card">
-                        <h3>Disponibilité</h3>
-                        <p style="font-size:0.95rem; color:var(--text-light); margin-bottom:1rem;">
-                            <span class="availability-dot"></span>
-                            Disponible pour de nouveaux projets
-                        </p>
-                        <p style="font-size:0.9rem; color:var(--text-light); line-height:1.6;">
-                            Réponse garantie sous <strong style="color:var(--text)">24h</strong> en semaine.<br>
-                            Devis détaillé sous <strong style="color:var(--text)">48h</strong>.
-                        </p>
-                    </div>
-
-                    <div class="info-card">
-                        <h3>Ce qui vous attend</h3>
-                        <div style="display:flex; flex-direction:column; gap:0.75rem;">
-                            <div style="display:flex; align-items:center; gap:0.75rem; font-size:0.9rem;">
-                                <span style="color:var(--yellow); font-weight:700;">01</span>
-                                <span>Échange découverte gratuit (~30 min)</span>
-                            </div>
-                            <div style="display:flex; align-items:center; gap:0.75rem; font-size:0.9rem;">
-                                <span style="color:var(--yellow); font-weight:700;">02</span>
-                                <span>Devis détaillé et planning précis</span>
-                            </div>
-                            <div style="display:flex; align-items:center; gap:0.75rem; font-size:0.9rem;">
-                                <span style="color:var(--yellow); font-weight:700;">03</span>
-                                <span>Démarrage rapide, livraison itérative</span>
+                            <h3 class="card-title">Boutique en ligne premium</h3>
+                            <p class="card-desc">Site e-commerce complet avec catalogue produits, paiement Stripe, gestion des stocks et tableau de bord admin.</p>
+                            <div class="card-footer">
+                                <span class="card-stat">Livré en <strong>6 semaines</strong></span>
+                                <a href="contact.html" class="card-link">Projet similaire →</a>
                             </div>
                         </div>
                     </div>
                 </div>
 
-                <!-- Right: form -->
-                <div class="contact-form-wrapper">
-                    <div id="form-container">
-                        <div class="form-header">
-                            <h2>Décrivez votre projet</h2>
-                            <p>Plus vous êtes précis, meilleure sera notre réponse.</p>
+                <!-- Projet 2 — narrow -->
+                <div class="project-card narrow" data-category="ia">
+                    <div class="card-inner">
+                        <div class="card-visual visual-ia">
+                            <div class="visual-overlay"></div>
+                            <div class="mock-browser">
+                                <div class="mock-browser-bar">
+                                    <div class="mock-dot"></div>
+                                    <div class="mock-dot"></div>
+                                    <div class="mock-dot"></div>
+                                    <div class="mock-url"></div>
+                                </div>
+                                <div class="mock-content">
+                                    <div class="mock-line full"></div>
+                                    <div class="mock-line medium" style="background:rgba(255,184,0,0.3)"></div>
+                                    <div class="mock-line full"></div>
+                                    <div class="mock-line short" style="background:rgba(255,184,0,0.3)"></div>
+                                    <div class="mock-line medium"></div>
+                                </div>
+                            </div>
                         </div>
-
-                        <form id="contact-form" novalidate>
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="firstname">Prénom <span>*</span></label>
-                                    <input type="text" id="firstname" name="firstname" placeholder="Jean" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="lastname">Nom <span>*</span></label>
-                                    <input type="text" id="lastname" name="lastname" placeholder="Dupont" required>
-                                </div>
+                        <div class="card-info">
+                            <div class="card-tags">
+                                <span class="card-tag">IA</span>
+                                <span class="card-tag">Claude API</span>
                             </div>
-
-                            <div class="form-row">
-                                <div class="form-group">
-                                    <label for="email">Email <span>*</span></label>
-                                    <input type="email" id="email" name="email" placeholder="jean@entreprise.fr" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="company">Entreprise</label>
-                                    <input type="text" id="company" name="company" placeholder="Mon entreprise">
-                                </div>
+                            <h3 class="card-title">Assistant IA métier</h3>
+                            <p class="card-desc">Chatbot intelligent intégré à la base de connaissances interne d'une PME. Réponses instantanées aux questions clients.</p>
+                            <div class="card-footer">
+                                <span class="card-stat"><strong>-70%</strong> temps réponse</span>
+                                <a href="contact.html" class="card-link">En savoir plus →</a>
                             </div>
-
-                            <div class="form-group">
-                                <label>Service(s) souhaité(s)</label>
-                                <div class="service-options">
-                                    <div class="service-option">
-                                        <input type="checkbox" id="s1" name="services" value="site-web">
-                                        <label for="s1">Site Web / E-commerce</label>
-                                    </div>
-                                    <div class="service-option">
-                                        <input type="checkbox" id="s2" name="services" value="app-saas">
-                                        <label for="s2">App Web / SaaS</label>
-                                    </div>
-                                    <div class="service-option">
-                                        <input type="checkbox" id="s3" name="services" value="ia">
-                                        <label for="s3">Automatisation IA</label>
-                                    </div>
-                                    <div class="service-option">
-                                        <input type="checkbox" id="s4" name="services" value="design">
-                                        <label for="s4">Design & Retouche</label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label>Budget envisagé</label>
-                                <div class="budget-options">
-                                    <div class="budget-option">
-                                        <input type="radio" id="b1" name="budget" value="< 1 000 €">
-                                        <label for="b1">< 1 000 €</label>
-                                    </div>
-                                    <div class="budget-option">
-                                        <input type="radio" id="b2" name="budget" value="1 000 – 5 000 €">
-                                        <label for="b2">1k – 5k €</label>
-                                    </div>
-                                    <div class="budget-option">
-                                        <input type="radio" id="b3" name="budget" value="5 000 – 15 000 €">
-                                        <label for="b3">5k – 15k €</label>
-                                    </div>
-                                    <div class="budget-option">
-                                        <input type="radio" id="b4" name="budget" value="> 15 000 €">
-                                        <label for="b4">> 15k €</label>
-                                    </div>
-                                    <div class="budget-option">
-                                        <input type="radio" id="b5" name="budget" value="À définir">
-                                        <label for="b5">À définir</label>
-                                    </div>
-                                    <div class="budget-option">
-                                        <input type="radio" id="b6" name="budget" value="Mensuel / Retainer">
-                                        <label for="b6">Mensuel</label>
-                                    </div>
-                                </div>
-                            </div>
-
-                            <div class="form-group">
-                                <label for="message">Décrivez votre projet <span>*</span></label>
-                                <textarea id="message" name="message" placeholder="Décrivez votre projet, vos objectifs, votre délai idéal..." required></textarea>
-                            </div>
-
-                            <div class="submit-area">
-                                <button type="submit" class="submit-btn">Envoyer le message</button>
-                                <p class="submit-note">Réponse garantie<br>sous <strong>24h</strong> en semaine</p>
-                            </div>
-                        </form>
+                        </div>
                     </div>
+                </div>
 
-                    <div class="form-success" id="form-success">
-                        <div class="success-icon">
-                            <svg viewBox="0 0 24 24"><path d="M20 6L9 17l-5-5"/></svg>
+                <!-- Projet 3 — narrow -->
+                <div class="project-card narrow" data-category="app">
+                    <div class="card-inner">
+                        <div class="card-visual visual-app">
+                            <div class="visual-overlay"></div>
+                            <div class="mock-browser">
+                                <div class="mock-browser-bar">
+                                    <div class="mock-dot"></div>
+                                    <div class="mock-dot"></div>
+                                    <div class="mock-dot"></div>
+                                    <div class="mock-url"></div>
+                                </div>
+                                <div class="mock-content">
+                                    <div class="mock-grid" style="grid-template-columns:repeat(2,1fr)">
+                                        <div class="mock-card-mini accent" style="height:50px"></div>
+                                        <div class="mock-card-mini" style="height:50px"></div>
+                                        <div class="mock-card-mini" style="height:50px"></div>
+                                        <div class="mock-card-mini accent" style="height:50px"></div>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <h3>Message envoyé !</h3>
-                        <p>Merci, on revient vers vous sous 24h.<br>À très vite !</p>
+                        <div class="card-info">
+                            <div class="card-tags">
+                                <span class="card-tag">SaaS</span>
+                                <span class="card-tag">Dashboard</span>
+                            </div>
+                            <h3 class="card-title">Plateforme SaaS analytics</h3>
+                            <p class="card-desc">Dashboard temps réel pour suivi de KPIs métier. Authentification, rôles, export PDF et alertes automatiques.</p>
+                            <div class="card-footer">
+                                <span class="card-stat"><strong>3</strong> mois de dev</span>
+                                <a href="contact.html" class="card-link">Démarrer →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet 4 — wide -->
+                <div class="project-card wide" data-category="app">
+                    <div class="card-inner">
+                        <div class="card-visual visual-app">
+                            <div class="visual-overlay"></div>
+                            <div class="mock-browser">
+                                <div class="mock-browser-bar">
+                                    <div class="mock-dot"></div>
+                                    <div class="mock-dot"></div>
+                                    <div class="mock-dot"></div>
+                                    <div class="mock-url"></div>
+                                </div>
+                                <div class="mock-content">
+                                    <div class="mock-hero-bar" style="width:40%"></div>
+                                    <div class="mock-line full"></div>
+                                    <div class="mock-grid">
+                                        <div class="mock-card-mini" style="height:44px"></div>
+                                        <div class="mock-card-mini accent" style="height:44px"></div>
+                                        <div class="mock-card-mini" style="height:44px"></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-info">
+                            <div class="card-tags">
+                                <span class="card-tag">Web App</span>
+                                <span class="card-tag">Next.js</span>
+                                <span class="card-tag">Supabase</span>
+                            </div>
+                            <h3 class="card-title">Plateforme de réservation</h3>
+                            <p class="card-desc">Application de réservation multi-prestataires avec calendrier temps réel, paiements et système de notifications.</p>
+                            <div class="card-footer">
+                                <span class="card-stat">Livré en <strong>8 semaines</strong></span>
+                                <a href="contact.html" class="card-link">Projet similaire →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet 5 -->
+                <div class="project-card" data-category="design">
+                    <div class="card-inner">
+                        <div class="card-visual visual-design">
+                            <div class="visual-overlay"></div>
+                            <div class="mock-browser">
+                                <div class="mock-browser-bar">
+                                    <div class="mock-dot"></div>
+                                    <div class="mock-dot"></div>
+                                    <div class="mock-dot"></div>
+                                    <div class="mock-url"></div>
+                                </div>
+                                <div class="mock-content">
+                                    <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:0.4rem">
+                                        <div style="height:60px;background:rgba(255,184,0,0.25);border-radius:4px"></div>
+                                        <div style="height:60px;background:rgba(255,255,255,0.08);border-radius:4px"></div>
+                                    </div>
+                                    <div class="mock-line medium" style="margin-top:0.5rem"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-info">
+                            <div class="card-tags">
+                                <span class="card-tag">Design</span>
+                                <span class="card-tag">Packshot</span>
+                            </div>
+                            <h3 class="card-title">Direction artistique & visuels</h3>
+                            <p class="card-desc">Création d'identité visuelle complète, packshots produits et contenu réseaux sociaux pour une marque e-commerce.</p>
+                            <div class="card-footer">
+                                <span class="card-stat"><strong>+40%</strong> engagement</span>
+                                <a href="contact.html" class="card-link">Nous contacter →</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Projet 6 -->
+                <div class="project-card" data-category="ia">
+                    <div class="card-inner">
+                        <div class="card-visual visual-ia">
+                            <div class="visual-overlay"></div>
+                            <div class="mock-browser">
+                                <div class="mock-browser-bar">
+                                    <div class="mock-dot"></div>
+                                    <div class="mock-dot"></div>
+                                    <div class="mock-dot"></div>
+                                    <div class="mock-url"></div>
+                                </div>
+                                <div class="mock-content">
+                                    <div class="mock-line short" style="background:rgba(255,184,0,0.4)"></div>
+                                    <div class="mock-line full"></div>
+                                    <div class="mock-line short" style="background:rgba(255,184,0,0.4)"></div>
+                                    <div class="mock-line medium"></div>
+                                    <div class="mock-line full"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-info">
+                            <div class="card-tags">
+                                <span class="card-tag">Automatisation</span>
+                                <span class="card-tag">GPT-4</span>
+                            </div>
+                            <h3 class="card-title">Workflow IA de traitement docs</h3>
+                            <p class="card-desc">Pipeline automatisé d'extraction et classification de documents PDF. Intégration directe dans le CRM client.</p>
+                            <div class="card-footer">
+                                <span class="card-stat"><strong>2h</strong> économisées/jour</span>
+                                <a href="contact.html" class="card-link">Explorer →</a>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
@@ -896,56 +902,36 @@
         </div>
     </section>
 
-    <!-- FAQ -->
-    <section class="faq-section">
+    <!-- Stats -->
+    <div class="stats-band">
         <div class="container">
-            <div class="faq-header">
-                <div class="section-label">Questions fréquentes</div>
-                <h2 class="section-title">Tout ce que vous voulez savoir</h2>
+            <div class="stats-inner" id="stats-band">
+                <div class="stat-item">
+                    <div class="stat-number">20+</div>
+                    <div class="stat-label">Projets livrés</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">100%</div>
+                    <div class="stat-label">Clients satisfaits</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">24h</div>
+                    <div class="stat-label">Délai de réponse</div>
+                </div>
+                <div class="stat-item">
+                    <div class="stat-number">4+</div>
+                    <div class="stat-label">Années d'expérience</div>
+                </div>
             </div>
-            <div class="faq-grid">
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Combien de temps pour créer un site ?</span>
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">Un site vitrine prend généralement 2 à 4 semaines. Une app web ou un e-commerce complet entre 6 et 12 semaines selon la complexité.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Vous travaillez avec quelles technologies ?</span>
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">Principalement Next.js, React et Tailwind pour le front. Pour le back : Node.js, Supabase ou Prisma. Et l'API Anthropic Claude pour les intégrations IA.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Proposez-vous de la maintenance ?</span>
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">Oui, nous proposons des contrats de maintenance mensuelle incluant mises à jour, corrections de bugs, sauvegardes et petites évolutions.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Je n'ai pas de brief précis, c'est OK ?</span>
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">Totalement. On vous accompagne dès la phase de cadrage pour structurer votre projet, définir les priorités et établir un scope réaliste.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Travaillez-vous à distance ?</span>
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">Oui, 100% remote. On collabore efficacement avec des clients partout en France et en Europe via Notion, Figma et les appels vidéo.</div>
-                </div>
-                <div class="faq-item">
-                    <div class="faq-question">
-                        <span>Quelles sont les modalités de paiement ?</span>
-                        <span class="faq-toggle">+</span>
-                    </div>
-                    <div class="faq-answer">30% à la commande, 40% à la livraison de la maquette validée, 30% à la mise en ligne. Virement bancaire ou carte.</div>
-                </div>
+        </div>
+    </div>
+
+    <section class="cta-section">
+        <div class="container">
+            <div class="cta-content">
+                <h2>Votre projet, le prochain ?</h2>
+                <p>Discutons de vos objectifs. Premier échange gratuit, devis sous 48h.</p>
+                <a href="contact.html" class="cta-button">Démarrer mon projet →</a>
             </div>
         </div>
     </section>
@@ -954,7 +940,7 @@
         <p>© 2025 lab404.dev — Studio créatif & technique · Marseille 🔆</p>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script>
         // Custom cursor
         const cursor = document.getElementById('cursor');
         if (cursor) {
@@ -969,52 +955,37 @@
         });
         }, { threshold: 0.05, rootMargin: '0px 0px -40px 0px' });
 
-        document.querySelectorAll('.info-card, .contact-form-wrapper, .faq-header, .faq-grid').forEach(el => observer.observe(el));
+        document.querySelectorAll('.portfolio-grid, #stats-band').forEach(el => observer.observe(el));
 
-        // FAQ accordion
-        document.querySelectorAll('.faq-item').forEach(item => {
-            item.addEventListener('click', () => {
-                const isOpen = item.classList.contains('open');
-                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-                if (!isOpen) item.classList.add('open');
-            });
-        });
+        // Filter
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const cards = document.querySelectorAll('.project-card');
 
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
 
-        // Form submit — Formspree
-        document.getElementById('contact-form').addEventListener('submit', async function(e) {
-            e.preventDefault();
+                const filter = btn.dataset.filter;
 
-            const btn = this.querySelector('.submit-btn');
-            const originalHTML = btn.innerHTML;
-            btn.innerHTML = 'Envoi en cours…';
-            btn.disabled = true;
-
-            const formData = new FormData(this);
-
-            // Récupérer les services cochés et les fusionner en une string
-            const services = [...this.querySelectorAll('input[name="services"]:checked')]
-                .map(el => el.value).join(', ');
-            if (services) formData.set('services', services);
-
-            try {
-                const res = await fetch('https://formspree.io/f/mzdjpeeo', {
-                    method: 'POST',
-                    body: formData,
-                    headers: { 'Accept': 'application/json' }
+                cards.forEach(card => {
+                    const show = filter === 'all' || card.dataset.category === filter;
+                    card.style.transition = 'opacity 0.3s ease, transform 0.3s ease';
+                    if (show) {
+                        card.style.opacity = '1';
+                        card.style.transform = 'scale(1)';
+                        card.style.display = '';
+                    } else {
+                        card.style.opacity = '0';
+                        card.style.transform = 'scale(0.95)';
+                        setTimeout(() => {
+                            if (btn.dataset.filter !== 'all' && card.dataset.category !== btn.dataset.filter) {
+                                card.style.display = 'none';
+                            }
+                        }, 300);
+                    }
                 });
-
-                if (res.ok) {
-                    document.getElementById('form-container').style.display = 'none';
-                    document.getElementById('form-success').classList.add('show');
-                } else {
-                    throw new Error('Erreur');
-                }
-            } catch (err) {
-                btn.innerHTML = originalHTML;
-                btn.disabled = false;
-                alert('Une erreur est survenue. Réessayez ou écrivez-nous directement à hello@lab404.dev');
-            }
+            });
         });
     </script>
 </body>
