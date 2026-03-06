@@ -26,14 +26,21 @@
             --border: rgba(255,184,0,0.15);
         }
         body { font-family: 'DM Sans', sans-serif; background: var(--cream); color: var(--text); }
-        header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.25rem 4rem; background: rgba(250,247,242,0.97); backdrop-filter: blur(24px); border-bottom: 1px solid var(--border); }
-        .header-content { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; }
+        header { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 1.25rem 4rem; background: rgba(250,247,242,0.97); backdrop-filter: blur(24px); -webkit-backdrop-filter: blur(24px); border-bottom: 1px solid rgba(255,184,0,0.15); box-shadow: 0 2px 20px rgba(26,23,20,0.06); }
+        .header-content { display: flex; justify-content: space-between; align-items: center; max-width: 1200px; margin: 0 auto; width: 100%; }
         .logo-img-link { display: inline-flex; align-items: center; text-decoration: none; flex-shrink: 0; }
-        .logo-img { height: 68px; width: auto; display: block; }
-        nav { display: flex; align-items: center; gap: 2.5rem; }
-        nav a { text-decoration: none; color: var(--text-light); font-size: 0.9rem; font-weight: 500; transition: color 0.2s; }
-        nav a:hover { color: var(--yellow-dark); }
-        .header-cta { background: var(--yellow) !important; color: white !important; padding: 0.6rem 1.5rem !important; border-radius: 8px; font-weight: 700 !important; }
+        .logo-img { height: 52px; width: auto; display: block; }
+        @media (max-width: 768px) { .logo-img { height: 40px; } }
+        nav { display: flex; gap: 2.5rem; align-items: center; }
+        nav a { color: var(--text-light); text-decoration: none; font-size: 0.95rem; font-weight: 500; position: relative; transition: color 0.3s ease; }
+        nav a::after { content: ''; position: absolute; bottom: -5px; left: 50%; width: 0; height: 2px; background: var(--yellow); transition: all 0.3s cubic-bezier(0.4,0,0.2,1); transform: translateX(-50%); }
+        nav a:hover { color: var(--yellow); }
+        nav a:hover::after { width: 100%; }
+        nav a.active { color: var(--yellow); }
+        nav a.active::after { width: 100%; }
+        .header-cta { background: var(--yellow); color: white !important; padding: 0.75rem 1.75rem; border-radius: 8px; font-weight: 600; transition: all 0.3s ease; box-shadow: 0 4px 12px rgba(255,184,0,0.2); }
+        .header-cta:hover { transform: translateY(-2px); box-shadow: 0 8px 24px rgba(255,184,0,0.4); }
+        .header-cta::after { display: none !important; }
         .page-hero { padding: 9rem 4rem 3rem; max-width: 1200px; margin: 0 auto; }
         .section-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.72rem; letter-spacing: 0.15em; color: var(--yellow-dark); text-transform: uppercase; margin-bottom: 1rem; }
         .section-label::before { content: '// '; }
@@ -121,7 +128,7 @@
         footer a { color: var(--text-light); }
         @media (max-width: 900px) {
             header { padding: 1rem 1.5rem; }
-            .logo-img { height: 52px; }
+            .logo-img { height: 40px; }
             .page-hero { padding: 7rem 1.5rem 2rem; }
             .contact-layout { grid-template-columns: 1fr; padding: 0 1.5rem 4rem; }
             .contact-sidebar { position: static; }
@@ -135,7 +142,7 @@
 <header>
     <div class="header-content">
         <a href="/" class="logo-img-link">
-            <img src="logo-navbar.png" alt="lab404" class="logo-img">
+            <img src="logo-navbar.png" alt="lab404 — Studio web Marseille" class="logo-img">
         </a>
         <nav>
             <a href="portfolio">Portfolio</a>
