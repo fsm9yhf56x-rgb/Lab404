@@ -734,6 +734,100 @@
             cursor: default;
         }
 
+    
+        .visual-screenshot {
+            background: #f0f0f0;
+            padding: 0;
+            overflow: hidden;
+        }
+        .screenshot-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: top;
+            display: block;
+            transition: transform 0.6s cubic-bezier(0.4,0,0.2,1);
+        }
+        .card-inner:hover .screenshot-img {
+            transform: scale(1.03);
+        }
+
+    
+        /* ── PHOTO IA MOCK ── */
+        .visual-photoai { background: #0a0a0a; }
+        .photoai-mock { width: 85%; display: flex; flex-direction: column; gap: 12px; }
+        .pai-before-after { display: flex; height: 160px; border-radius: 10px; overflow: hidden; box-shadow: 0 10px 40px rgba(0,0,0,0.5); }
+        .pai-img { flex: 1; position: relative; display: flex; align-items: flex-end; padding: 8px; }
+        .pai-before { background: linear-gradient(135deg, #2a2a2a, #1a1a1a); filter: saturate(0.3); }
+        .pai-after { background: linear-gradient(135deg, #4a3060, #7b52ab); }
+        .pai-grain { position: absolute; inset: 0; background: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.15'/%3E%3C/svg%3E"); }
+        .pai-glow { position: absolute; inset: 0; background: radial-gradient(circle at 60% 40%, rgba(180,100,255,0.3), transparent 70%); }
+        .pai-label { font-size: 9px; font-weight: 700; letter-spacing: 0.1em; color: white; background: rgba(0,0,0,0.5); padding: 2px 6px; border-radius: 4px; position: relative; z-index: 1; }
+        .pai-divider { width: 3px; background: white; flex-shrink: 0; position: relative; }
+        .pai-divider::before { content: '⟺'; position: absolute; top: 50%; left: 50%; transform: translate(-50%,-50%); background: white; color: #333; width: 20px; height: 20px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 8px; }
+        .pai-tags-row { display: flex; gap: 8px; }
+        .pai-chip { background: rgba(180,100,255,0.15); border: 1px solid rgba(180,100,255,0.3); color: #c084fc; font-size: 9px; font-weight: 700; padding: 4px 10px; border-radius: 50px; }
+
+        /* ── NORVIK ECOM MOCK ── */
+        .visual-norvik { background: #fafaf8; }
+        .norvik-mock { width: 100%; height: 100%; display: flex; flex-direction: column; background: #fafaf8; }
+        .norvik-header { display: flex; justify-content: space-between; align-items: center; padding: 10px 16px; border-bottom: 1px solid #eee; }
+        .norvik-logo-txt { font-size: 11px; font-weight: 900; letter-spacing: 0.2em; color: #111; }
+        .norvik-nav { display: flex; gap: 8px; }
+        .norvik-nav span { width: 24px; height: 4px; background: #ccc; border-radius: 2px; }
+        .norvik-hero { display: flex; padding: 12px 16px; gap: 12px; align-items: center; flex: 1; }
+        .norvik-hero-text { flex: 1; display: flex; flex-direction: column; gap: 6px; }
+        .nh-line.big { height: 10px; background: #111; border-radius: 3px; width: 90%; }
+        .nh-line.mid { height: 7px; background: #555; border-radius: 3px; width: 70%; }
+        .nh-btn { font-size: 8px; font-weight: 700; background: #111; color: white; padding: 5px 10px; border-radius: 4px; width: fit-content; margin-top: 4px; }
+        .norvik-hero-img { width: 80px; height: 80px; background: linear-gradient(135deg, #d4c5b0, #b8a590); border-radius: 8px; }
+        .norvik-products { display: flex; gap: 8px; padding: 8px 16px 12px; }
+        .norvik-prod { flex: 1; }
+        .np-img { height: 45px; border-radius: 6px; background: #e8e0d4; margin-bottom: 4px; }
+        .np-img.warm { background: #d4bfa8; }
+        .np-img.mid { background: #c8b898; }
+        .np-name { height: 4px; background: #ccc; border-radius: 2px; margin-bottom: 3px; width: 80%; }
+        .np-price { height: 4px; background: #111; border-radius: 2px; width: 40%; }
+
+        /* ── LUMIO IA MOCK ── */
+        .visual-lumio { background: #0f0f1a; }
+        .lumio-mock { width: 85%; background: #16162a; border-radius: 12px; overflow: hidden; box-shadow: 0 20px 60px rgba(0,0,0,0.5); }
+        .lumio-header { background: #0f0f1a; padding: 8px 12px; display: flex; align-items: center; gap: 8px; }
+        .lumio-dot-purple { width: 20px; height: 20px; background: linear-gradient(135deg, #7b52ab, #a855f7); border-radius: 6px; }
+        .lumio-title-bar { flex: 1; height: 6px; background: rgba(255,255,255,0.1); border-radius: 3px; }
+        .lumio-status { font-size: 8px; color: #28c840; font-weight: 700; }
+        .lumio-chat { padding: 12px; display: flex; flex-direction: column; gap: 10px; }
+        .lumio-msg { display: flex; gap: 8px; align-items: flex-start; }
+        .lumio-msg.user { flex-direction: row-reverse; }
+        .lumio-avatar { width: 22px; height: 22px; border-radius: 6px; background: linear-gradient(135deg, #7b52ab, #a855f7); flex-shrink: 0; display: flex; align-items: center; justify-content: center; font-size: 9px; color: white; font-weight: 700; }
+        .lumio-bubble { background: rgba(255,255,255,0.06); border-radius: 8px; padding: 8px 10px; flex: 1; display: flex; flex-direction: column; gap: 4px; }
+        .lumio-bubble.user-bubble { background: rgba(124,82,171,0.25); }
+        .lb-line { height: 5px; background: rgba(255,255,255,0.2); border-radius: 3px; }
+        .lb-line.short { width: 60%; }
+        .lumio-input-bar { background: #0f0f1a; padding: 8px 12px; display: flex; gap: 8px; align-items: center; }
+        .lumio-input-field { flex: 1; height: 24px; background: rgba(255,255,255,0.06); border-radius: 6px; border: 1px solid rgba(255,255,255,0.1); }
+        .lumio-send { width: 24px; height: 24px; background: #7b52ab; border-radius: 6px; display: flex; align-items: center; justify-content: center; color: white; font-size: 10px; }
+
+        /* ── VÉLOROUTE MAP MOCK ── */
+        .visual-velo { background: #e8f0e8; }
+        .velo-mock { width: 100%; height: 100%; display: flex; flex-direction: column; background: #e8efe8; }
+        .velo-header { background: white; padding: 8px 14px; display: flex; align-items: center; gap: 10px; border-bottom: 1px solid #ddd; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+        .velo-logo { font-size: 10px; font-weight: 700; color: #2d6a2d; white-space: nowrap; }
+        .velo-search { flex: 1; height: 20px; background: #f0f0f0; border-radius: 10px; }
+        .velo-map { flex: 1; position: relative; background: linear-gradient(135deg, #d4e8c8 0%, #c8dfc0 50%, #b8d4a8 100%); }
+        .velo-route-line { position: absolute; top: 30%; left: 20%; width: 60%; height: 3px; background: #FFB800; border-radius: 2px; transform: rotate(-8deg); box-shadow: 0 2px 8px rgba(255,184,0,0.4); }
+        .velo-pin { position: absolute; width: 22px; height: 22px; border-radius: 50% 50% 50% 0; transform: rotate(-45deg); display: flex; align-items: center; justify-content: center; font-size: 8px; font-weight: 700; color: white; box-shadow: 0 4px 12px rgba(0,0,0,0.2); }
+        .velo-pin.start { background: #28c840; top: 22%; left: 15%; }
+        .velo-pin.end { background: #ff5f57; bottom: 32%; right: 20%; }
+        .velo-pin span { transform: rotate(45deg); }
+        .velo-info-card { position: absolute; bottom: 12px; left: 50%; transform: translateX(-50%); background: white; border-radius: 10px; padding: 10px 14px; width: 75%; box-shadow: 0 8px 24px rgba(0,0,0,0.12); display: flex; flex-direction: column; gap: 6px; }
+        .vic-title { height: 7px; background: #222; border-radius: 3px; width: 70%; }
+        .vic-stats { display: flex; gap: 12px; }
+        .vic-stat { display: flex; flex-direction: column; gap: 3px; }
+        .vs-val { height: 7px; width: 30px; background: #FFB800; border-radius: 3px; }
+        .vs-lbl { height: 4px; width: 25px; background: #ccc; border-radius: 2px; }
+        .vic-btn { height: 18px; background: #2d6a2d; border-radius: 5px; }
+
     </style>
 </head>
 <body>
@@ -864,35 +958,42 @@
                                 <span class="card-tag">Web</span>
                                 <span class="card-tag">Restaurant</span>
                             </div>
-                            <h3 class="card-title">Ma Sand Table</h3>
-                            <p class="card-desc">Site vitrine & réservation en ligne pour restaurant gastronomique. Design épuré, menu interactif et intégration calendrier.</p>
+                            <h3 class="card-title">MaS and Table</h3>
+                            <p class="card-desc">Plateforme touristique internationale haut de gamme d'expériences en PACA. Design premium, calendrier dynamique, paiement stripe, gestion SAV IA.</p>
                             <a href="https://masandtable.com" target="_blank" class="card-link">Voir le projet →</a>
                         </div>
                     </div>
                 </div>
 
                 <!-- 3 — fictif : Kōdo Studio (design agency) -->
-                <div class="project-card narrow" data-category="design">
+                <div class="project-card narrow" data-category="ia">
                     <div class="card-inner">
-                        <div class="card-visual visual-design">
-                            <div class="design-mock">
-                                <div class="dm-logo"></div>
-                                <div class="dm-line long"></div>
-                                <div class="dm-line short"></div>
-                                <div class="dm-grid">
-                                    <div class="dm-img dark"></div>
-                                    <div class="dm-img medium"></div>
-                                    <div class="dm-img light"></div>
+                        <div class="card-visual visual-photoai">
+                            <div class="photoai-mock">
+                                <div class="pai-before-after">
+                                    <div class="pai-img pai-before">
+                                        <span class="pai-label">Avant</span>
+                                        <div class="pai-grain"></div>
+                                    </div>
+                                    <div class="pai-divider"></div>
+                                    <div class="pai-img pai-after">
+                                        <span class="pai-label">Après</span>
+                                        <div class="pai-glow"></div>
+                                    </div>
+                                </div>
+                                <div class="pai-tags-row">
+                                    <div class="pai-chip">✦ Retouche IA</div>
+                                    <div class="pai-chip">✦ Upscale 4K</div>
                                 </div>
                             </div>
                         </div>
                         <div class="card-info">
                             <div class="card-tags">
-                                <span class="card-tag">Design</span>
-                                <span class="card-tag">Identité</span>
+                                <span class="card-tag">Photo IA</span>
+                                <span class="card-tag">Retouche</span>
                             </div>
-                            <h3 class="card-title">Kōdo Studio</h3>
-                            <p class="card-desc">Refonte identité visuelle complète — logo, charte graphique, site vitrine pour studio de design parisien.</p>
+                            <h3 class="card-title">Atelier Solène</h3>
+                            <p class="card-desc">Pipeline de retouche photo IA pour photographe professionnelle — upscaling 4K, correction colorimétrique et détourage automatique.</p>
                             <span class="card-link soon">Bientôt en ligne</span>
                         </div>
                     </div>
@@ -901,24 +1002,24 @@
                 <!-- 4 — fictif : Norvik (e-commerce mode) — wide -->
                 <div class="project-card wide" data-category="web">
                     <div class="card-inner">
-                        <div class="card-visual visual-ecom">
-                            <div class="mock-browser">
-                                <div class="browser-bar">
-                                    <span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
-                                    <span class="browser-url">norvik-studio.com</span>
+                        <div class="card-visual visual-norvik">
+                            <div class="norvik-mock">
+                                <div class="norvik-header">
+                                    <div class="norvik-logo-txt">NORVIK</div>
+                                    <div class="norvik-nav"><span></span><span></span><span></span></div>
                                 </div>
-                                <div class="browser-body ecom-body">
-                                    <div class="ecom-nav">
-                                        <div class="ecom-brand"></div>
-                                        <div class="ecom-links"><span></span><span></span><span></span></div>
+                                <div class="norvik-hero">
+                                    <div class="norvik-hero-text">
+                                        <div class="nh-line big"></div>
+                                        <div class="nh-line mid"></div>
+                                        <div class="nh-btn">Shop Now →</div>
                                     </div>
-                                    <div class="ecom-hero-img"></div>
-                                    <div class="ecom-products">
-                                        <div class="ecom-prod"></div>
-                                        <div class="ecom-prod"></div>
-                                        <div class="ecom-prod"></div>
-                                        <div class="ecom-prod"></div>
-                                    </div>
+                                    <div class="norvik-hero-img"></div>
+                                </div>
+                                <div class="norvik-products">
+                                    <div class="norvik-prod"><div class="np-img"></div><div class="np-name"></div><div class="np-price"></div></div>
+                                    <div class="norvik-prod"><div class="np-img warm"></div><div class="np-name"></div><div class="np-price"></div></div>
+                                    <div class="norvik-prod"><div class="np-img mid"></div><div class="np-name"></div><div class="np-price"></div></div>
                                 </div>
                             </div>
                         </div>
@@ -938,21 +1039,38 @@
                 <!-- 5 — fictif : Lumio IA assistant -->
                 <div class="project-card" data-category="ia">
                     <div class="card-inner">
-                        <div class="card-visual visual-ia">
-                            <div class="ia-mock">
-                                <div class="ia-bubble assistant">
-                                    <div class="ia-dot"></div>
-                                    <div class="ia-text-lines"><span></span><span short></span></div>
+                        <div class="card-visual visual-lumio">
+                            <div class="lumio-mock">
+                                <div class="lumio-header">
+                                    <div class="lumio-dot-purple"></div>
+                                    <div class="lumio-title-bar"></div>
+                                    <div class="lumio-status">● Live</div>
                                 </div>
-                                <div class="ia-bubble user">
-                                    <div class="ia-text-lines"><span></span></div>
+                                <div class="lumio-chat">
+                                    <div class="lumio-msg bot">
+                                        <div class="lumio-avatar">L</div>
+                                        <div class="lumio-bubble">
+                                            <div class="lb-line"></div>
+                                            <div class="lb-line short"></div>
+                                        </div>
+                                    </div>
+                                    <div class="lumio-msg user">
+                                        <div class="lumio-bubble user-bubble">
+                                            <div class="lb-line"></div>
+                                        </div>
+                                    </div>
+                                    <div class="lumio-msg bot">
+                                        <div class="lumio-avatar">L</div>
+                                        <div class="lumio-bubble">
+                                            <div class="lb-line"></div>
+                                            <div class="lb-line"></div>
+                                            <div class="lb-line short"></div>
+                                        </div>
+                                    </div>
                                 </div>
-                                <div class="ia-bubble assistant">
-                                    <div class="ia-dot"></div>
-                                    <div class="ia-text-lines"><span></span><span></span><span short></span></div>
-                                </div>
-                                <div class="ia-typing">
-                                    <span></span><span></span><span></span>
+                                <div class="lumio-input-bar">
+                                    <div class="lumio-input-field"></div>
+                                    <div class="lumio-send">→</div>
                                 </div>
                             </div>
                         </div>
@@ -971,21 +1089,23 @@
                 <!-- 6 — fictif : Véloroute (app mobile web) -->
                 <div class="project-card" data-category="app">
                     <div class="card-inner">
-                        <div class="card-visual visual-app">
-                            <div class="app-mock">
-                                <div class="phone-frame">
-                                    <div class="phone-screen">
-                                        <div class="app-header-bar"></div>
-                                        <div class="app-map-area">
-                                            <div class="map-dot a"></div>
-                                            <div class="map-line"></div>
-                                            <div class="map-dot b"></div>
+                        <div class="card-visual visual-velo">
+                            <div class="velo-mock">
+                                <div class="velo-header">
+                                    <div class="velo-logo">🚴 Véloroute</div>
+                                    <div class="velo-search"></div>
+                                </div>
+                                <div class="velo-map">
+                                    <div class="velo-route-line"></div>
+                                    <div class="velo-pin start">A</div>
+                                    <div class="velo-pin end">B</div>
+                                    <div class="velo-info-card">
+                                        <div class="vic-title"></div>
+                                        <div class="vic-stats">
+                                            <div class="vic-stat"><div class="vs-val"></div><div class="vs-lbl"></div></div>
+                                            <div class="vic-stat"><div class="vs-val"></div><div class="vs-lbl"></div></div>
                                         </div>
-                                        <div class="app-card-bottom">
-                                            <div class="acb-line long"></div>
-                                            <div class="acb-line short"></div>
-                                            <div class="acb-btn"></div>
-                                        </div>
+                                        <div class="vic-btn"></div>
                                     </div>
                                 </div>
                             </div>
