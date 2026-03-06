@@ -241,6 +241,21 @@ header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.25
 }
 </script>
     <link rel="canonical" href="https://lab404.dev/contact">
+<script>
+function selectOpt(el) {
+    event.preventDefault();
+    event.stopPropagation();
+    var step = el.getAttribute('data-step');
+    var isMulti = el.classList.contains('multi');
+    if (isMulti) {
+        el.classList.toggle('selected');
+    } else {
+        var opts = document.querySelectorAll('.brief-opt[data-step="' + step + '"]:not(.multi)');
+        opts.forEach(function(x) { x.classList.remove('selected'); });
+        el.classList.add('selected');
+    }
+}
+</script>
 </head>
 <body>
 
@@ -337,12 +352,12 @@ header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.25
                                 <div class="bs-label">Étape 1 sur 5</div>
                                 <div class="bs-question">Dans quel secteur travaillez-vous ?</div>
                                 <div class="brief-options">
-                                    <div class="brief-opt" data-step="1" data-val="Commerce / Retail"><span class="bo-icon">🛍</span><span class="bo-name">Commerce / Retail</span></div>
-                                    <div class="brief-opt" data-step="1" data-val="Restauration / Hôtellerie"><span class="bo-icon">🍽</span><span class="bo-name">Restauration / Hôtellerie</span></div>
-                                    <div class="brief-opt" data-step="1" data-val="Tech / SaaS / Startup"><span class="bo-icon">💻</span><span class="bo-name">Tech / SaaS</span></div>
-                                    <div class="brief-opt" data-step="1" data-val="Santé / Bien-être"><span class="bo-icon">🌿</span><span class="bo-name">Santé / Bien-être</span></div>
-                                    <div class="brief-opt" data-step="1" data-val="Artisan / Créateur"><span class="bo-icon">🎨</span><span class="bo-name">Artisan / Créateur</span></div>
-                                    <div class="brief-opt" data-step="1" data-val="Autre / Indépendant"><span class="bo-icon">⚡</span><span class="bo-name">Autre</span></div>
+                                    <div class="brief-opt" onclick="selectOpt(this)" data-step="1" data-val="Commerce / Retail"><span class="bo-icon">🛍</span><span class="bo-name">Commerce / Retail</span></div>
+                                    <div class="brief-opt" onclick="selectOpt(this)" data-step="1" data-val="Restauration / Hôtellerie"><span class="bo-icon">🍽</span><span class="bo-name">Restauration / Hôtellerie</span></div>
+                                    <div class="brief-opt" onclick="selectOpt(this)" data-step="1" data-val="Tech / SaaS / Startup"><span class="bo-icon">💻</span><span class="bo-name">Tech / SaaS</span></div>
+                                    <div class="brief-opt" onclick="selectOpt(this)" data-step="1" data-val="Santé / Bien-être"><span class="bo-icon">🌿</span><span class="bo-name">Santé / Bien-être</span></div>
+                                    <div class="brief-opt" onclick="selectOpt(this)" data-step="1" data-val="Artisan / Créateur"><span class="bo-icon">🎨</span><span class="bo-name">Artisan / Créateur</span></div>
+                                    <div class="brief-opt" onclick="selectOpt(this)" data-step="1" data-val="Autre / Indépendant"><span class="bo-icon">⚡</span><span class="bo-name">Autre</span></div>
                                 </div>
                                 <div class="brief-nav"><span></span><div class="brief-nav-right"><span class="brief-step-count">1 / 5</span><button type="button" class="btn-brief-next" onclick="briefNext(1)">Suivant →</button></div></div>
                             </div>
@@ -352,9 +367,9 @@ header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.25
                                 <div class="bs-label">Étape 2 sur 5</div>
                                 <div class="bs-question">Qui sont vos clients cibles ?</div>
                                 <div class="brief-options col3">
-                                    <div class="brief-opt" data-step="2" data-val="Particuliers (B2C)"><span class="bo-icon">👤</span><span class="bo-name">Particuliers</span><span class="bo-desc">B2C</span></div>
-                                    <div class="brief-opt" data-step="2" data-val="Professionnels (B2B)"><span class="bo-icon">🏢</span><span class="bo-name">Professionnels</span><span class="bo-desc">B2B</span></div>
-                                    <div class="brief-opt" data-step="2" data-val="B2B & B2C"><span class="bo-icon">🔄</span><span class="bo-name">Les deux</span><span class="bo-desc">B2B & B2C</span></div>
+                                    <div class="brief-opt" onclick="selectOpt(this)" data-step="2" data-val="Particuliers (B2C)"><span class="bo-icon">👤</span><span class="bo-name">Particuliers</span><span class="bo-desc">B2C</span></div>
+                                    <div class="brief-opt" onclick="selectOpt(this)" data-step="2" data-val="Professionnels (B2B)"><span class="bo-icon">🏢</span><span class="bo-name">Professionnels</span><span class="bo-desc">B2B</span></div>
+                                    <div class="brief-opt" onclick="selectOpt(this)" data-step="2" data-val="B2B & B2C"><span class="bo-icon">🔄</span><span class="bo-name">Les deux</span><span class="bo-desc">B2B & B2C</span></div>
                                 </div>
                                 <div class="brief-nav"><button type="button" class="btn-brief-back" onclick="briefBack(2)">← Retour</button><div class="brief-nav-right"><span class="brief-step-count">2 / 5</span><button type="button" class="btn-brief-next" onclick="briefNext(2)">Suivant →</button></div></div>
                             </div>
@@ -365,12 +380,12 @@ header { position: fixed; top: 0; left: 0; right: 0; z-index: 100; padding: 1.25
                                 <div class="bs-question">Quel est l'objectif principal ?</div>
                                 <div class="bs-hint">Plusieurs réponses possibles.</div>
                                 <div class="brief-options">
-                                    <div class="brief-opt multi" data-step="3" data-val="Générer des leads"><span class="bo-icon">🎯</span><span class="bo-name">Générer des leads</span></div>
-                                    <div class="brief-opt multi" data-step="3" data-val="Vendre en ligne"><span class="bo-icon">🛒</span><span class="bo-name">Vendre en ligne</span></div>
-                                    <div class="brief-opt multi" data-step="3" data-val="Automatiser des tâches"><span class="bo-icon">⚙️</span><span class="bo-name">Automatiser des tâches</span></div>
-                                    <div class="brief-opt multi" data-step="3" data-val="Renforcer ma présence web"><span class="bo-icon">📣</span><span class="bo-name">Présence web</span></div>
-                                    <div class="brief-opt multi" data-step="3" data-val="Lancer un nouveau produit"><span class="bo-icon">🚀</span><span class="bo-name">Lancer un produit</span></div>
-                                    <div class="brief-opt multi" data-step="3" data-val="Améliorer l'existant"><span class="bo-icon">🔧</span><span class="bo-name">Améliorer l'existant</span></div>
+                                    <div class="brief-opt multi" onclick="selectOpt(this)" data-step="3" data-val="Générer des leads"><span class="bo-icon">🎯</span><span class="bo-name">Générer des leads</span></div>
+                                    <div class="brief-opt multi" onclick="selectOpt(this)" data-step="3" data-val="Vendre en ligne"><span class="bo-icon">🛒</span><span class="bo-name">Vendre en ligne</span></div>
+                                    <div class="brief-opt multi" onclick="selectOpt(this)" data-step="3" data-val="Automatiser des tâches"><span class="bo-icon">⚙️</span><span class="bo-name">Automatiser des tâches</span></div>
+                                    <div class="brief-opt multi" onclick="selectOpt(this)" data-step="3" data-val="Renforcer ma présence web"><span class="bo-icon">📣</span><span class="bo-name">Présence web</span></div>
+                                    <div class="brief-opt multi" onclick="selectOpt(this)" data-step="3" data-val="Lancer un nouveau produit"><span class="bo-icon">🚀</span><span class="bo-name">Lancer un produit</span></div>
+                                    <div class="brief-opt multi" onclick="selectOpt(this)" data-step="3" data-val="Améliorer l'existant"><span class="bo-icon">🔧</span><span class="bo-name">Améliorer l'existant</span></div>
                                 </div>
                                 <div class="brief-nav"><button type="button" class="btn-brief-back" onclick="briefBack(3)">← Retour</button><div class="brief-nav-right"><span class="brief-step-count">3 / 5</span><button type="button" class="btn-brief-next" onclick="briefNext(3)">Suivant →</button></div></div>
                             </div>
